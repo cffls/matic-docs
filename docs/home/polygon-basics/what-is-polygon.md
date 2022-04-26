@@ -61,8 +61,7 @@ To have a granular understanding of the core components, see the following codeb
 
 There are basically two ways of running a Validator Node on Polygon, using Ansible or directly from the binaries. You can check how to do this with the links below:
 
-* [Run a Validator Node with Ansible](/docs/validate/validate/run-validator-ansible)
-* [Run a Validator Node from Binaries](/docs/validate/validate/run-validator-binaries)
+* [Run a Validator Node](/docs/validate/validate/run-validator)
 
 ### Staking operations
 

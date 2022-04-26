@@ -92,8 +92,7 @@ Then start Heimdall services again.
 
 See:
 
-* [Run a Validator Node with Ansible](../run-validator-ansible)
-* [Run a Validator Node from Binaries](../run-validator-binaries)
+* [Run a Validator Node](../run-validator)
 
 ## Heimdall shows "dpkg: error processing archive"
 
@@ -121,21 +120,21 @@ curl http://localhost:26657/status
 
 Check the value of `catching_up`. If it is `false`, then the node is all synced up.
 
-## What's the difference between `~.heimsdall` and `/etc/heimsdall?`
+## What's the difference between `/var/lib/heimdall` and `/etc/heimdall?`
 
-`~/.heimsdall` is the Heimdall directory when you use the binary installation method.
+`/var/lib/heimdall` is the Heimdall directory when you use the binary installation method.
 
 `/etc/heimdall` is for the Linux package installation method.
 
 ## Where can I find Heimdall account info location?
 
-For binaries: `~/.heimdalld/config`.
+For binaries: `/var/lib/heimdall/config`.
 
 For Linux package `/etc/heimdall/config`.
 
 ## Which file do I add the persistent_peers?
 
-You can add the persistent_peers to `~/.heimdalld/config/config.toml`.
+You can add the persistent_peers to `/var/lib/heimdall/config/config.toml`.
 
 ## Heimdall shows “Did you reset Tendermint without resetting your application's data?”
 
@@ -168,7 +167,7 @@ If the issue persists, contact support team on [Discord](https://discord.gg/poly
 
 ## Bor shows "Failed to prepare header mining at block 0"
 
-This happens because of a formatting issue in your `~/.bor/data/bor/static-nodes.json` file. Ensure there are no space and no additional characters like < / > . If you have made any changes to the file then please restart your Bor service and you should see logs printing.
+This happens because of a formatting issue in your `/var/lib/bor/data/bor/static-nodes.json` file. Ensure there are no space and no additional characters like < / > . If you have made any changes to the file then please restart your Bor service and you should see logs printing.
 
 ## Bor shows "30303 or invalid command: /home/ubuntu/.bor/password.txt"
 
@@ -213,8 +212,8 @@ To fix:
 
 For binaries:
 
-1. Copy the Bor keystore file to `~/.bor/keystore/`
-1. Copy `password.txt` file to `~/.bor/password.txt`
+1. Copy the Bor keystore file to `/var/lib/bor/keystore/`
+1. Copy `password.txt` file to `/var/lib/bor/password.txt`
 
 ## Node is not signing any checkpoints
 
@@ -234,8 +233,7 @@ See [Getting Started](../getting-started)
 
 See:
 
-* [Run a Validator Node with Ansible](../run-validator-ansible)
-* [Run a Validator Node from Binaries](../run-validator-binaries)
+* [Run a Validator Node](../run-validator)
 
 ## Why do I have to keep ETH in my signer account?
 
@@ -287,8 +285,7 @@ There is no light node option as of now.
 
 To run a full node, see:
 
-* [Run a Validator Node with Ansible](../run-validator-ansible)
-* [Run a Validator Node from Binaries](../run-validator-binaries)
+* [Run a Validator Node](../run-validator)
 
 ## What is the uptime percentage calculation on the staking dashboard?
 
@@ -427,9 +424,9 @@ Delete Bor: `sudo rm -rf /etc/bor/*`
 
 **For Binaries**:
 
-Delete Heimdall: `sudo rm -rf ~/.heimdalld/`
+Delete Heimdall: `sudo rm -rf /var/lib/heimdall/`
 
-Delete Bor: `sudo rm -rf ~/.bor`
+Delete Bor: `sudo rm -rf /var/lib/bor`
 
 ## List of common commands
 

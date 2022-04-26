@@ -1,6 +1,6 @@
 ---
 id: full-node-binaries
-title: Full Node Binaries
+title: Full Node Binaries (Legacy)
 description: Build your next blockchain app on Polygon.
 keywords:
   - docs
@@ -25,6 +25,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 This section guides you through starting and running a full node on a binary.
 
 For the system requirements, see [Minimum Technical Requirements](http://localhost:3000/docs/develop/network-details/technical-requirements).
+
+:::warning
+
+This guide only applies to Bor and Heimdall version 0.2.x. For newer versions, please follow the guides in 
+[Full Node](full-node).
+
+:::
 
 :::note
 
@@ -96,9 +103,9 @@ sudo ln -nfs ~/.go/bin/go /usr/bin/go
 
 RabbitMQ is a message-queueing software also known as a message broker or queue manager. Simply said; it is software where queues are defined, to which applications connect in order to transfer a message or messages.
 
-A helper service called `bridge` which is embedded into heimdall codebase requires `rabbit-mq` to queue transactions to multiple networks. Installing it should be pretty straightforward.
+A helper service called `bridge` which is embedded into heimdall codebase requires `rabbit-mq` to queue transactions to multiple networks. Installing it should be pretty straightforward.
 
-**Checkout the download instructions here: [https://www.rabbitmq.com/download.html](https://www.rabbitmq.com/download.html)**
+**Checkout the download instructions here: [https://www.rabbitmq.com/download.html](https://www.rabbitmq.com/download.html)**
 
 ```bash
 rabbitmq-server
@@ -300,6 +307,13 @@ You can use VPN to restrict access for 22 port as per your requirement and secur
 This section guides you through starting and running a full node on a binary.
 
 For the system requirements, see [Minimum Technical Requirements](https://docs.polygon.technology/docs/develop/network-details/technical-requirements).
+
+:::warning
+
+This guide only applies to Bor and Heimdall version 0.2.x. For newer versions, please follow the guides in 
+[Full Node](full-node).
+
+:::
 
 :::note
 

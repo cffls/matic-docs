@@ -22,8 +22,7 @@ Your validator node fully set up and synced.
 
 See:
 
-* [Run a Validator Node with Ansible](run-validator-ansible)
-* [Run a Validator Node from Binaries](run-validator-binaries)
+* [Run a Validator Node](run-validator)
 
 ### Account setup
 

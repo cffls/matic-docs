@@ -71,8 +71,7 @@ To have a granular understanding of the core components, see the codebases:
 
 ### Node setup
 
-* [Run a Validator Node with Ansible](/docs/validate/validate/run-validator-ansible)
-* [Run a Validator Node from Binaries](/docs/validate/validate/run-validator-binaries)
+* [Run a Validator Node](/docs/validate/validate/run-validator)
 
 ### Staking operations
 

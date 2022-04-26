@@ -60,6 +60,7 @@
         "develop/network-details/genesis-contracts",
         "develop/network-details/technical-requirements",
         "develop/network-details/snapshot-instructions-heimdall-bor",
+        "integrate/full-node",
         "integrate/full-node-binaries",
         "integrate/full-node-deployment",
       ],
@@ -525,6 +526,7 @@
       label: "Advanced",
       items: [
           "develop/network-details/technical-requirements",
+          "integrate/full-node",
           "integrate/full-node-deployment",
           "integrate/full-node-binaries",
           "integrate/install-gcp",
@@ -583,6 +585,7 @@
           label: "Node Deployment",
           items: [
             "maintain/validate/validator-node-system-requirements",
+            "maintain/validate/run-validator",
             "maintain/validate/run-validator-binaries",
             "maintain/validate/run-validator-ansible",
           ],

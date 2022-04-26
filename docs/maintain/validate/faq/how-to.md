@@ -87,7 +87,7 @@ Otherwise there will be error like below when you try to run '**ansible sentry -
 
             
             - Provide the copied https endpoint as **eth_rpc_url** 
-            in **~/.heimdalld/config/heimdall-config.toml**
+            in **/var/lib/heimdall/config/heimdall-config.toml**
             
 ### 2. Why do I have to keep ETH in my signer account?
 
@@ -126,7 +126,7 @@ The Private key to be used is your Wallet's ETH address where your Matic testnet
 For binaries:
 
 ```jsx
-~/.heimdalld/config folder
+/var/lib/heimdall/config folder
 ```
 
 For Linux package:
@@ -144,7 +144,7 @@ Once you have created the API key you need to add the API key in `heimdall-conf
 You can add the persistent_peers in the following file:
 
 ```jsx
-~/.heimdalld/config/config.toml
+/var/lib/heimdall/config/config.toml
 ```
     
 ### 10. How to stop Heimdall and Bor services?
@@ -176,9 +176,9 @@ Delete Bor: `sudo rm -rf /etc/bor/*`
 
 **For Binaries**:
 
-Delete Heimdall: `sudo rm -rf ~/.heimdalld/`
+Delete Heimdall: `sudo rm -rf /var/lib/heimdall/`
 
-Delete Bor: `sudo rm -rf ~/.bor`
+Delete Bor: `sudo rm -rf /var/lib/bor`
     
 ### 12. How to reduce cache in Bor?
     
@@ -187,7 +187,7 @@ The bor supports the --cache parameter you can reduce the cache to avoid running
 ### 13. How to delete the Bor DB data?
     
 ```    
-bor --datadir  ~/.bor/data removedb
+bor --datadir  /var/lib/bor/data removedb
 cd ~/node/bor
 bash setup.sh
 service bor start

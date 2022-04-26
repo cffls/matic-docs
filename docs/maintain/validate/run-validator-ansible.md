@@ -1,6 +1,6 @@
 ---
 id: run-validator-ansible
-title: Run a Validator Node with Ansible
+title: Run a Validator Node with Ansible (Legacy)
 description: Use Ansible to set up your validator node on the Polygon Network.
 keywords:
   - docs
@@ -14,6 +14,13 @@ slug: run-validator-ansible
 image: https://matic.network/banners/matic-network-16x9.png
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
+
+:::warning
+
+This guide only applies to Bor and Heimdall version 0.2.x. For newer versions, please follow the guides in 
+[Full Node](run-validator).
+
+:::
 
 :::tip
 Steps in this guide involve waiting for the **Heimdall** and **Bor** services to fully sync.
