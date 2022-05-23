@@ -1,7 +1,7 @@
 ---
 id: full-node
-title: Full Node
-description: Build your next blockchain app on Polygon.
+title: Run a Full Node
+description: Learn how to run a full node on Polygon using utility scripts
 keywords:
   - docs
   - matic
@@ -11,12 +11,9 @@ image: https://matic.network/banners/matic-network-16x9.png
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 
-# Polygon Full Node Setup Using Packages
-
 This section guides you through starting and running a full node from a package.
 
 For the system requirements, see [Minimum Technical Requirements](https://docs.polygon.technology/docs/develop/network-details/technical-requirements).
-
 
 :::caution
 
@@ -35,7 +32,6 @@ For snapshot download links, see [Polygon Chains Snapshots](https://snapshots.ma
 
 :::
 
-
 ## Overview
 
 - Have the one machine prepared.
@@ -48,9 +44,10 @@ For snapshot download links, see [Polygon Chains Snapshots](https://snapshots.ma
 You have to follow the exact outlined sequence of actions, otherwise you will run into issues.
 :::
 
-## Install packages
+## Install Binaries
 
-There are three different ways to install heimdall and bor binaries: [installing packages](#install-with-packages-recommended), [installing using ansible](#install-with-ansible), and [building from source code](#install-from-source-code).
+There are three different ways to install the Heimdall and Bor binaries: 
+[installing packages via utility scripts](#install-with-packages-recommended), [installing via Ansible](#install-with-ansible), and [building from the source code](#install-from-source-code).
 
 ### Install with packages (recommended)
 
@@ -61,27 +58,25 @@ There are three different ways to install heimdall and bor binaries: [installing
 
 #### Heimdall
 
-
-- Install the default latest version
+- Install the default latest version:
 
     ```shell
     curl -L https://raw.githubusercontent.com/maticnetwork/install/main/heimdall.sh | bash
     ```
 
-    or install a specific version (all release versions could be found on 
-    [Heimdall Github repository](https://github.com/maticnetwork/heimdall/releases)):
+    or install a specific version (all release versions can be found on 
+    [Heimdall GitHub repository](https://github.com/maticnetwork/heimdall/releases)):
 
     ```shell
     curl -L https://raw.githubusercontent.com/maticnetwork/install/main/heimdall.sh | bash -s -- <version>
 
     # Example:
-    curl -L https://raw.githubusercontent.com/maticnetwork/install/main/heimdall.sh | bash -s -- 0.3.0
+    # curl -L https://raw.githubusercontent.com/maticnetwork/install/main/heimdall.sh | bash -s -- 0.3.0
     ```
 
 #### Bor
 
-
-- Install the default latest version
+- Install the default latest version:
 
     ```shell
     curl -L https://raw.githubusercontent.com/maticnetwork/install/main/bor.sh | bash
@@ -94,17 +89,17 @@ There are three different ways to install heimdall and bor binaries: [installing
     curl -L https://raw.githubusercontent.com/maticnetwork/install/main/bor.sh | bash -s -- <version>
 
     # Example:
-    curl -L https://raw.githubusercontent.com/maticnetwork/install/main/bor.sh | bash -s -- 0.3.0
+    # curl -L https://raw.githubusercontent.com/maticnetwork/install/main/bor.sh | bash -s -- 0.3.0
     ```
 
-### Install with ansible
+### Install with Ansible
 
 #### Prerequisites
 
 * Three machines — one local machine on which you will run the Ansible playbook; two remote machines — one [sentry](../glossary#sentry) and one [validator](../glossary#validator).
 * On the local machine, [Ansible](https://www.ansible.com/) installed.
 * On the local machine, [Python 3.x](https://www.python.org/downloads/) installed.
-* On the remote machines, make sure Go is *not* installed.
+* On the remote machines, make sure Go is **not** installed.
 * On the remote machines, your local machine's SSH public key is on the remote machines to let Ansible connect to them.
 * We have Bloxroute available as a relay network. If you need a gateway to be added as your Trusted Peer please contact [Delroy on Discord](http://delroy/#0056).
 
@@ -116,7 +111,7 @@ On your local machine, clone the [node-ansible repository](https://github.com/ma
 git clone https://github.com/maticnetwork/node-ansible
 ```
 
-Change to the cloned repository:
+Navigate to the root of the repository:
 
 ```sh
 cd node-ansible
@@ -196,7 +191,6 @@ ansible-playbook playbooks/clean.yml
 
 :::
 
-
 ### Install from source code
 
 #### Prerequisites
@@ -222,7 +216,6 @@ ansible-playbook playbooks/clean.yml
 
 * RabbitMQ installed on both the sentry and the validator machines.
   See [Downloading and Installing RabbitMQ](https://www.rabbitmq.com/download.html).
-
 
 #### Installing Heimdall
 
@@ -320,14 +313,14 @@ In this section, we will go through steps to initialize and customize configurat
 
 :::caution
 
-Bor and Heimdall 0.3.0 uses standardized paths for configuration files and chain data. If you have existing 
-config files and chain data on your node, please skip [Configure Heimdall](#configure-heimdall) below, and jump directly to [Migration](#migration) section to learn about migrating configs and data to standardized file locations.
+Bor and Heimdall 0.3.0 use standardized paths for configuration files and chain data. If you have existing 
+config files and chain data on your node, please skip the [Configure Heimdall](#configure-heimdall) section below and jump directly to [Migration](#migration) section to learn about migrating configs and data to standardized file locations.
 
 :::
 
 ### Configure Heimdall
 
-- Initialize heimdall configs
+- Initialize Heimdall configs
 
 ```shell
 # For mainnet
@@ -356,7 +349,8 @@ Bor 0.3.0 and Heimdall 0.3.0 uses new CLIs and path standards. It is recommended
 However, if you still want to perform upgrade on existing node, you need to follow one-time migration steps 
 outlined below. If you are installing everything from a new machine, you can skip this section.
 
-- Stop existing heimdall and bor services
+- Stop existing heimdall and bor services:
+
     ```shell
     sudo service bor stop
     sudo service heimdalld stop
@@ -364,14 +358,16 @@ outlined below. If you are installing everything from a new machine, you can ski
     sudo service heimdalld-bridge stop
     ```
 
-- Create a backup folder in case something went wrong
+- Create a backup folder in case something went wrong:
+
     ```shell
     mkdir ./backup
     mkdir ./backup/bin
     mkdir -p ./backup/go/bin
     ```
 
-- Move old binaries
+- Move old binaries:
+
     ```shell
     sudo mv /usr/bin/bor ./backup/bin
     sudo mv /usr/bin/heimdalld ./backup/bin
@@ -383,7 +379,8 @@ outlined below. If you are installing everything from a new machine, you can ski
     sudo mv $(go env GOPATH)/bin/bridge ./backup/go/bin
     ```
 
-- Move old service files
+- Move old service files:
+
     ```shell
     sudo mv /etc/systemd/system/bor.service ./backup
     sudo mv /etc/systemd/system/heimdalld.service ./backup
@@ -391,12 +388,16 @@ outlined below. If you are installing everything from a new machine, you can ski
     sudo mv /etc/systemd/system/heimdalld-bridge.service ./backup
     ```
 
-- Migrate heimdall and bor directory to `/var/lib`
-    ```shell
+- Migrate heimdall and bor directory to `/var/lib`:
+
+    ```shell:
+    
     sudo mv ~/.heimdalld /var/lib/heimdall
     sudo mv ~/.bor /var/lib/bor
     ```
-    In case data copying is too slow or original data folder is mounted on a different device, you can create symlinks
+    In case data copying is too slow or original data folder is mounted on a different device, 
+    you can create symlinks:
+    
     ```shell
     sudo ln -nfs ~/.heimdalld /var/lib/heimdall
     sudo ln -nfs ~/.bor /var/lib/bor
@@ -404,7 +405,6 @@ outlined below. If you are installing everything from a new machine, you can ski
 
 - Copy configurations in `node/bor/start.sh` to bor service file `/lib/systemd/system/bor.service`. Note that some 
   flags are renamed in the new CLI, you can find the documentation for new CLI [here](https://github.com/maticnetwork/bor/tree/master/docs/cli).
-
 
 
 ### Configure service files for bor and heimdall
@@ -456,7 +456,7 @@ You will need to check and modify these files accordingly.
 
 Reloading service files to make sure all changes to service files are loaded correctly.
 
-```
+```shell
 sudo systemctl daemon-reload
 ```
 

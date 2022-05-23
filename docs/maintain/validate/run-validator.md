@@ -14,11 +14,10 @@ image: https://matic.network/banners/matic-network-16x9.png
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-
 :::caution
 
-This guide only applies to Bor and Heimdall version >= 0.3.0. For older versions, please follow the guides in 
-[Full Node Binaries (Legacy)](run-validator-binaries.md).
+This guide only applies to Bor and Heimdall version >= 0.3.0. For older versions, please follow
+the legacy [Validator guide](run-validator-binaries.md).
 
 :::
 
@@ -47,7 +46,7 @@ To get to a running validator node, conduct the following in this **exact sequen
 
 ## Installing packages
 
-There are three different ways to install heimdall and bor binaries: [installing packages](#install-with-packages-recommended), [installing using ansible](#install-with-ansible), and [building from source code](#install-from-source-code).
+There are three different ways to install heimdall and bor binaries: [installing packages via utility scripts](#install-with-packages-recommended), [installing via Ansible](#install-with-ansible), and [building from source code](#install-from-source-code).
 
 ### Install with packages (recommended)
 #### Prerequisites
@@ -195,7 +194,6 @@ ansible-playbook playbooks/clean.yml
 
 :::
 
-
 ### Install from source code
 
 #### Prerequisites
@@ -221,7 +219,6 @@ ansible-playbook playbooks/clean.yml
 
 * RabbitMQ installed on both the sentry and the validator machines.
   See [Downloading and Installing RabbitMQ](https://www.rabbitmq.com/download.html).
-
 
 #### Installing Heimdall
 
@@ -405,7 +402,6 @@ Example content of `static-nodes.json`:
 
 Save the changes in `static-nodes.json`.
 
-
 ### Configuring a firewall
 
 The sentry machine must have the following ports open to the world `0.0.0.0/0`:
@@ -416,11 +412,10 @@ The sentry machine must have the following ports open to the world `0.0.0.0/0`:
 
 * `22`- For the validator to be able to ssh from wherever they are.
 
-
 ## Migration
 
 Bor 0.3.0 and Heimdall 0.3.0 uses new CLIs and path standards. It is recommended to set up everything from a new machine.
-However, if you still want to perform upgrade on existing node, you need to follow one-time migration steps 
+However, if you still want to perform an upgrade on existing node, you need to follow the one-time migration steps 
 outlined below. If you are installing everything from a new machine, you can skip this section.
 
 - Stop existing heimdall and bor services
@@ -472,8 +467,7 @@ outlined below. If you are installing everything from a new machine, you can ski
 - Copy configurations in `node/bor/start.sh` to bor service file `/lib/systemd/system/bor.service`. Note that some 
   flags are renamed in the new CLI, you can find the documentation for new CLI [here](https://github.com/maticnetwork/bor/tree/master/docs/cli).
 
-
-## Configure service files for bor and heimdall
+## Configure service files for Bor and Heimdall
 
 After successfully installing Bor and Heimdall, their service file could be found under `/lib/systemd/system`. 
 You will need to check and modify these files accordingly.
@@ -520,7 +514,7 @@ You will first start the Heimdall service. Once the Heimdall service syncs, you 
 
 Reloading service files to make sure all changes to service files are loaded correctly.
 
-```
+```sh
 sudo systemctl daemon-reload
 ```
 
@@ -677,7 +671,6 @@ Example content of `static-nodes.json`:
 ```
 
 Save the changes in `static-nodes.json`.
-
 
 ## Setting the Owner and Signer Key
 
