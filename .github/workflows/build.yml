@@ -17,9 +17,9 @@ jobs:
       # Setup node with version 12.x and NPM registry url
       - uses: actions/setup-node@v1
         with:
-          node-version: "12.0"
+          node-version: "14.13.1"
       # Run npm install to install project packages
-      - run: npm install
+      - run: yarn install --frozen-lockfile
       # npm run build to build the project
-      - run: npm run build
+      - run: yarn build
       # publish the files to NPM
