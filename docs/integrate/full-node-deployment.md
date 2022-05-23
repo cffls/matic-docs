@@ -22,8 +22,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 :::warning
 
-This guide only applies to Bor and Heimdall version 0.2.x. For newer versions, please follow the guides in 
-[Full Node](full-node).
+This guide only applies to Bor and Heimdall version 0.2.x. For newer versions, please follow
+the latest [Full Node guide](full-node).
 
 :::
 
@@ -219,7 +219,7 @@ In case your Bor node has stopped syncing, you can add additional bootnodes to y
 :::warning
 
 This guide only applies to Bor and Heimdall version 0.2.x. For newer versions, please follow the guides in 
-[Full Node](full-node).
+the latest [Full Node guide](full-node).
 
 :::
 

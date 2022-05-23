@@ -28,8 +28,8 @@ For the system requirements, see [Minimum Technical Requirements](http://localho
 
 :::warning
 
-This guide only applies to Bor and Heimdall version 0.2.x. For newer versions, please follow the guides in 
-[Full Node](full-node).
+This guide only applies to Bor and Heimdall version 0.2.x. For newer versions, please follow
+the latest [Full Node guide](full-node).
 
 :::
 
@@ -310,8 +310,8 @@ For the system requirements, see [Minimum Technical Requirements](https://docs.p
 
 :::warning
 
-This guide only applies to Bor and Heimdall version 0.2.x. For newer versions, please follow the guides in 
-[Full Node](full-node).
+This guide only applies to Bor and Heimdall version 0.2.x. For newer versions, please follow
+the latest [Full Node guide](full-node).
 
 :::
 

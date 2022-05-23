@@ -17,8 +17,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 :::warning
 
-This guide only applies to Bor and Heimdall version 0.2.x. For newer versions, please follow the guides in 
-[Full Node](run-validator).
+This guide only applies to Bor and Heimdall version 0.2.x. For newer versions, please follow
+the latest [Validator guide](run-validator).
 
 :::
 
