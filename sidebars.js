@@ -42,6 +42,7 @@
 
 delegate: [
   "maintain/delegate/delegate",
+  "maintain/delegate/delegator-faq",
 ],
 
 govern: [
@@ -451,7 +452,7 @@ maintain: [
             "maintain/validator/core-components/state-sync-mechanism",
           ],
         },
-        
+
       ],
     },
   {
@@ -484,6 +485,7 @@ maintain: [
           "maintain/validate/validator-commission-operations",
         ],
       },
+      "avail/node/avail-node-management",
       {
         type: "category",
         label: "FAQ",
@@ -632,7 +634,15 @@ pos: [
   },
 ],
 
-  nightfall: [
+  avail: [
+    "avail/introduction/what-is-avail",
+    "avail/architecture/avail-system-overview",
+    "avail/how-tos/avail-quick-start",
+    "avail/node/avail-node-management",
+    "avail/faq",
+  ],
+
+nightfall: [
         "nightfall/introduction/overview",
         {
           type: "category",
@@ -642,6 +652,60 @@ pos: [
             "nightfall/deployments/testnet",
           ],
         },
-  ]
+        {
+          type: "category",
+          label: "Protocol",
+          items: [
+            {
+              type: "category",
+              label: "Nightfall Protocol",
+              items: [
+                "nightfall/protocol/actors",
+                "nightfall/protocol/contracts",
+                "nightfall/protocol/circuits",
+                "nightfall/protocol/commitments",
+                "nightfall/protocol/secrets",
+                "nightfall/protocol/protocol"
+              ]
+            },
+            {
+              type: "category",
+              label: "Proposers & Challengers",
+              items: [
+                "nightfall/protocol/proposers",
+                "nightfall/protocol/challengers"
+              ]
+            }
+          ]
+        },
+        {
+          type: "category",
+          label: "Tools",
+          items: [
+            "nightfall/tools/nightfall-wallet"
+          ]
+        },
+        "nightfall/faq/faq",
+  ],
 
+  faq: [
+      "faq/general-faq",
+      "faq/technical-faqs",
+      // "faq/delegator-faq",
+      "faq/commit-chain-multisigs",
+      "maintain/delegate/delegator-faq",
+      "maintain/validate/faq/validator-faq",
+      // "faq/staking-tutorials",
+      {
+        type: "category",
+        label: "Wallet FAQs",
+        items: [
+      "faq/wallet-bridge-faq",
+      "faq/adding-a-custom-token",
+            ],
+          },
+      "faq/consensys-framework",
+      "faq/widget-faq",
+      "faq/wallet-list",
+    ],
 };

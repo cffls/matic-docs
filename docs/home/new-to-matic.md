@@ -29,7 +29,7 @@ Polygon is a scaling solution for public blockchains. Polygon PoS supports all t
 * Configure the Web3 RPC-URL to https://rpc-mumbai.matic.today, *Everything else remains the same*
 
 ## What is a Blockchain?
-Simply put, Blockchain is a shared, immutable ledger for recording transactions, tracking assets and building trust. Head over to [Blockchain Basics](blockchain-basics/blockchain) to read more.
+Simply put, Blockchain is a shared, immutable ledger for recording transactions, tracking assets and building trust. Head over to [Blockchain Basics](blockchain-basics/basics-blockchain.md) to read more.
 
 :movie_camera: [Your first DApp](https://www.youtube.com/watch?v=rzvk2kdjr2I)
 
@@ -42,22 +42,22 @@ Think of a Sidechain as a clone of a 'parent' blockchain, supporting transfer of
 
 On the Polygon Network, you can be a validator or a delegator. See:
 
-* [Who Is a Validator](/docs/validate/polygon-basics/who-is-validator)
-* [Who Is a Delegator](/docs/validate/polygon-basics/who-is-delegator)
+* [Who Is a Validator](/docs/maintain/polygon-basics/who-is-validator)
+* [Who Is a Delegator](/docs/maintain/polygon-basics/who-is-delegator)
 
 ## Architecture
 
 If your goal is to become a validator, it is essential that you understand the Polygon architecture.
 
-See [Polygon Architecture](/docs/validate/validator/architecture).
+See [Polygon Architecture](/docs/maintain/validator/architecture).
 
 ### Components
 
 To have a granular understanding of the Polygon architecture, see core components:
 
-* [Heimdall](/docs/contribute/heimdall/overview)
-* [Bor](/docs/contribute/bor/overview)
-* [Contracts](/docs/contribute/contracts/stakingmanager)
+* [Heimdall](/docs/pos/heimdall/overview)
+* [Bor](/docs/pos/bor/overview)
+* [Contracts](/docs/pos/contracts/stakingmanager)
 
 #### Codebases
 
@@ -71,9 +71,10 @@ To have a granular understanding of the core components, see the codebases:
 
 ### Node setup
 
-* [Run a Validator Node](/docs/validate/validate/run-validator)
+If you want to run a full node on the Polygon Mainnet or Mumbai Testnet, you can follow the
+[Run a Validator Node](/docs/validate/validate/run-validator) guide.
 
 ### Staking operations
 
-* [Validator Staking Operations](/docs/validate/validate/validator-staking-operations)
-* [Delegate](/docs/validate/delegate)
+* [Validator Staking Operations](/docs/maintain/validate/validator-staking-operations)
+* [Delegate](/docs/maintain/delegate/delegate)

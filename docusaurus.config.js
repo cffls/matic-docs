@@ -18,6 +18,19 @@ module.exports = {
             to: '/',
             from: ['/en/latest', '/en/'],
           },
+          {
+            to: '/docs/contribute/orientation',
+            from: '/docs/pos/orientation',
+          },
+          {
+            to: '/docs/contribute/community-maintainers',
+            from: '/docs/pos/community-maintainers',
+          },
+          {
+            to: '/docs/contribute/bug-bountry-program',
+            from: '/docs/pos/bug-bountry-programs',
+          },
+
         ],
         createRedirects: function (existingPath) {
           if (existingPath.startsWith('/docs/validate/')) {
@@ -194,11 +207,16 @@ module.exports = {
                 ],
         },
         {
+          href: 'https://polygon.technology/developers/',
+          label: "Developer resources",
+          position: "right",
+        },
+        {
           label: "Community",
           position: "right",
           items: [
                   {
-                    href: 'https://discord.com/invite/polygon',
+                    href: 'https://discord.gg/tCmCbEff66',
                     label: 'Discord',
                     target: '_blank',
                     rel: null,
@@ -236,14 +254,33 @@ module.exports = {
                 ],
         },
         {
-          href: 'https://polygon.technology/developers/',
-          label: "Developer Resources",
-          position: "right",
-        },
-        {
           label: "Support",
           href: "https://polygon.technology/developer-support-program/",
           position: "right",
+        },
+        {
+          label: "FAQs",
+          position: "right",
+          items: [
+                  {
+                    to: 'docs/faq/general-faq/',
+                    label: 'PoS FAQ',
+                    target: '_blank',
+                    rel: null,
+                  },
+                  {
+                    to: 'docs/avail/faq',
+                    label: 'Avail FAQ',
+                    target: '_blank',
+                    rel: null,
+                  },
+                  {
+                    to: 'docs/nightfall/faq/',
+                    label: 'Nightfall FAQ',
+                    target: '_blank',
+                    rel: null,
+                  }
+                ],
         },
         {
           to: "docs/contribute/orientation/",
