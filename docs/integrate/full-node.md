@@ -1,6 +1,6 @@
 ---
 id: full-node
-title: Run a Full Node
+title: Run a Full Node (Beta)
 description: Learn how to run a full node on Polygon using utility scripts
 keywords:
   - docs
@@ -15,10 +15,10 @@ This section guides you through starting and running a full node from a package.
 
 For the system requirements, see [Minimum Technical Requirements](https://docs.polygon.technology/docs/develop/network-details/technical-requirements).
 
-:::caution
+:::warning
 
-This guide only applies to Bor and Heimdall version >= 0.3.0. For older versions, please follow the guides in 
-[Full Node Binaries (Legacy)](full-node-binaries.md).
+This guide only applies to Bor and Heimdall version >= 0.3.0, which is only available as a beta version on Mumbai. For current mainnet version, please follow the guides in 
+[Full Node Binaries 0.2.x](full-node-binaries.md).
 
 :::
 

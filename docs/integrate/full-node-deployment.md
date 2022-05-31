@@ -1,6 +1,6 @@
 ---
 id: full-node-deployment
-title: Full Node Deployment (Legacy)
+title: Full Node Deployment
 description: Build your next blockchain app on Polygon.
 keywords:
   - docs
@@ -20,12 +20,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 }>
 <TabItem value="mumbai">
 
-:::warning
-
-This guide only applies to Bor and Heimdall version 0.2.x. For newer versions, please follow
-the latest [Full Node guide](full-node).
-
-:::
 
 :::note
 
@@ -216,12 +210,6 @@ In case your Bor node has stopped syncing, you can add additional bootnodes to y
 </TabItem>
 <TabItem value="mainnet">
 
-:::warning
-
-This guide only applies to Bor and Heimdall version 0.2.x. For newer versions, please follow the guides in 
-the latest [Full Node guide](full-node).
-
-:::
 
 :::note
 

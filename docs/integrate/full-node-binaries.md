@@ -1,6 +1,6 @@
 ---
 id: full-node-binaries
-title: Full Node Binaries (Legacy)
+title: Full Node Binaries
 description: Build your next blockchain app on Polygon.
 keywords:
   - docs
@@ -26,12 +26,6 @@ This section guides you through starting and running a full node on a binary.
 
 For the system requirements, see [Minimum Technical Requirements](http://localhost:3000/docs/develop/network-details/technical-requirements).
 
-:::warning
-
-This guide only applies to Bor and Heimdall version 0.2.x. For newer versions, please follow
-the latest [Full Node guide](full-node).
-
-:::
 
 :::note
 
@@ -308,12 +302,6 @@ This section guides you through starting and running a full node on a binary.
 
 For the system requirements, see [Minimum Technical Requirements](https://docs.polygon.technology/docs/develop/network-details/technical-requirements).
 
-:::warning
-
-This guide only applies to Bor and Heimdall version 0.2.x. For newer versions, please follow
-the latest [Full Node guide](full-node).
-
-:::
 
 :::note
 

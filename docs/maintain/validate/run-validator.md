@@ -1,6 +1,6 @@
 ---
 id: run-validator
-title: Run a Validator Node
+title: Run a Validator Node (Beta)
 description: Use package to set up your validator node on the Polygon Network.
 keywords:
   - docs
@@ -14,10 +14,10 @@ image: https://matic.network/banners/matic-network-16x9.png
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::caution
+:::warning
 
-This guide only applies to Bor and Heimdall version >= 0.3.0. For older versions, please follow
-the legacy [Validator guide](run-validator-binaries.md).
+This guide only applies to Bor and Heimdall version >= 0.3.0, which is only available as a beta version on Mumbai. For current mainnet version, please follow the guides in 
+[Full Node Binaries 0.2.x](run-validator-binaries.md).
 
 :::
 
