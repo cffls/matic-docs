@@ -323,7 +323,7 @@ In this section, we will go through steps to initialize and customize configurat
 :::caution
 
 Bor and Heimdall 0.3.0 uses standardized paths for configuration files and chain data. If you have existing 
-config files and chain data on your node, please skip this section and jump directly to [Migration](#migration) section to learn about migrating configs and data to standardized file locations.
+config files and chain data on your node, please skip this section and jump directly to **[Migration](#upgrade-from-02x-to-03x) section** to learn about migrating configs and data to standardized file locations.
 
 :::
 
@@ -412,11 +412,11 @@ The sentry machine must have the following ports open to the world `0.0.0.0/0`:
 
 * `22`- For the validator to be able to ssh from wherever they are.
 
-## Migration
+## Upgrade from 0.2.x to 0.3.x
 
 Bor 0.3.0 and Heimdall 0.3.0 uses new CLIs and path standards. It is recommended to set up everything from a new machine.
 However, if you still want to perform an upgrade on existing node, you need to follow the one-time migration steps 
-outlined below. If you are installing everything from a new machine, you can skip this section.
+outlined below. If you are installing everything from a new machine, you can skip this section and continue to [Configure service files](#configure-service-files-for-bor-and-heimdall).
 
 - Stop existing heimdall and bor services
     ```shell
@@ -597,7 +597,7 @@ node ready.
 :::caution
 
 Bor and Heimdall 0.3.0 uses standardized paths for configuration files and chain data. If you have existing 
-config files and chain data on your node, please jump directly to [Migration](#migration-1) section to learn about migrating configs and data to standardized file locations.
+config files and chain data on your node, please jump directly to **[Migration](#upgrade-from-02x-to-03x-1) section** to learn about migrating configs and data to standardized file locations.
 
 :::
 
@@ -742,11 +742,11 @@ In `metadata`, add your Ethereum address. Example: `VALIDATOR_ADDRESS=0xca67a8D7
 
 Save the changes in `metadata`.
 
-## Migration
+## Upgrade from 0.2.x to 0.3.x
 
 Bor 0.3.0 and Heimdall 0.3.0 uses new CLIs and path standards. It is recommended to set up everything from a new machine.
 However, if you still want to perform upgrade on existing node, you need to follow one-time migration steps 
-outlined below. If you are installing everything from a new machine, you can skip this section.
+outlined below. If you are installing everything from a new machine, you can skip this section and continue to [Configure service files](#configure-service-files-for-bor-and-heimdall-1).
 
 - Stop existing heimdall and bor services
     ```shell

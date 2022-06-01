@@ -314,7 +314,7 @@ In this section, we will go through steps to initialize and customize configurat
 :::caution
 
 Bor and Heimdall 0.3.0 use standardized paths for configuration files and chain data. If you have existing 
-config files and chain data on your node, please skip the [Configure Heimdall](#configure-heimdall) section below and jump directly to [Migration](#migration) section to learn about migrating configs and data to standardized file locations.
+config files and chain data on your node, please skip the [Configure Heimdall](#configure-heimdall) section below and jump directly to **[Migration](#upgrade-from-02x-to-03x) section** to learn about migrating configs and data to standardized file locations.
 
 :::
 
@@ -343,11 +343,11 @@ sudo mkdir -m 777 /var/lib/heimdall && heimdalld init --chain=mumbai --home /var
 
     Make sure you keep the proper formatting when you make the changes above.
 
-### Migration
+### Upgrade from 0.2.x to 0.3.x
 
 Bor 0.3.0 and Heimdall 0.3.0 uses new CLIs and path standards. It is recommended to set up everything from a new machine.
 However, if you still want to perform upgrade on existing node, you need to follow one-time migration steps 
-outlined below. If you are installing everything from a new machine, you can skip this section.
+outlined below. If you are installing everything from a new machine, you can skip this section and continue to [Configure service files](#configure-service-files-for-bor-and-heimdall).
 
 - Stop existing heimdall and bor services:
 
