@@ -726,7 +726,7 @@ This will generate a `UTC-<time>-<address>` keystore file.
 Move the generated keystore file to the Bor configuration directory:
 
 ```sh
-mv ./UTC-<time>-<address> /var/lib/bor/data/keystore/
+mv ./UTC-<time>-<address> /var/lib/bor/keystore/
 ```
 
 ### Add password.txt
@@ -792,11 +792,6 @@ outlined below. If you are installing everything from a new machine, you can ski
     ```shell
     sudo ln -nfs ~/.heimdalld /var/lib/heimdall
     sudo ln -nfs ~/.bor /var/lib/bor
-    ```
-
-- Copy keystore files to the new default location
-    ```shell
-    cp /var/lib/bor/keystore/* /var/lib/bor/data/keystore/
     ```
 
 - Copy configurations in `node/bor/start.sh` to bor service file `/lib/systemd/system/bor.service`. Note that some 
