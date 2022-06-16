@@ -480,6 +480,8 @@ You will need to check and modify these files accordingly.
           --chain=mumbai \
       ```
 
+    - Remove `--bridge --all` for sentry node
+
     - Set service user to a user with restricted permission, example:
 
       ```
@@ -726,7 +728,7 @@ This will generate a `UTC-<time>-<address>` keystore file.
 Move the generated keystore file to the Bor configuration directory:
 
 ```sh
-mv ./UTC-<time>-<address> /var/lib/bor/data/keystore/
+mv ./UTC-<time>-<address> /var/lib/bor/keystore/
 ```
 
 ### Add password.txt
@@ -794,11 +796,6 @@ outlined below. If you are installing everything from a new machine, you can ski
     sudo ln -nfs ~/.bor /var/lib/bor
     ```
 
-- Copy keystore files to the new default location
-    ```shell
-    cp /var/lib/bor/keystore/* /var/lib/bor/data/keystore/
-    ```
-
 - Copy configurations in `node/bor/start.sh` to bor service file `/lib/systemd/system/bor.service`. Note that some 
   flags are renamed in the new CLI, you can find the documentation for new CLI [here](https://github.com/maticnetwork/bor/tree/master/docs/cli).
 
@@ -838,6 +835,7 @@ You will need to check and modify these files accordingly.
       ```
           -unlock [VALIDATOR ADDRESS] \
           -password /var/lib/bor/password.txt \
+          -keystore /var/lib/bor/keystore \
           -allow-insecure-unlock \
           -nodiscover -maxpeers 1 \
           -miner.etherbase [VALIDATOR ADDRESS] \

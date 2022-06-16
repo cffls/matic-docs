@@ -312,7 +312,7 @@ Kill Bor process
 1. Copy the Bor keystore file to:
 
     ```jsx
-    /var/lib/bor/data/keystore/
+    /var/lib/bor/keystore/
     ```
 
 2. And password.txt to

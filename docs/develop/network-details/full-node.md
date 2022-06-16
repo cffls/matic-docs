@@ -420,6 +420,8 @@ You will need to check and modify these files accordingly.
           --chain=mumbai \
       ```
 
+    - Remove `--bridge --all` for sentry node
+
     - Set service user to a user with restricted permission, example:
 
       ```
