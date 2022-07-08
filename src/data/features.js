@@ -53,10 +53,10 @@ export const secondRow = [
     },
     {
         title: "Edge",
-        status: "SDK",
+        status: "Blockchain SDK",
         class_name: "polygon-banner",
-        linkUrl: "https://sdk-docs.polygon.technology/docs/overview/",
-        imageUrl: "img/home/polygon-sdk.svg",
+        linkUrl: "docs/edge/overview/",
+        imageUrl: "img/home/polygon-edge.svg",
         description: "A modular and extensible framework for building Ethereum-compatible blockchain networks."
     },
     {

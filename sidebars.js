@@ -12,6 +12,9 @@ module.exports = {
     {
       type: "category",
       label: "Blockchain Basics",
+      link: {
+        type: "generated-index",
+      },
       items: [
         "home/blockchain-basics/blockchain",
         "home/blockchain-basics/blockchain-types",
@@ -28,13 +31,15 @@ module.exports = {
     {
       type: "category",
       label: "Polygon Basics",
+      link: {
+        type: "generated-index",
+      },
       items: [
         "home/polygon-basics/what-is-polygon",
         "home/polygon-basics/what-is-proof-of-stake",
         "maintain/polygon-basics/who-is-delegator",
         "maintain/polygon-basics/who-is-validator",
-        "home/architecture/polygon-architecture",
-        "home/architecture/security-models",
+        "home/architecture/polygon-architecture"
       ]
     },
     "home/faq",
@@ -55,6 +60,9 @@ module.exports = {
     {
       type: "category",
       label: "Nodes",
+      link: {
+        type: "generated-index",
+      },
       items: [
         "develop/network-details/technical-requirements",
         "develop/network-details/full-node-deployment",
@@ -67,11 +75,17 @@ module.exports = {
     {
       type: "category",
       label: "Wallets",
+      link: {
+        type: "generated-index",
+      },
       items: [
         "develop/wallets/getting-started",
         {
           type: "category",
           label: "Metamask",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/metamask/overview",
             "develop/metamask/hello",
@@ -83,6 +97,9 @@ module.exports = {
         {
           type: "category",
           label: "Wallet Link",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/metamask/config-polygon-on-wallet-link",
           ],
@@ -91,6 +108,9 @@ module.exports = {
         {
           type: "category",
           label: "Arkane",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/wallets/arkane/intro",
             "develop/wallets/arkane/create-wallet",
@@ -106,6 +126,9 @@ module.exports = {
         {
           type: "category",
           label: "Polygon Web Wallet",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/wallets/polygon-web-wallet/web-wallet-v2-guide",
             "develop/wallets/polygon-web-wallet/deposit-eth-dai-on-polygon",
@@ -116,12 +139,18 @@ module.exports = {
     {
       type: "category",
       label: "Matic.js",
+      link: {
+        type: "generated-index",
+      },
       items: [
         "develop/ethereum-polygon/matic-js/get-started",
         "develop/ethereum-polygon/matic-js/installation",
         {
           type: "category",
           label: "Setup",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/ethereum-polygon/matic-js/setup/index",
             "develop/ethereum-polygon/matic-js/setup/web3",
@@ -132,11 +161,17 @@ module.exports = {
         {
           type: "category",
           label: "POS",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/ethereum-polygon/matic-js/pos/index",
             {
               type: "category",
               label: "ERC20",
+              link: {
+                type: "generated-index",
+              },
               items: [
                 "develop/ethereum-polygon/matic-js/pos/erc20/index",
                 "develop/ethereum-polygon/matic-js/pos/erc20/get-balance",
@@ -154,6 +189,9 @@ module.exports = {
             {
               type: "category",
               label: "ERC721",
+              link: {
+                type: "generated-index",
+              },
               items: [
                 "develop/ethereum-polygon/matic-js/pos/erc721/index",
                 "develop/ethereum-polygon/matic-js/pos/erc721/get-tokens-count",
@@ -180,6 +218,9 @@ module.exports = {
             {
               type: "category",
               label: "ERC1155",
+              link: {
+                type: "generated-index",
+              },
               items: [
                 "develop/ethereum-polygon/matic-js/pos/erc1155/get-balance",
                 "develop/ethereum-polygon/matic-js/pos/erc1155/approve-all",
@@ -206,9 +247,15 @@ module.exports = {
         {
           type: "category",
           label: "Plasma",
+          link: {
+            type: "generated-index",
+          },
           items: [{
             type: "category",
             label: "ERC20",
+            link: {
+              type: "generated-index",
+            },
             items: [
               "develop/ethereum-polygon/matic-js/plasma/erc20/index",
               "develop/ethereum-polygon/matic-js/plasma/erc20/get-balance",
@@ -226,6 +273,9 @@ module.exports = {
           {
             type: "category",
             label: "ERC721",
+            link: {
+              type: "generated-index",
+            },
             items: [
               "develop/ethereum-polygon/matic-js/plasma/erc721/index",
               "develop/ethereum-polygon/matic-js/plasma/erc721/get-tokens-count",
@@ -250,6 +300,9 @@ module.exports = {
         {
           type: "category",
           label: "Advanced",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/ethereum-polygon/matic-js/advanced/abi-manager",
             "develop/ethereum-polygon/matic-js/advanced/plugin",
@@ -261,10 +314,16 @@ module.exports = {
     {
       type: "category",
       label: "Assets",
+      link: {
+        type: "generated-index",
+      },
       items: [
         {
           type: "category",
           label: "Matic",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/network-details/gas-token",
             "develop/network-details/mapped-tokens",
@@ -273,6 +332,9 @@ module.exports = {
         {
           type: "category",
           label: "NFTs",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/nft-tutorial",
           ],
@@ -282,10 +344,16 @@ module.exports = {
     {
       type: "category",
       label: "Smart Contracts",
+      link: {
+        type: "generated-index",
+      },
       items: [
         {
           type: "category",
           label: "Deploying Contracts",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/alchemy",
             "develop/quicknode",
@@ -301,6 +369,9 @@ module.exports = {
         {
           type: "category",
           label: "ERC Standards",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/advanced/swap-assets",
             "develop/advanced/custom-restrictions",
@@ -309,6 +380,9 @@ module.exports = {
         {
           type: "category",
           label: "Plasma Contracts",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/advanced/calling-plasma-contracts",
           ],
@@ -318,11 +392,17 @@ module.exports = {
     {
       type: "category",
       label: "Transactions",
+      link: {
+        type: "generated-index",
+      },
       items: [
         "develop/eip1559",
         {
           type: "category",
           label: "Meta Transactions",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/meta-transactions/meta-transactions",
             "develop/meta-transactions/network-agnostics",
@@ -333,17 +413,26 @@ module.exports = {
     {
       type: "category",
       label: "Bridges",
+      link: {
+        type: "generated-index",
+      },
       items: [
         "develop/ethereum-polygon/getting-started",
         "develop/ethereum-polygon/submit-mapping-request",
         {
           type: "category",
           label: "PoS Bridge",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/ethereum-polygon/pos/getting-started",
             {
               type: "category",
               label: "Using Matic.js",
+              link: {
+                type: "generated-index",
+              },
               items: [
                 "develop/ethereum-polygon/pos/using-sdk/getting-started",
                 "develop/ethereum-polygon/pos/using-sdk/eth",
@@ -355,6 +444,9 @@ module.exports = {
             {
               type: "category",
               label: "Calling Contracts",
+              link: {
+                type: "generated-index",
+              },
               items: [
                 "develop/ethereum-polygon/pos/calling-contracts/ether",
                 "develop/ethereum-polygon/pos/calling-contracts/erc20",
@@ -371,6 +463,9 @@ module.exports = {
         {
           type: "category",
           label: "Plasma Bridge",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/ethereum-polygon/plasma/getting-started",
             "develop/ethereum-polygon/plasma/eth",
@@ -389,6 +484,9 @@ module.exports = {
     {
       type: "category",
       label: "Oracles",
+      link: {
+        type: "generated-index",
+      },
       items: [
         "develop/oracles/getting-started",
         "develop/oracles/optimisticoracle",
@@ -402,6 +500,9 @@ module.exports = {
     {
       type: "category",
       label: "Storage",
+      link: {
+        type: "generated-index",
+      },
       items: [
         "develop/ipfs",
         "develop/filecoinhelpers",
@@ -411,10 +512,16 @@ module.exports = {
     {
       type: "category",
       label: "Data",
+      link: {
+        type: "generated-index",
+      },
       items: [
         {
           type: "category",
           label: "Indexing and Querying",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/the-graph",
             {
@@ -431,10 +538,16 @@ module.exports = {
     {
       type: "category",
       label: "Miscellaneous",
+      link: {
+        type: "generated-index",
+      },
       items: [
         {
           type: "category",
           label: "Faucets",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/tools/polygon-faucet",
             "develop/tools/alchemy-faucet"
@@ -443,6 +556,9 @@ module.exports = {
         {
           type: "category",
           label: "Gas Station",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/tools/polygon-gas-station"
           ]
@@ -450,6 +566,9 @@ module.exports = {
         {
           type: "category",
           label: "Widget",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "develop/ethereum-polygon/tools/widget"
           ]
@@ -463,6 +582,9 @@ module.exports = {
     {
       type: "category",
       label: "Validator Overview",
+      link: {
+        type: "generated-index",
+      },
       items: [
         "maintain/validator/architecture",
         "maintain/validator/responsibilities",
@@ -472,6 +594,9 @@ module.exports = {
         {
           type: "category",
           label: "Core Components",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "maintain/validator/core-components/heimdall-chain",
             "maintain/validator/core-components/bor-chain",
@@ -490,10 +615,16 @@ module.exports = {
     {
       type: "category",
       label: "Validate",
+      link: {
+        type: "generated-index",
+      },
       items: [
         {
           type: "category",
           label: "Node Deployment",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "maintain/validate/validator-node-system-requirements",
             "maintain/validate/run-validator-binaries",
@@ -504,6 +635,9 @@ module.exports = {
         {
           type: "category",
           label: "Node Management",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "maintain/port-management",
             "maintain/validate/change-signer-address",
@@ -512,6 +646,9 @@ module.exports = {
         {
           type: "category",
           label: "Staking Operations",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "maintain/validate/validator-staking-operations",
             "maintain/validate/validator-commission-operations",
@@ -521,6 +658,9 @@ module.exports = {
         {
           type: "category",
           label: "FAQ",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "maintain/validate/faq/known-issues",
             "maintain/validate/faq/how-to",
@@ -537,11 +677,17 @@ module.exports = {
     {
       type: "category",
       label: "Network Information",
+      link: {
+        type: "generated-index",
+      },
       items: [
         "integrate/network",
         {
           type: "category",
           label: "Network Details",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "integrate/network-detail",
             {
@@ -566,6 +712,9 @@ module.exports = {
     {
       type: "category",
       label: "Advanced",
+      link: {
+        type: "generated-index",
+      },
       items: [
         "integrate/install-gcp",
       ],
@@ -573,9 +722,40 @@ module.exports = {
   ],
 
   contribute: [
-    "contribute/orientation",
-    "contribute/community-maintainers",
-    "contribute/bug-bounty-program",
+    {
+      type: "category",
+      label: "Become a Contributor",
+      link: {
+        type: "generated-index",
+      },
+      items: [
+        "contribute/contributor-guidelines",
+        "contribute/bug-bounty-program",
+        "contribute/wiki-maintainers",
+      ],
+    },
+    {
+      type: "category",
+      label: "Style Guide",
+      link: {
+        type: "generated-index",
+      },
+      items: [
+        "contribute/writing-style",
+        "contribute/tutorial-template",
+      ],
+    },
+    {
+      type: "category",
+      label: "Translations",
+      link: {
+        type: "generated-index",
+      },
+      items: [
+        "contribute/non-native-speakers",
+        "contribute/how-to-translate",
+      ],
+    },
   ],
 
   pos: [
@@ -583,15 +763,24 @@ module.exports = {
     {
       type: "category",
       label: "Architecture",
+      link: {
+        type: "generated-index",
+      },
       items: [
         {
           type: "category",
           label: "Heimdall",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "pos/heimdall/overview",
             {
               type: "category",
               label: "Core Concepts",
+              link: {
+                type: "generated-index",
+              },
               items: [
                 "pos/heimdall/encoder",
                 "pos/heimdall/transactions",
@@ -606,6 +795,9 @@ module.exports = {
             {
               type: "category",
               label: "Modules",
+              link: {
+                type: "generated-index",
+              },
               items: [
                 "pos/heimdall/modules/auth",
                 "pos/heimdall/modules/bank",
@@ -624,6 +816,9 @@ module.exports = {
         {
           type: "category",
           label: "Bor",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "pos/bor/overview",
             "pos/bor/bor",
@@ -634,12 +829,18 @@ module.exports = {
         {
           type: "category",
           label: "Contracts",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "pos/contracts/stakingmanager",
             "pos/contracts/delegation",
             {
               type: "category",
               label: "Plasma Contracts",
+              link: {
+                type: "generated-index",
+              },
               items: [
                 "pos/contracts/plasma_contracts/account_based_plasma",
                 "pos/contracts/plasma_contracts/predicates",
@@ -651,6 +852,9 @@ module.exports = {
         {
           type: "category",
           label: "State Sync",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "pos/state-sync/state-sync",
             "pos/state-sync/how-state-sync-works",
@@ -674,6 +878,9 @@ module.exports = {
     {
       type: "category",
       label: "Network Deployments",
+      link: {
+        type: "generated-index",
+      },
       items: [
         "nightfall/deployments/mainnet",
         "nightfall/deployments/testnet",
@@ -682,10 +889,16 @@ module.exports = {
     {
       type: "category",
       label: "Protocol",
+      link: {
+        type: "generated-index",
+      },
       items: [
         {
           type: "category",
           label: "Nightfall Protocol",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "nightfall/protocol/actors",
             "nightfall/protocol/contracts",
@@ -698,6 +911,9 @@ module.exports = {
         {
           type: "category",
           label: "Proposers & Challengers",
+          link: {
+            type: "generated-index",
+          },
           items: [
             "nightfall/protocol/proposers",
             "nightfall/protocol/challengers"
@@ -708,6 +924,9 @@ module.exports = {
     {
       type: "category",
       label: "Tools",
+      link: {
+        type: "generated-index",
+      },
       items: [
         "nightfall/tools/nightfall-wallet"
       ]
@@ -726,6 +945,9 @@ module.exports = {
       {
         type: "category",
         label: "Wallet FAQs",
+        link: {
+          type: "generated-index",
+        },
         items: [
           "faq/wallet-bridge-faq",
           "faq/adding-a-custom-token",
@@ -734,4 +956,133 @@ module.exports = {
       "faq/consensys-framework",
       "faq/widget-faq",
     ],
+
+  edge: [
+      "edge/overview",
+      {
+          type: "category",
+          label: "Get started",
+          items: [
+              "edge/get-started/installation",
+              "edge/get-started/set-up-ibft-locally",
+              "edge/get-started/set-up-ibft-on-the-cloud",
+              "edge/get-started/cli-commands",
+              "edge/get-started/json-rpc-commands",
+          ]
+      },
+      {
+          type: "category",
+          label: "Configuration",
+          items: [
+              "edge/configuration/sample-config",
+              "edge/configuration/manage-private-keys",
+              "edge/configuration/enable-metrics",
+              {
+                  type: "category",
+                  label: "Secret Managers",
+                  items: [
+                      "edge/configuration/secret-managers/set-up-aws-ssm",
+                      "edge/configuration/secret-managers/set-up-gcp-secrets-manager",
+                      "edge/configuration/secret-managers/set-up-hashicorp-vault",
+                  ]
+              }
+          ]
+      },
+      {
+          type: "category",
+          label: "Working with a node",
+          items: [
+              "edge/working-with-node/query-json-rpc",
+              "edge/working-with-node/query-operator-info",
+              "edge/working-with-node/backup-restore",
+          ]
+      },
+      {
+          type: "category",
+          label: "Consensus",
+          items: [
+              "edge/consensus/poa",
+              "edge/consensus/pos-concepts",
+              "edge/consensus/pos-stake-unstake",
+              "edge/consensus/migration-to-pos"
+          ]
+      },
+      {
+          type: "category",
+          label: "Additional features",
+          items: [
+              {
+                  type: "category",
+                  label: "Chainbridge",
+                  items: [
+                      "edge/additional-features/chainbridge/overview",
+                      "edge/additional-features/chainbridge/requirements",
+                      "edge/additional-features/chainbridge/deploy-contracts",
+                      "edge/additional-features/chainbridge/setup-relayer",
+                      "edge/additional-features/chainbridge/setup-erc20-transfer",
+                      "edge/additional-features/chainbridge/setup-erc721-transfer",
+                      "edge/additional-features/chainbridge/roles-in-bridge"
+                  ]
+              },
+              "edge/additional-features/stress-testing",
+              "edge/additional-features/blockscout",
+          ]
+      },
+      {
+          type: "category",
+          label: "Architecture",
+          items: [
+              "edge/architecture/overview",
+              {
+                  type: "category",
+                  label: "Modules",
+                  items: [
+                      "edge/architecture/modules/blockchain",
+                      "edge/architecture/modules/minimal",
+                      "edge/architecture/modules/networking",
+                      "edge/architecture/modules/state",
+                      "edge/architecture/modules/txpool",
+                      "edge/architecture/modules/json-rpc",
+                      "edge/architecture/modules/consensus",
+                      "edge/architecture/modules/storage",
+                      "edge/architecture/modules/types",
+                      "edge/architecture/modules/protocol",
+                      "edge/architecture/modules/sealer",
+                      "edge/architecture/modules/other-modules"
+                  ]
+              }
+          ]
+      },
+      {
+          type: "category",
+          label: "Concepts",
+          items: [
+              "edge/concepts/ethereum-state"
+          ]
+      },
+      {
+          type: "category",
+          label: "Community",
+          items: [
+              "edge/community/propose-new-feature",
+              "edge/community/report-bug"
+          ]
+      },
+      {
+          type: "category",
+          label: "Performance Reports",
+          items: [
+              "edge/performance-reports/overview",
+              {
+                  type: "category",
+                  label: "Test History",
+                  items: [
+                      "edge/performance-reports/test-history/test-2022-03-23",
+                      "edge/performance-reports/test-history/test-2022-03-02",
+                      "edge/performance-reports/test-history/test-2022-01-21",
+                  ]
+              }
+          ]
+      }
+  ]
 };
