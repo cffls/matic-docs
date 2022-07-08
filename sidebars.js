@@ -498,6 +498,7 @@ module.exports = {
             "maintain/validate/validator-node-system-requirements",
             "maintain/validate/run-validator-binaries",
             "maintain/validate/run-validator-ansible",
+            "maintain/validate/run-validator",
           ],
         },
         {

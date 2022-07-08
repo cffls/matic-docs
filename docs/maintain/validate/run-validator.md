@@ -654,7 +654,7 @@ Save the changes in `heimdall-config.toml`.
 
 ### Configuring Bor
 
-Create a new file `static-node.json` with command `mkdir -p /var/lib/bor/data/bor && vi /var/lib/bor/data/bor/static-nodes.json`.
+Create a new file `static-node.json` with command `sudo mkdir -p -m 777 /var/lib/bor/data/bor && vi /var/lib/bor/data/bor/static-nodes.json`.
 
 In `static-nodes.json`, change the following:
 
