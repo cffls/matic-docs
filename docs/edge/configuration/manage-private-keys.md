@@ -1,7 +1,7 @@
 ---
 id: manage-private-keys
 title: Manage private keys
-description: How to manage Polygon Edge's private keys and what types of keys there are.
+description: "How to manage private keys and what types of keys there are."
 keywords:
   - docs
   - polygon
@@ -44,6 +44,10 @@ The private key file mentioned as the *consensus private key* is also referred t
 This private key is used when the node is acting as a validator in the network and needs to sign new data.
 
 The private key file is located in `consensus/validator.key`, and adheres to the [key format](/docs/edge/configuration/manage-private-keys#key-format) mentioned.
+
+:::warning
+The validator private key is unique to each validator node. The same key is <b>not</b> to be shared across all validators, as this may compromise the security of your chain.
+:::
 
 ## Networking Private Key
 

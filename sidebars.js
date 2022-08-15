@@ -67,7 +67,7 @@ module.exports = {
         "develop/network-details/technical-requirements",
         "develop/network-details/full-node-deployment",
         "develop/network-details/full-node-binaries",
-        "develop/network-details/full-node",
+        "develop/network-details/full-node-docker",
         "develop/network-details/snapshot-instructions-heimdall-bor",
         "develop/network-details/network-rpc-endpoints",
       ],
@@ -579,6 +579,7 @@ module.exports = {
 
   maintain: [
     "maintain/validate/validator-index",
+    "maintain/validate/validator-responsibilities",
     {
       type: "category",
       label: "Validator Overview",
@@ -962,6 +963,9 @@ module.exports = {
       {
           type: "category",
           label: "Get started",
+          link: {
+            type: "generated-index",
+          },
           items: [
               "edge/get-started/installation",
               "edge/get-started/set-up-ibft-locally",
@@ -973,13 +977,19 @@ module.exports = {
       {
           type: "category",
           label: "Configuration",
+          link: {
+            type: "generated-index",
+          },
           items: [
               "edge/configuration/sample-config",
               "edge/configuration/manage-private-keys",
-              "edge/configuration/enable-metrics",
+              "edge/configuration/prometheus-metrics",
               {
                   type: "category",
                   label: "Secret Managers",
+                  link: {
+                    type: "generated-index",
+                  },
                   items: [
                       "edge/configuration/secret-managers/set-up-aws-ssm",
                       "edge/configuration/secret-managers/set-up-gcp-secrets-manager",
@@ -988,9 +998,13 @@ module.exports = {
               }
           ]
       },
+      "edge/validator-hosting",
       {
           type: "category",
           label: "Working with a node",
+          link: {
+            type: "generated-index",
+          },
           items: [
               "edge/working-with-node/query-json-rpc",
               "edge/working-with-node/query-operator-info",
@@ -1000,6 +1014,9 @@ module.exports = {
       {
           type: "category",
           label: "Consensus",
+          link: {
+            type: "generated-index",
+          },
           items: [
               "edge/consensus/poa",
               "edge/consensus/pos-concepts",
@@ -1010,18 +1027,24 @@ module.exports = {
       {
           type: "category",
           label: "Additional features",
+          link: {
+            type: "generated-index",
+          },
           items: [
               {
                   type: "category",
                   label: "Chainbridge",
+                  link: {
+                    type: "generated-index",
+                  },
                   items: [
-                      "edge/additional-features/chainbridge/overview",
-                      "edge/additional-features/chainbridge/requirements",
-                      "edge/additional-features/chainbridge/deploy-contracts",
-                      "edge/additional-features/chainbridge/setup-relayer",
-                      "edge/additional-features/chainbridge/setup-erc20-transfer",
-                      "edge/additional-features/chainbridge/setup-erc721-transfer",
-                      "edge/additional-features/chainbridge/roles-in-bridge"
+                    "edge/additional-features/chainbridge/overview",
+                    "edge/additional-features/chainbridge/definitions",
+                    "edge/additional-features/chainbridge/setup",
+                    "edge/additional-features/chainbridge/setup-erc20-transfer",
+                    "edge/additional-features/chainbridge/setup-erc721-transfer",
+                    "edge/additional-features/chainbridge/use-case-erc20-bridge",
+                    "edge/additional-features/chainbridge/use-case-erc721-bridge",
                   ]
               },
               "edge/additional-features/stress-testing",
@@ -1031,11 +1054,17 @@ module.exports = {
       {
           type: "category",
           label: "Architecture",
+          link: {
+            type: "generated-index",
+          },
           items: [
               "edge/architecture/overview",
               {
                   type: "category",
                   label: "Modules",
+                  link: {
+                    type: "generated-index",
+                  },
                   items: [
                       "edge/architecture/modules/blockchain",
                       "edge/architecture/modules/minimal",
@@ -1046,7 +1075,7 @@ module.exports = {
                       "edge/architecture/modules/consensus",
                       "edge/architecture/modules/storage",
                       "edge/architecture/modules/types",
-                      "edge/architecture/modules/protocol",
+                      "edge/architecture/modules/syncer",
                       "edge/architecture/modules/sealer",
                       "edge/architecture/modules/other-modules"
                   ]
@@ -1055,14 +1084,10 @@ module.exports = {
       },
       {
           type: "category",
-          label: "Concepts",
-          items: [
-              "edge/concepts/ethereum-state"
-          ]
-      },
-      {
-          type: "category",
           label: "Community",
+          link: {
+            type: "generated-index",
+          },
           items: [
               "edge/community/propose-new-feature",
               "edge/community/report-bug"
@@ -1071,18 +1096,39 @@ module.exports = {
       {
           type: "category",
           label: "Performance Reports",
+          link: {
+            type: "generated-index",
+          },
           items: [
               "edge/performance-reports/overview",
               {
                   type: "category",
                   label: "Test History",
+                  link: {
+                    type: "generated-index",
+                  },
                   items: [
+                      "edge/performance-reports/test-history/test-2022-07-04",
                       "edge/performance-reports/test-history/test-2022-03-23",
                       "edge/performance-reports/test-history/test-2022-03-02",
                       "edge/performance-reports/test-history/test-2022-01-21",
+        
                   ]
               }
           ]
-      }
+      },
+      {
+        type: "category",
+        label: "FAQ",
+        link: {
+          type: "generated-index",
+        },
+        items: [
+            "edge/faq/validators",
+            "edge/faq/gas",
+            "edge/faq/contracts",
+            "edge/faq/tokens",
+        ]
+    }
   ]
 };
