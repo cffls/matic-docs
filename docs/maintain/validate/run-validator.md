@@ -333,10 +333,10 @@ config files and chain data on your node, please skip this section and jump dire
 
 ```shell
 # For mainnet
-sudo mkdir -m 777 /var/lib/heimdall && heimdalld init --chain=mainnet --home /var/lib/heimdall
+sudo -u heimdall heimdalld init --chain=mainnet --home /var/lib/heimdall
 
 # For testnet
-sudo mkdir -m 777 /var/lib/heimdall && heimdalld init --chain=mumbai --home /var/lib/heimdall
+sudo -u heimdall heimdalld init --chain=mumbai --home /var/lib/heimdall
 ```
 
 Open the Heimdall configuration file for editing:
@@ -376,14 +376,12 @@ Save the changes in `config.toml`.
 
 ### Configure Bor
 
-Create a new file `static-nodes.json` with command `mkdir -p /lib/var/bor/data/bor/ && vi /lib/var/bor/data/bor/static-nodes.json`.
-
-In `static-nodes.json`, add the following:
+In `/var/lib/bor/config.toml`, add the following:
 
 ```
-[
-  "<replace with enode://validator_machine_enodeID@validator_machine_ip:30303>"
-]
+[p2p]
+    [p2p.discovery]
+        static-nodes = ["<replace with enode://validator_machine_enodeID@validator_machine_ip:30303>"]
 ``` 
 
 To get the node ID of Bor on the validator machine:
@@ -393,14 +391,14 @@ To get the node ID of Bor on the validator machine:
 
 Example output: `"enode://410e359736bcd3a58181cf55d54d4e0bbd6db2939c5f548426be7d18b8fd755a0ceb730fe5cf7510c6fa6f0870e388277c5f4c717af66d53c440feedffb29b4b@134.209.100.175:30303"`.
 
-Example content of `static-nodes.json`:
+Example content of static node field in `/var/lib/bor/config.toml`:
 ```
-[
-  "enode://410e359736bcd3a58181cf55d54d4e0bbd6db2939c5f548426be7d18b8fd755a0ceb730fe5cf7510c6fa6f0870e388277c5f4c717af66d53c440feedffb29b4b@134.209.100.175:30303"
-]
+[p2p]
+    [p2p.discovery]
+        static-nodes = ["enode://410e359736bcd3a58181cf55d54d4e0bbd6db2939c5f548426be7d18b8fd755a0ceb730fe5cf7510c6fa6f0870e388277c5f4c717af66d53c440feedffb29b4b@134.209.100.175:30303"]
 ```
 
-Save the changes in `static-nodes.json`.
+Save the changes in `/var/lib/bor/config.toml`.
 
 ### Configuring a firewall
 
@@ -464,47 +462,36 @@ outlined below. If you are installing everything from a new machine, you can ski
     sudo ln -nfs ~/.bor /var/lib/bor
     ```
 
-- Copy configurations in `node/bor/start.sh` to bor service file `/lib/systemd/system/bor.service`. Note that some 
-  flags are renamed in the new CLI, you can find the documentation for new CLI [here](https://github.com/maticnetwork/bor/tree/master/docs/cli).
+- Copy configurations in `node/bor/start.sh` to bor configuration file `/var/lib/bor/config.toml`. Note that some 
+  flags are renamed in the new CLI, you can find the documentation for new CLI [here](https://github.com/maticnetwork/bor/tree/master/docs/cli) and sample configuration file in [launch repository](https://github.com/maticnetwork/launch).
 
 ## Configure service files for Bor and Heimdall
 
-After successfully installing Bor and Heimdall, their service file could be found under `/lib/systemd/system`. 
+After successfully installing Bor and Heimdall through [packages](#install-with-packages-recommended), their service file could be found under `/lib/systemd/system`, and bor's config 
+file could be found under `/var/lib/bor/config.toml`. 
 You will need to check and modify these files accordingly.
 
-- Make sure the chain is set correctly in `/lib/systemd/system/heimdalld.service` file. Open the file with following command `sudo vi /lib/systemd/system/heimdalld.service`
-    
-    - In the service file, set `--chain` to `mainnet` or `mumbai` accordingly, example:
-
-      ```
-          --chain=mumbai \
-      ```
-
-    - Remove `--bridge --all` for sentry node
-
-    - Set service user to a user with restricted permission, example:
-
-      ```
-      User=ubuntu
-      ```
+    - In the service file, set `--chain` to `mainnet` or `mumbai` accordingly
 
   Save the changes in `/lib/systemd/system/heimdalld.service`.
 
-- Make sure the chain is set correctly in `/lib/systemd/system/bor.service` file. Open the file with following command `sudo vi /lib/systemd/system/bor.service`
+- Make sure the chain is set correctly in `/var/lib/bor/config.toml` file. Open the file with following command `sudo vi /var/lib/bor/config.toml`
 
-    - In the service file, set `--chain` to `mainnet` or `mumbai` accordingly, example:
+    - In the config file, set `chain` to `mainnet` or `mumbai` accordingly.
 
-      ```
-          -chain=mumbai \
-      ```
-
-    - Set service user to a user with restricted permission, example:
+    - To enable Archive mode you can optionally enable the following flags:
 
       ```
-      User=ubuntu
+      gcmode "archive"
+
+      [jsonrpc]
+        [jsonrpc.ws]
+          enabled = true
+          port = 8546
+          corsdomain = ["*"]
       ```
 
-  Save the changes in `/lib/systemd/system/bor.service`.
+  Save the changes in `/var/lib/bor/config.toml`.
 
 
 ## Starting the Sentry Node
@@ -611,10 +598,10 @@ Initialize heimdall configs
 
 ```shell
 # For mainnet
-sudo heimdalld init --chain=mainnet --home /var/lib/heimdall
+sudo -u heimdall heimdalld init --chain=mainnet --home /var/lib/heimdall
 
 # For testnet
-sudo heimdalld init --chain=mumbai --home /var/lib/heimdall
+sudo -u heimdall heimdalld init --chain=mumbai --home /var/lib/heimdall
 ```
 
 Open the Heimdall configuration file for editing:
@@ -654,25 +641,30 @@ Save the changes in `heimdall-config.toml`.
 
 ### Configuring Bor
 
-Create a new file `static-node.json` with command `sudo mkdir -p -m 777 /var/lib/bor/data/bor && vi /var/lib/bor/data/bor/static-nodes.json`.
 
-In `static-nodes.json`, change the following:
+In `/var/lib/bor/config.toml`, add the following:
+
+```
+[p2p]
+    [p2p.discovery]
+        static-nodes = ["<replace with enode://validator_machine_enodeID@validator_machine_ip:30303>"]
+``` 
 
 To get the node ID of Bor on the sentry machine:
 
-1. Log in to the sentry machine.
+1. Log into the sentry machine.
 2. Run `bor bootnode -node-key /var/lib/bor/data/bor/nodekey -dry-run`.
 
-Example output: `"enode://a8024075291c0dd3467f5af51a05d531f9e518d6cd229336156eb6545581859e8997a80bc679fdb7a3bd7473744c57eeb3411719b973b2d6c69eff9056c0578f@188.166.216.25:30303"`.
+Example output: `"enode://410e359736bcd3a58181cf55d54d4e0bbd6db2939c5f548426be7d18b8fd755a0ceb730fe5cf7510c6fa6f0870e388277c5f4c717af66d53c440feedffb29b4b@134.209.100.175:30303"`.
 
-Example content of `static-nodes.json`:
+Example content of static node field in `/var/lib/bor/config.toml`:
 ```
-[
-  "enode://a8024075291c0dd3467f5af51a05d531f9e518d6cd229336156eb6545581859e8997a80bc679fdb7a3bd7473744c57eeb3411719b973b2d6c69eff9056c0578f@188.166.216.25:30303"
-]
+[p2p]
+    [p2p.discovery]
+        static-nodes = ["enode://410e359736bcd3a58181cf55d54d4e0bbd6db2939c5f548426be7d18b8fd755a0ceb730fe5cf7510c6fa6f0870e388277c5f4c717af66d53c440feedffb29b4b@134.209.100.175:30303"]
 ```
 
-Save the changes in `static-nodes.json`.
+Save the changes in `/var/lib/bor/config.toml`.
 
 ## Setting the Owner and Signer Key
 
@@ -796,59 +788,49 @@ outlined below. If you are installing everything from a new machine, you can ski
     sudo ln -nfs ~/.bor /var/lib/bor
     ```
 
-- Copy configurations in `node/bor/start.sh` to bor service file `/lib/systemd/system/bor.service`. Note that some 
-  flags are renamed in the new CLI, you can find the documentation for new CLI [here](https://github.com/maticnetwork/bor/tree/master/docs/cli).
+- Copy configurations in `node/bor/start.sh` to bor configuration file `/var/lib/bor/config.toml`. Note that some 
+  flags are renamed in the new CLI, you can find the documentation for new CLI [here](https://github.com/maticnetwork/bor/tree/master/docs/cli) and sample configuration file in [launch repository](https://github.com/maticnetwork/launch).
 
 
 
 ## Configure service files for bor and heimdall
 
-After successfully installing Bor and Heimdall, their service file could be found under `/lib/systemd/system`. 
+After successfully installing Bor and Heimdall through [packages](#install-with-packages-recommended), their service file could be found under `/lib/systemd/system`, and bor's config 
+file could be found under `/var/lib/bor/config.toml`. 
 You will need to check and modify these files accordingly.
 
 - Make sure the chain is set correctly in `/lib/systemd/system/heimdalld.service` file. Open the file with following command `sudo vi /lib/systemd/system/heimdalld.service`
     
-    - In the service file, set `--chain` to `mainnet` or `mumbai` accordingly, example:
-
+    - In the service file, set `--chain` to `mainnet` or `mumbai` accordingly
+    - Add `--bridge --all` to the heimdall command line for validator, example:
       ```
-          --chain=mumbai \
-      ```
-
-    - Set service user to a user with restricted permission, example:
-
-      ```
-      User=ubuntu
+        ExecStart=/usr/local/bin/heimdalld start --home /var/lib/heimdall \
+          --chain=mainnet \
+          --bridge --all \
+          --rest-server
       ```
 
   Save the changes in `/lib/systemd/system/heimdalld.service`.
 
-- Make sure the chain is set correctly in `/lib/systemd/system/bor.service` file. Open the file with following command `sudo vi /lib/systemd/system/bor.service`
+- Make sure the chain is set correctly in `/var/lib/bor/config.toml` file. Open the file with following command `sudo vi /var/lib/bor/config.toml`
 
-    - In the service file, set `--chain` to `mainnet` or `mumbai` accordingly, example:
+    - In the config file, set `chain` to `mainnet` or `mumbai` accordingly.
 
-      ```
-          -chain=mumbai \
-      ```
-    
     - Enable validator flags, example:
-
       ```
-          -unlock [VALIDATOR ADDRESS] \
-          -password /var/lib/bor/password.txt \
-          -keystore /var/lib/bor/keystore \
-          -allow-insecure-unlock \
-          -nodiscover -maxpeers 1 \
-          -miner.etherbase [VALIDATOR ADDRESS] \
-          -mine
-      ```
-
-    - Set service user to a user with restricted permission, example:
-
-      ```
-      User=ubuntu
+      [miner]
+        mine = true
+        gaslimit = 20000000
+        gasprice = "30000000000"
+        etherbase = "VALIDATOR ADDRESS"
+        
+      [accounts]
+        allow-insecure-unlock = true
+        password = "/var/lib/bor/password.txt"
+        unlock = ["VALIDATOR ADDRESS"]
       ```
 
-  Save the changes in `/lib/systemd/system/bor.service`.
+  Save the changes in `/var/lib/bor/config.toml`.
 
 ## Starting the Validator Node
 

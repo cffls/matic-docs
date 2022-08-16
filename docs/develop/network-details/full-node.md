@@ -324,10 +324,10 @@ config files and chain data on your node, please skip the [Configure Heimdall](#
 
 ```shell
 # For mainnet
-sudo mkdir -m 777 /var/lib/heimdall && heimdalld init --chain=mainnet --home /var/lib/heimdall
+sudo -u heimdall heimdalld init --chain=mainnet --home /var/lib/heimdall
 
 # For testnet
-sudo mkdir -m 777 /var/lib/heimdall && heimdalld init --chain=mumbai --home /var/lib/heimdall
+sudo -u heimdall heimdalld init --chain=mumbai --home /var/lib/heimdall
 ```
 
 - You will need to add a few details in the `config.toml` file. To open the `config.toml` file run the following command `vi /var/lib/heimdall/config/config.toml`
@@ -403,55 +403,39 @@ outlined below. If you are installing everything from a new machine, you can ski
     sudo ln -nfs ~/.bor /var/lib/bor
     ```
 
-- Copy configurations in `node/bor/start.sh` to bor service file `/lib/systemd/system/bor.service`. Note that some 
-  flags are renamed in the new CLI, you can find the documentation for new CLI [here](https://github.com/maticnetwork/bor/tree/master/docs/cli).
+- Copy configurations in `node/bor/start.sh` to bor configuration file `/var/lib/bor/config.toml`. Note that some 
+  flags are renamed in the new CLI, you can find the documentation for new CLI [here](https://github.com/maticnetwork/bor/tree/master/docs/cli) and sample configuration file in [launch repository](https://github.com/maticnetwork/launch).
 
 
 ### Configure service files for bor and heimdall
 
-After successfully installing Bor and Heimdall, their service file could be found under `/lib/systemd/system`. 
+After successfully installing Bor and Heimdall through [packages](#install-with-packages-recommended), their service file could be found under `/lib/systemd/system`, and bor's config 
+file could be found under `/var/lib/bor/config.toml`. 
 You will need to check and modify these files accordingly.
 
 - Make sure the chain is set correctly in `/lib/systemd/system/heimdalld.service` file. Open the file with following command `sudo vi /lib/systemd/system/heimdalld.service`
     
-    - In the service file, set `--chain` to `mainnet` or `mumbai` accordingly, example:
-
-      ```
-          --chain=mumbai \
-      ```
-
-    - Remove `--bridge --all` for sentry node
-
-    - Set service user to a user with restricted permission, example:
-
-      ```
-      User=ubuntu
-      ```
+    - In the service file, set `--chain` to `mainnet` or `mumbai` accordingly
 
   Save the changes in `/lib/systemd/system/heimdalld.service`.
 
-- Make sure the chain is set correctly in `/lib/systemd/system/bor.service` file. Open the file with following command `sudo vi /lib/systemd/system/bor.service`
+- Make sure the chain is set correctly in `/var/lib/bor/config.toml` file. Open the file with following command `sudo vi /var/lib/bor/config.toml`
 
-    - In the service file, set `--chain` to `mainnet` or `mumbai` accordingly, example:
+    - In the config file, set `chain` to `mainnet` or `mumbai` accordingly.
 
-      ```
-          -chain=mumbai \
-      ```
-
-    - Set service user to a user with restricted permission, example:
+    - To enable Archive mode you can optionally enable the following flags:
 
       ```
-      User=ubuntu
+      gcmode "archive"
+
+      [jsonrpc]
+        [jsonrpc.ws]
+          enabled = true
+          port = 8546
+          corsdomain = ["*"]
       ```
 
-    - To enable Archive mode you can optionally add the following flags:
-
-      ```
-          -gcmode 'archive' \
-          -ws -ws.port 8546 -ws.addr 0.0.0.0 -jsonrpc.corsdomain '*' \
-      ```
-
-  Save the changes in `/lib/systemd/system/bor.service`.
+  Save the changes in `/var/lib/bor/config.toml`.
 
 
 ## Start services
