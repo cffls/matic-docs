@@ -24,6 +24,14 @@ A new auction process for validator replacement will be rolled out.
 
 :::
 
+:::tip Stay in the know
+
+Keep up with the latest node and validator updates from the Polygon 
+team and the community by subscribing to the 
+[Polygon notification groups](https://polygon.technology/notifications/).
+
+:::
+
 ## Overview
 
 Polygon consists of the three following layers:
@@ -92,5 +100,5 @@ This section guides you through the following topics:
 
 Community assistance:
 
-* [Discord](https://discord.gg/polygon)
+* [Discord](https://discord.com/invite/0xPolygon)
 * [Forum](https://forum.polygon.technology/)

@@ -9,21 +9,24 @@
 
 <br>
 
-![Forks](https://img.shields.io/github/forks/maticnetwork/matic-docs?style=social)
-![Stars](https://img.shields.io/github/stars/maticnetwork/matic-docs?style=social)
-![Languages](https://img.shields.io/github/languages/count/maticnetwork/matic-docs)
-![Issues](https://img.shields.io/github/issues/maticnetwork/matic-docs)
-![PRs](https://img.shields.io/github/issues-pr-raw/maticnetwork/matic-docs)
-![contributors](https://img.shields.io/github/contributors-anon/maticnetwork/matic-docs)
-![size](https://img.shields.io/github/languages/code-size/maticnetwork/matic-docs)
-[![Discord](https://img.shields.io/discord/714888181740339261?color=1C1CE1&label=Polygon%20%7C%20Discord%20%F0%9F%91%8B%20&style=flat-square)](https://discord.gg/zdwkdvMNY2)
-[![Twitter Follow](https://img.shields.io/twitter/follow/0xPolygon.svg?style=social)](https://twitter.com/0xPolygon)
+<p align="center">
+   <a href="https://github.com/maticnetwork/matic-docs/network/members"><img src="https://img.shields.io/github/forks/maticnetwork/matic-docs?style=social"></a>
+   <img src="https://img.shields.io/github/stars/maticnetwork/matic-docs?style=social">
+   <img src="https://img.shields.io/github/languages/count/maticnetwork/matic-docs">
+   <a href="https://github.com/maticnetwork/matic-docs/issues"> src="https://img.shields.io/github/issues/maticnetwork/matic-docs"></a>
+   <a href="https://github.com/maticnetwork/matic-docs/pulls"><img src="https://img.shields.io/github/issues-pr-raw/maticnetwork/matic-docs"></a>
+   <a href="https://github.com/maticnetwork/matic-docs/graphs/contributors"><img src="https://img.shields.io/github/contributors-anon/maticnetwork/matic-docs"></a>
+   <img src="https://img.shields.io/github/languages/code-size/maticnetwork/matic-docs">
+   <a href="https://discord.gg/zdwkdvMNY2"><img src="https://img.shields.io/discord/714888181740339261?color=1C1CE1&label=Polygon%20%7C%20Discord%20%F0%9F%91%8B%20&style=flat-square"></a>
+   <a href="https://twitter.com/0xPolygon"><img src="https://img.shields.io/twitter/follow/0xPolygon.svg?style=social"></a>
+   
+</p>
 
 Polygon is a scaling solution for public blockchains that combines the best of Ethereum and sovereign blockchains 
 to offer a full-stack scaling solution.
 
-The [Polygon Wiki](https://docs.polygon.technology/) is built using [Docusaurus](https://docusaurus.io/), 
-a modern static website generator.
+The [Polygon Wiki](https://wiki.polygon.technology/) is built using [Docusaurus](https://docusaurus.io/), 
+a modern static website generator to build optimized websites quickly.
 
 ## How to Contribute to Polygon Wiki
 
@@ -108,7 +111,7 @@ your PR. Note that you must have a GitHub account and an understanding of Markdo
     git checkout -b [new_branch_name]
     ```
 
-2. Commit your changes. Please be sure to review our [Git Rules](https://docs.polygon.technology/docs/contribute/orientation#git-rules). 
+2. Commit your changes. Please be sure to review our [Git Rules](https://wiki.polygon.technology/docs/contribute/orientation#git-rules). 
    In the commit message, please reference the issue it resolves. 
    For help, see [GitHub Docs: Linking a pull request to an issue using a keyword](https://docs.github.com/en/free-pro-team@latest/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword).
 
@@ -142,7 +145,7 @@ You can apply UI changes, sidebar, and configuration design through the followin
 
 You can easily submit an edit suggestion. Note that you must have a GitHub account and good knowledge of Markdown syntax.
 
-1. Navigate to the [Polygon Wiki page](https://docs.polygon.technology/) that you want to edit.
+1. Navigate to the [Polygon Wiki page](https://wiki.polygon.technology/) that you want to edit.
 2. Scroll down until the end of that page
 3. Click on the link: **Edit this page**. It will forward you to the same page (Markdown format) hosted on GitHub.
 4. On the related GitHub page, click the pencil icon (similar to  ) near the upper right corner of the file

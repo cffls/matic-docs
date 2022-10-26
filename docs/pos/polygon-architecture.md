@@ -33,7 +33,7 @@ Ethereum, and a set of incentivized validators running **Heimdall** and **Bor** 
 the first basechain Polygon supports, but Polygon intends to offer support for additional basechains to
 enable an interoperable decentralized Layer 2 blockchain platform based on community suggestions and consensus.
 
-<img src={useBaseUrl("img/matic/Architecture.png")} />;
+<img src={useBaseUrl("img/matic/Architecture.png")} />
 
 ## Staking Contracts
 
@@ -44,7 +44,6 @@ The staking contracts implement the following features:
 
 * Anyone can stake MATIC tokens on the staking contracts on the Ethereum mainnet and join the system as a [validator](/docs/maintain/glossary#validator).
 * Earn staking rewards for validating state transitions on the Polygon Network.
-* Enable penalties/slashing for activities such as double signing, validator downtime, etc.
 * Save [checkpoints](/docs/maintain/glossary#checkpoint-transaction) on the Ethereum mainnet.
 
 The PoS mechanism also acts as a mitigation to the data unavailability problem for the Polygon sidechains.

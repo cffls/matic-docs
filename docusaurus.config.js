@@ -1,7 +1,10 @@
+const math = require('remark-math');
+const katex = require('rehype-katex');
+
 module.exports = {
   title: "Polygon Technology | Documentation",
   tagline: "Welcome to Polygon developer documentation",
-  url: "https://docs.polygon.technology/",
+  url: "https://wiki.polygon.technology",
   baseUrl: "/",
   favicon: "img/polygon/polygon-logo.svg",
   organizationName: "Polygon Technology",
@@ -84,13 +87,13 @@ module.exports = {
             from: '/docs/integrate/full-node-deployment',
           },
           {
-            to: '/docs/develop/metamask/overview',
-            from: '/docs/develop/wallets/metamask',
+            to: '/docs/develop/wallets/metamask',
+            from:'/docs/develop/metamask/overview',
           },
           {
             to: '/docs/develop/wallets/getting-started',
             from: '/docs/develop/cexs-wallets/cexs',
-          },
+          }
         ],
         createRedirects: function (existingPath) {
           if (existingPath.startsWith('/docs/validate/')) {
@@ -148,7 +151,7 @@ module.exports = {
           items: [
           {
               label: "Get Started",
-              href: "https://docs.polygon.technology/docs/develop/getting-started/"
+              href: "https://wiki.polygon.technology/docs/develop/getting-started/"
           },
           {
               label: "Advocate Program",
@@ -236,7 +239,7 @@ module.exports = {
       indexName: "matic_developer",
       appId: '16JCDEHCCN',
       apiKey: "757c19b23127e9c6959da7f13b71cfab",
-      contextualSearch: false,
+      contextualSearch: true,
       algoliaOptions: {},
     },
     navbar: {
@@ -247,7 +250,7 @@ module.exports = {
         srcDark: "/img/polygon/polygon-logo.webp",
         // width: 100,
         // height: 500,
-        // href: 'https://docs.polygon.technology/', // default to siteConfig.baseUrl
+        // href: 'https://wiki.polygon.technology/', // default to siteConfig.baseUrl
         target: "_self", // by default, this value is calculated based on the `href` attribute (the external link will open in a new tab, all others in the current one)
       },
       items: [
@@ -309,7 +312,14 @@ module.exports = {
           position: "right",
           items: [
                   {
-                    href: 'https://discord.gg/tCmCbEff66',
+                    to: "docs/contribute/orientation/",
+                    label: "Contribute to Wiki",
+                    target: '_blank',
+                    rel: null,
+                    activeBasePath: "docs/contribute",
+                  },
+                  {
+                    href: 'https://discord.com/invite/0xPolygon',
                     label: 'Discord',
                     target: '_blank',
                     rel: null,
@@ -335,6 +345,12 @@ module.exports = {
                   {
                     href: 'https://t.me/polygonofficial',
                     label: 'Telegram',
+                    target: '_blank',
+                    rel: null,
+                  },
+                  {
+                    label: "Get Updates",
+                    href: 'https://polygon.technology/notifications/',
                     target: '_blank',
                     rel: null,
                   },
@@ -389,12 +405,6 @@ module.exports = {
                 ],
         },
         {
-          to: "docs/contribute/orientation/",
-          label: "Contribute to the Wiki",
-          position: "right",
-          activeBasePath: "docs/contribute",
-        },
-        {
           href: "https://github.com/maticnetwork",
           position: "right",
           className: "header-github-link",
@@ -426,6 +436,8 @@ module.exports = {
           path: "docs",
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

@@ -16,11 +16,13 @@ image: https://matic.network/banners/matic-network-16x9.png
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::tip Steps in this guide involve waiting for the **Heimdall** and **Bor** services to fully sync. This process takes several days to complete. Alternatively, you can use a maintained snapshot, which will reduce the sync time to a few hours. For detailed instructions, see [<ins>Snapshot Instructions for Heimdall and Bor</ins>](../../develop/network-details/snapshot-instructions-heimdall-bor).
+:::tip
+Steps in this guide involve waiting for the **Heimdall** and **Bor** services to fully sync. This process takes several days to complete. Alternatively, you can use a maintained snapshot, which will reduce the sync time to a few hours. For detailed instructions, see [<ins>Snapshot Instructions for Heimdall and Bor</ins>](../../develop/network-details/snapshot-instructions-heimdall-bor).
 
 For snapshot download links, see [Polygon Chains Snapshots](https://snapshots.matic.today/).
 
-There is limited space for accepting new validators. New validators can only join the active set when an already active validator unbonds. :::
+There is limited space for accepting new validators. New validators can only join the active set when an already active validator unbonds.
+:::
 
 
 This guide will walk you through running a Polygon validator node from binaries.
@@ -648,7 +650,7 @@ journalctl -u bor.service -f
 
 ## Health Checks with the Community
 
-Now that your sentry and validator nodes are in sync and running, head over to [Discord](https://discord.gg/polygon) and ask the community to health-check your nodes.
+Now that your sentry and validator nodes are in sync and running, head over to [Discord](https://discord.com/invite/0xPolygon) and ask the community to health-check your nodes.
 
 ## Next Steps: Staking
 

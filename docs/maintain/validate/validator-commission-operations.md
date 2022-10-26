@@ -19,17 +19,17 @@ A validator is entitled to charge any commission rate. The minimum commission wo
 
 You are allowed to change the commission rates as many times as you would like.
 
-As a validator, it is one of your responsibilities to inform the community on commission changes. See [Validator Responsibilities](../validator/responsibilities).
+As a validator, it is one of your responsibilities to inform the community on commission changes. See [Validator Responsibilities](../validator/responsibilities.md).
 
 ## Set up your commission rate as a validator
 
-You set up the commission rate as part of your initial validator staking process. See [Validator Staking Operations](validator-staking-operations).
+You set up the commission rate as part of your initial validator staking process. See [Validator Staking Operations](validator-staking-operations.md).
 
 ## Change your commission rate
 
 You can change your commission rate.
 
-1. With your owner address, login to the [staking dashboard](https://wallet.polygon.technology/staking/).
+1. With your owner address, login to the [staking dashboard](https://staking.polygon.technology/).
 1. On your profile, click **Edit Profile**.
 1. In the *Commission* field, provide your new commission rate.
 
