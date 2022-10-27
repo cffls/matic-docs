@@ -61,38 +61,37 @@ There are three different ways to install heimdall and bor binaries: [installing
 
 #### Heimdall
 
-- Install the default latest version
+- Install the default latest version of sentry for mainnet:
 
     ```shell
     curl -L https://raw.githubusercontent.com/maticnetwork/install/main/heimdall.sh | bash
     ```
 
-    or install a specific version (all release versions could be found on 
-    [Heimdall Github repository](https://github.com/maticnetwork/heimdall/releases)):
+    or install a specific version, node type (`sentry` or `validator`), and network (`mainnet` or `testnet`). All release versions can be found on 
+    [Heimdall GitHub repository](https://github.com/maticnetwork/heimdall/releases).
 
     ```shell
-    curl -L https://raw.githubusercontent.com/maticnetwork/install/main/heimdall.sh | bash -s -- <version>
-
+    curl -L https://raw.githubusercontent.com/maticnetwork/install/main/heimdall.sh | bash -s -- <version> <network> <node_type>
     # Example:
-    curl -L https://raw.githubusercontent.com/maticnetwork/install/main/heimdall.sh | bash -s -- 0.3.0
+    # curl -L https://raw.githubusercontent.com/maticnetwork/install/main/heimdall.sh | bash -s -- v0.3.0 mainnet sentry
     ```
 
 #### Bor
 
-- Install the default latest version
+- Install the default latest version of sentry for mainnet:
 
     ```shell
     curl -L https://raw.githubusercontent.com/maticnetwork/install/main/bor.sh | bash
     ```
 
-    or install a specific version (all release versions could be found on 
-    [Bor Github repository](https://github.com/maticnetwork/bor/releases)):
+    or install a specific version,  node type (`sentry` or `validator`), and network (`mainnet` or `testnet`). All release versions could be found on 
+    [Bor Github repository](https://github.com/maticnetwork/bor/releases).
 
     ```shell
-    curl -L https://raw.githubusercontent.com/maticnetwork/install/main/bor.sh | bash -s -- <version>
+    curl -L https://raw.githubusercontent.com/maticnetwork/install/main/bor.sh | bash -s -- <version> <network> <node_type>
 
     # Example:
-    curl -L https://raw.githubusercontent.com/maticnetwork/install/main/bor.sh | bash -s -- 0.3.0
+    # curl -L https://raw.githubusercontent.com/maticnetwork/install/main/bor.sh | bash -s -- v0.3.0 mainnet sentry
     ```
 
 ### Install with ansible
@@ -451,19 +450,45 @@ outlined below. If you are installing everything from a new machine, you can ski
     sudo mv /etc/systemd/system/heimdalld-bridge.service ./backup
     ```
 
-- Migrate heimdall and bor directory to `/var/lib`
+- Migrate heimdall and bor directory to `/var/lib` and change ownership:
     ```shell
     sudo mv ~/.heimdalld /var/lib/heimdall
     sudo mv ~/.bor /var/lib/bor
+    sudo chown -R heimdall /var/lib/heimdall
+    sudo chown -R bor /var/lib/bor
     ```
+
     In case data copying is too slow or original data folder is mounted on a different device, you can create symlinks
+
     ```shell
+    sudo chown -R heimdall ~/.bor
+    sudo chown -R bor ~/.heimdalld
     sudo ln -nfs ~/.heimdalld /var/lib/heimdall
     sudo ln -nfs ~/.bor /var/lib/bor
+    sudo chown -R heimdall /var/lib/heimdall
+    sudo chown -R bor /var/lib/bor
     ```
 
 - Copy configurations in `node/bor/start.sh` to bor configuration file `/var/lib/bor/config.toml`. Note that some 
   flags are renamed in the new CLI, you can find the documentation for new CLI [here](https://github.com/maticnetwork/bor/tree/master/docs/cli) and sample configuration file in [launch repository](https://github.com/maticnetwork/launch).
+
+  You can use [this util script](https://github.com/maticnetwork/bor/blob/develop/scripts/getconfig.sh) to convert start.sh to a config.toml file on your host. Example usage:
+
+  ```shell
+  $ git clone https://github.com/maticnetwork/bor.git
+  $ cd bor/scripts
+  $ BOR_DIR=/var/lib/bor ./getconfig.sh
+  * Path to start.sh: /home/ubuntu/node/bor/start.sh
+  * Your validator address (e.g. 0xca67a8D767e45056DC92384b488E9Af654d78DE2), or press Enter to skip if running a sentry node: 0xca67a8D767e45056DC92384b488E9Af654d78DE2
+  Thank you, your inputs are:
+  Path to start.sh: /home/ubuntu/node/bor/start.sh
+  Address: 0xca67a8D767e45056DC92384b488E9Af654d78DE2
+  Path to the config file: /home/ubuntu/node/bor/start-config.toml
+  ...
+
+  $ sudo cp /home/ubuntu/node/bor/start-config.toml /var/lib/bor/config.toml
+  $ sudo chown bor /var/lib/bor/config.toml
+  ```
 
 ## Configure service files for Bor and Heimdall
 
@@ -777,19 +802,46 @@ outlined below. If you are installing everything from a new machine, you can ski
     sudo mv /etc/systemd/system/heimdalld-bridge.service ./backup
     ```
 
-- Migrate heimdall and bor directory to `/var/lib`
+- Migrate heimdall and bor directory to `/var/lib` and change ownership:
     ```shell
     sudo mv ~/.heimdalld /var/lib/heimdall
     sudo mv ~/.bor /var/lib/bor
+    sudo chown -R heimdall /var/lib/heimdall
+    sudo chown -R bor /var/lib/bor
     ```
+
     In case data copying is too slow or original data folder is mounted on a different device, you can create symlinks
+    
     ```shell
+    sudo chown -R heimdall ~/.bor
+    sudo chown -R bor ~/.heimdalld
     sudo ln -nfs ~/.heimdalld /var/lib/heimdall
     sudo ln -nfs ~/.bor /var/lib/bor
+    sudo chown -R heimdall /var/lib/heimdall
+    sudo chown -R bor /var/lib/bor
     ```
+
 
 - Copy configurations in `node/bor/start.sh` to bor configuration file `/var/lib/bor/config.toml`. Note that some 
   flags are renamed in the new CLI, you can find the documentation for new CLI [here](https://github.com/maticnetwork/bor/tree/master/docs/cli) and sample configuration file in [launch repository](https://github.com/maticnetwork/launch).
+
+  You can use [this util script](https://github.com/maticnetwork/bor/blob/develop/scripts/getconfig.sh) to convert start.sh to a config.toml file on your host. Example usage:
+
+  ```shell
+  $ git clone https://github.com/maticnetwork/bor.git
+  $ cd bor/scripts
+  $ BOR_DIR=/var/lib/bor ./getconfig.sh
+  * Path to start.sh: /home/ubuntu/node/bor/start.sh
+  * Your validator address (e.g. 0xca67a8D767e45056DC92384b488E9Af654d78DE2), or press Enter to skip if running a sentry node: 0xca67a8D767e45056DC92384b488E9Af654d78DE2
+  Thank you, your inputs are:
+  Path to start.sh: /home/ubuntu/node/bor/start.sh
+  Address: 0xca67a8D767e45056DC92384b488E9Af654d78DE2
+  Path to the config file: /home/ubuntu/node/bor/start-config.toml
+  ...
+
+  $ sudo cp /home/ubuntu/node/bor/start-config.toml /var/lib/bor/config.toml
+  $ sudo chown bor /var/lib/bor/config.toml
+  ```
 
 
 
