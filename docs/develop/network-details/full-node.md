@@ -387,21 +387,6 @@ outlined below. If you are installing everything from a new machine, you can ski
     sudo mv /etc/systemd/system/heimdalld-bridge.service ./backup
     ```
 
-- Migrate heimdall and bor directory to `/var/lib`:
-
-    ```shell:
-    
-    sudo mv ~/.heimdalld /var/lib/heimdall
-    sudo mv ~/.bor /var/lib/bor
-    ```
-    In case data copying is too slow or original data folder is mounted on a different device, 
-    you can create symlinks:
-    
-    ```shell
-    sudo ln -nfs ~/.heimdalld /var/lib/heimdall
-    sudo ln -nfs ~/.bor /var/lib/bor
-    ```
-
 - Migrate heimdall and bor directory to `/var/lib` and change ownership:
     ```shell
     sudo mv ~/.heimdalld /var/lib/heimdall
@@ -415,6 +400,7 @@ outlined below. If you are installing everything from a new machine, you can ski
     ```shell
     sudo chown -R heimdall ~/.bor
     sudo chown -R bor ~/.heimdalld
+    sudo rm -rf /var/lib/heimdall
     sudo ln -nfs ~/.heimdalld /var/lib/heimdall
     sudo ln -nfs ~/.bor /var/lib/bor
     sudo chown -R heimdall /var/lib/heimdall

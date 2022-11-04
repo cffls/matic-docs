@@ -463,6 +463,7 @@ outlined below. If you are installing everything from a new machine, you can ski
     ```shell
     sudo chown -R heimdall ~/.bor
     sudo chown -R bor ~/.heimdalld
+    sudo rm -rf /var/lib/heimdall
     sudo ln -nfs ~/.heimdalld /var/lib/heimdall
     sudo ln -nfs ~/.bor /var/lib/bor
     sudo chown -R heimdall /var/lib/heimdall
@@ -815,6 +816,7 @@ outlined below. If you are installing everything from a new machine, you can ski
     ```shell
     sudo chown -R heimdall ~/.bor
     sudo chown -R bor ~/.heimdalld
+    sudo rm -rf /var/lib/heimdall
     sudo ln -nfs ~/.heimdalld /var/lib/heimdall
     sudo ln -nfs ~/.bor /var/lib/bor
     sudo chown -R heimdall /var/lib/heimdall
