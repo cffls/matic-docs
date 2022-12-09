@@ -2,11 +2,16 @@
 id: delegator-faq
 title: Delegator FAQ
 sidebar_label: Delegator FAQ
-description: Build your next blockchain app on Polygon.
+description: FAQs related to Delegation on Polygon network
 keywords:
   - docs
-  - matic
-image: https://matic.network/banners/matic-network-16x9.png
+  - polygon
+  - how to delegate
+  - validator
+  - stake
+  - faq
+  - delegator
+image: https://wiki.polygon.technology/img/polygon-wiki.png
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -14,23 +19,23 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The staking dashboard URL is https://staking.polygon.technology/.
 
-### What is the Minimum stake amount?
+### What is the minimum stake amount?
 
-There is no minimum stake amount to delegate. However, you can always start with 1 Matic token
+There is no minimum stake amount to delegate. However, you can always start with 1 MATIC token.
 
 ### How many rewards will I get if I delegate?
 
-Please use the Staking Rewards Calculator to determine your estimates. https://staking.polygon.technology/rewards-calculator
+Please use the [Staking Rewards Calculator](https://staking.polygon.technology/rewards-calculator) to determine your estimates.
 
 ### Why does my transaction take so long?
 
 All staking transactions of Polygon happen on Ethereum for security reasons.
 
-The time taken to complete a transaction depends on the gas fees that you have allowed and also the network congestion of Ethereum mainnet at that point in time. You can always use the “Speed Up” option to increase the gas fees so that your transaction can be completed soon
+The time taken to complete a transaction depends on the gas fees that you have allowed and also the network congestion of Ethereum mainnet at that point in time. You can always use the “Speed Up” option to increase the gas fees so that your transaction can be completed soon.
 
 ### Which wallets are currently supported?
 
-Currently, only the Metamask extension on the desktop browser and Coinbase Wallet are supported. Additionally you can use WalletConnect and Walletlink from supported mobile wallets to interact with the Staking UI dashboard on desktop/laptop. We will be gradually adding support for other wallets soon.
+Currently, only the Metamask extension on the desktop browser and Coinbase Wallet are supported. Additionally you can use WalletConnect and Walletlink from supported mobile wallets to interact with the Staking UI dashboard on desktop / laptop. We will be gradually adding support for other wallets soon.
 
 ### Are hardware wallets supported?
 
@@ -42,7 +47,7 @@ Staking through Binance is not yet supported. There will be an announcement if a
 
 ### I have completed my delegation, where can I check details?
 
-Once you have completed your delegation, wait for 12 block confirmations on Ethereum (~3-5 minutes), then on the Dashboard,you can click on the “My Delegator Details” option on the left-hand side. Or you could also click on “Show Delegator Profile” card
+Once you have completed your delegation, wait for 12 block confirmations on Ethereum (~3-5 minutes), then on the Dashboard,you can click on the “My Delegator Details” option on the left-hand side. Or you could also click on “Show Delegator Profile” card.
 
 ### Where can I check my rewards?
 
@@ -54,7 +59,7 @@ Check the `New Rewards` card on the right. Once you accrue rewards, you can clic
 
 Yes. You should provision for ~0.05-0.1 ETH to be safe.
 
-### Do I need to deposit Matic tokens to the Polygon Mainnet network for staking?
+### Do I need to deposit MATIC tokens to the Polygon Mainnet network for staking?
 
 No. All your funds need to be on the Main Ethereum Network.
 
@@ -66,13 +71,13 @@ Please check if you have enough ETH for the gas fees.
 
 The rewards are distributed whenever a checkpoint is submitted.
 
-Currently 20188 Matic tokens are distributed proportionately on each successful checkpoint submission to each delegator based on their stake relative to the overall staking pool of all validators and delegators. Also, the percentage for the reward distributed to each delegator will vary with each checkpoint depending on the relative stake of the delegator, validator and the overall stake.
+Currently, 20188 MATIC tokens are distributed proportionately on each successful checkpoint submission to each delegator based on their stake relative to the overall staking pool of all validators and delegators. Also, the percentage for the reward distributed to each delegator will vary with each checkpoint depending on the relative stake of the delegator, validator and the overall stake.
 
 (Note that there is a 10% proposer bonus that accrues to the validator who submits the checkpoint, but over time, the effect of the extra bonus is nullified over multiple checkpoints by different validators.)
 
 The checkpoint submission is done by one of the validators approximately every 34 minutes. This time is approximate and may vary based on validator consensus on the Polygon Heimdall layer. This may also vary based on Ethereum Network. Higher congestion in the network may result in delayed checkpoints.
 
-You can track checkpoints on the staking contract here: https://etherscan.io/address/0x86e4dc95c7fbdbf52e33d563bbdb00823894c287
+You can track checkpoints on the staking contract [here](https://etherscan.io/address/0x86e4dc95c7fbdbf52e33d563bbdb00823894c287)
 
 ### Why does reward keep getting decreased every checkpoint?
 
@@ -82,29 +87,29 @@ Rewards will be higher, to begin with, and will keep decreasing as the locked su
 
 ### How can I claim my rewards?
 
-You can claim your rewards instantly by clicking on the “New Rewards” card and then clicking on the Withdraw rewards button. This will transfer the rewards accumulated to your delegated account on Metamask.
+You can claim your rewards instantly by clicking on the **New Rewards** card and then clicking on the **Withdraw Rewards** button. This will transfer the rewards accumulated to your delegated account on Metamask.
 
 ### What is the Unbonding period?
 
-The unbonding period on Polygon is approximately 9 days now. It was 19 days previously. This period applies to the originally delegated amount and re-delegated amounts - it does not apply to any rewards that were nor re-delegated.
+The unbonding period on Polygon is approximately 9 days now. It was 19 days previously. This period applies to the originally delegated amount and re-delegated amounts - it does not apply to any rewards that were not re-delegated.
 
 ### Will I keep receiving rewards after I unbond?
 
-No. Once you unbond you stop receiving rewards.
+No. Once you unbond, you will stop receiving rewards.
 
 ### How many transactions does the delegation require?
 
-Delegation requires 2 transactions one after the other - one Approve and another Deposit.
+Delegation requires 2 transactions, one after the other. One to **Approve** the request and another to **Deposit**.
 
 ### What does Redelegate Rewards mean?
 
-Redelegating your rewards simply means, that you want to increase your stake by restaking the rewards you have accumulated.
+Redelegating your rewards simply means that you want to increase your stake by restaking the rewards you have accumulated.
 
 ### Can I stake to any validator?
 
 Yes. All validators are Polygon Foundation nodes currently.
 
-We are doing a phased rollout of the Polygon mainnet. Later on, external validators will be onboarded gradually. Please see https://blog.matic.network/mainnet-is-going-live-announcing-the-launch-sequence/ for more details.
+We are doing a phased rollout of the Polygon Mainnet. Later on, external validators will be onboarded gradually. Please see https://blog.matic.network/mainnet-is-going-live-announcing-the-launch-sequence/ for more details.
 
 ### Which browser is compatible with Staking Dashboard?
 
@@ -114,21 +119,21 @@ Chrome, Firefox, and Brave
 
 Check for the following:
 
-- If you’re using Brave, please turn off the option for “Use Crypto Wallets” in the settings panel.
+- If you’re using Brave, please turn off the option for **Use Crypto Wallets** in the settings panel.
 - Check if you are logged into Metamask
 - Check if you are logged into Metamask with Trezor/Ledger. You need to additionally turn on permission to call contracts on your Ledger device, if not enabled already.
 - Check your system timestamp. If the system time is not correct, you will need to correct it.
 
 ### How do I send funds from Binance or other exchanges to Polygon wallet?
 
-Technically, the Polygon Wallet Suite/Staking interface is just a web application. Currently it supports the following wallets - Metamask. WalletConnect and WalletLink
+Technically, the Polygon Wallet Suite/Staking interface is just a web application. Currently it supports the following wallets - Metamask, WalletConnect, and WalletLink.
 
-So first you must withdraw your funds from Binance or any other exchange to your Ethereum address on Metamask. If you don't know how to use Metamask, google it a bit. There are plenty of videos and blogs to get started with it.
+First, you must withdraw your funds from Binance or any other exchange to your Ethereum address on Metamask. If you don't know how to use Metamask, google it a bit. There are plenty of videos and blogs to get started with it.
 
-### When will be possible to become a validator and how many tokens do I need to have?
+### When can I become a validator and how many tokens do I for that?
 
 A user can earn a validator spot only by if the below conditions come into play:
-1. When a validator decides to unstake from the network or
+1. When a validator decides to unstake from the network, or
 2. Wait for the auction mechanism and replace the inactive validator.
 
 The minimum stake depends on the auction process where one user outbids another.
@@ -141,15 +146,15 @@ In case you dont want that to happen, re-delegate your rewards before delegating
 
 ### I have delegated my tokens via Metamask on the Staking dashboard. Do I need to keep my system or device on?
 
-No. Once your Delegation transactions are confirmed, and you can see your tokens reflected in the Total Stake and New Reward cards/sections, then you are done. There is no need to keep your system or device on.
+No. Once your Delegation transactions are confirmed, and you can see your tokens reflected in the **Total Stake** and **New Reward** sections, then you are done. There is no need to keep your system or device on.
 
-### I have unbonded, how long will it take to Unbond
+### I have unbonded, how long will it take to Unbond?
 
 The unbonding period is currently set to 82 checkpoints. This is approximately 9 days. Every checkpoint takes approximately 34 minutes. However, some checkpoints could be delayed upto ~1 hour due to congestion on Ethereum.
 
-### I have unbonded, and I now see the Claim Stake button, but it is disabled, why is that
+### I have unbonded, and I now see the Claim Stake button, but it is disabled, why is that?
 
-The Claim stake button will only be enabled when your unbonding period is complete. The unbonding period is currently set at 82 checkpoints.
+The Claim Stake button will only be enabled when your unbonding period is complete. The unbonding period is currently set at 82 checkpoints.
 
 ### Do I know when will the Claim Stake button be enabled?
 
@@ -173,7 +178,7 @@ If you haven't already claimed your rewards before switching delegation, then up
 
 ### Will delegation on the External Nodes work the same as Foundation Nodes?
 
-Yes, it will work the same as Foundation nodes
+Yes, it will work the same as Foundation nodes.
 
 ### Will I still get rewards after delegating to an External Node?
 
@@ -197,12 +202,11 @@ No, the **Move Stake** option is only available on the Foundation Nodes. If you 
 
 ### When will the Foundations node be turned off?
 
-The foundation nodes will be turned by the end of January, 2021
+The foundation nodes will be turned off by the end of January, 2021.
 
 ### Will there be any Foundation nodes in the future?
 
-No, there won't be any foundation nodes in the future.
-
+No, there won't be any Foundation nodes in the future.
 
 ### How many transactions do I need to pay for Gas when I do a Move Stake?
 

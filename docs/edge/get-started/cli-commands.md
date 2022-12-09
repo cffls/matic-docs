@@ -35,40 +35,21 @@ The `--json` flag is supported on some commands. This flag instructs the command
 
 | **All server flags**                                                                        |
 |---------------------------------------|---------------------------------------------|
-| [seal](/docs/edge/get-started/cli-commands#seal) | [data-dir](/docs/edge/get-started/cli-commands#data-dir) |
-| [jsonrpc](/docs/edge/get-started/cli-commands#jsonrpc) | [json-rpc-block-range-limit](/docs/edge/get-started/cli-commands#json-rpc-block-range-limit) |
-[grpc](/docs/edge/get-started/cli-commands#grpc) | [libp2p](/docs/edge/get-started/cli-commands#libp2p) |
-| [prometheus](/docs/edge/get-started/cli-commands#prometheus) | [block-gas-target](/docs/edge/get-started/cli-commands#block-gas-target) |
+| [data-dir](/docs/edge/get-started/cli-commands#data-dir) | [jsonrpc](/docs/edge/get-started/cli-commands#jsonrpc) | 
+| [json-rpc-block-range-limit](/docs/edge/get-started/cli-commands#json-rpc-block-range-limit) | [json-rpc-batch-request-limit](/docs/edge/get-started/cli-commands#json-rpc-batch-request-limit) |
+|[grpc](/docs/edge/get-started/cli-commands#grpc) | [libp2p](/docs/edge/get-started/cli-commands#libp2p) | 
+| [prometheus](/docs/edge/get-started/cli-commands#prometheus) | [block-gas-target](/docs/edge/get-started/cli-commands#block-gas-target) | 
 | [max-peers](/docs/edge/get-started/cli-commands#max-peers) | [max-inbound-peers](/docs/edge/get-started/cli-commands#max-inbound-peers) |
 | [max-outbound-peers](/docs/edge/get-started/cli-commands#max-outbound-peers) | [max-enqueued](/docs/edge/get-started/cli-commands#max-enqueued) |
 | [log-level](/docs/edge/get-started/cli-commands#log-level) | [log-to](/docs/edge/get-started/cli-commands#log-to) |
 | [chain](/docs/edge/get-started/cli-commands#chain) | [join](/docs/edge/get-started/cli-commands#join) |
-| [nat](/docs/edge/get-started/cli-commands#nat) | [dns](/docs/edge/get-started/cli-commands#dns) |
-| [price-limit](/docs/edge/get-started/cli-commands#price-limit) | [max-slots](/docs/edge/get-started/cli-commands#max-slots) | [config](/docs/edge/get-started/cli-commands#config) |
-| [secrets-config](/docs/edge/get-started/cli-commands#secrets-config) | [dev](/docs/edge/get-started/cli-commands#dev) |
-| [dev-interval](/docs/edge/get-started/cli-commands#dev-interval) | [no-discover](/docs/edge/get-started/cli-commands#no-discover) | [restore](/docs/edge/get-started/cli-commands#restore) |
+| [nat](/docs/edge/get-started/cli-commands#nat) | [dns](/docs/edge/get-started/cli-commands#dns) | 
+| [price-limit](/docs/edge/get-started/cli-commands#price-limit) | [max-slots](/docs/edge/get-started/cli-commands#max-slots) |
+| [config](/docs/edge/get-started/cli-commands#config) | [secrets-config](/docs/edge/get-started/cli-commands#secrets-config) | 
+| [dev](/docs/edge/get-started/cli-commands#dev) | [dev-interval](/docs/edge/get-started/cli-commands#dev-interval) | 
+| [no-discover](/docs/edge/get-started/cli-commands#no-discover) | [restore](/docs/edge/get-started/cli-commands#restore) | 
 | [block-time](/docs/edge/get-started/cli-commands#block-time) | [access-control-allow-origins](/docs/edge/get-started/cli-commands#access-control-allow-origins) |
 
-
-
-#### <h4><i>seal</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    server [--seal SHOULD_SEAL]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    server --seal
-
-  </TabItem>
-</Tabs>
-
-Sets the flag indicating that the client should seal blocks. Default: `true`.
-
----
 
 #### <h4><i>data-dir</i></h4>
 
@@ -666,7 +647,7 @@ Sets the directory for the Polygon Edge genesis data. Default: `./genesis.json`.
   </TabItem>
 </Tabs>
 
-Sets the name for the chain. Default: `polyton-edge`.
+Sets the name for the chain. Default: `polygon-edge`.
 
 ---
 
@@ -1660,6 +1641,18 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 Address of the gRPC API. Default: `127.0.0.1:9632`.
 
 ---
+<h3>version command</h3>
+
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    version
+
+  </TabItem>
+</Tabs>
+
+Displays release version, git branch, commit hash and build time.
 
 ## Secrets Commands
 
@@ -1667,6 +1660,7 @@ Address of the gRPC API. Default: `127.0.0.1:9632`.
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | secrets init      | Initializes the private keys to the corresponding secrets manager                                                         |
 | secrets generate         | Generates a secrets manager configuration file which can be parsed by the Polygon Edge    |
+| secrets output    | Prints the BLS public key address, validator public key address, and node id for reference |
 
 ### secrets init flags
 
@@ -1877,6 +1871,101 @@ Specifies the name of the node for on-service record keeping. Default: `polygon-
 
 Specifies the namespace used for the Hashicorp Vault secrets manager. Default: `admin`
 
+### secrets output flags
+
+<h4><i>bls</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    secrets output [--bls FLAG]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    secrets output --bls
+
+  </TabItem>
+</Tabs>
+
+Sets the flag indicating whether to only output the BLS public key. Default: `true`
+
+---
+
+<h4><i>config</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    secrets output [--config SECRETS_CONFIG]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    secrets output --config ./secretsManagerConfig.json
+
+  </TabItem>
+</Tabs>
+
+Sets the path to the SecretsManager config file. If omitted, the local FS secrets manager is used.
+
+---
+
+<h4><i>data-dir</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    secrets output [--data-dir DATA_DIRECTORY]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    secrets output --data-dir ./example-dir
+
+  </TabItem>
+</Tabs>
+
+Sets the directory for the Polygon Edge data if the local FS is used.
+
+---
+
+<h4><i>node-id</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    secrets output [--node-id FLAG]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    secrets output --node-id
+
+  </TabItem>
+</Tabs>
+
+Sets the flag indicating whether to only output the network node ID. Default: `true`
+
+---
+
+<h4><i>validator</i></h4>
+
+<Tabs>
+  <TabItem value="syntax" label="Syntax" default>
+
+    secrets output [--validator FLAG]
+
+  </TabItem>
+  <TabItem value="example" label="Example">
+
+    secrets output --validator
+
+  </TabItem>
+</Tabs>
+
+Sets the flag indicating whether to only output the validator address. Default: `true`
+
 ---
 
 ## Responses
@@ -2011,274 +2100,6 @@ Adds a new address to the contract deployment whitelist. Only the addresses in t
 </Tabs>
 
 Removes an address from the contract deployment whitelist. Only the addresses in the contract deployment whitelist can deploy contracts. If empty, any address can execute the contract deployment
-
----
-
-### loadbot flags
-
-<h4><i>tps</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    loadbot [--tps NUMBER_OF_TXNS_PER_SECOND]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    loadbot --tps 2000
-
-  </TabItem>
-</Tabs>
-
-The number of transactions per second to send. Default: `100`.
-
----
-
-<h4><i>mode</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    loadbot [--mode MODE]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    loadbot --mode transfer
-
-  </TabItem>
-</Tabs>
-
-Sets the loadbot run mode [`transfer`, `deploy`]. Default: `transfer`.
-
----
-
-<h4><i>chain-id</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    loadbot [--chain-id CHAIN_ID]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    loadbot --chain-id 100
-
-  </TabItem>
-</Tabs>
-
-Sets the network chain ID for transactions. Default: `100`.
-
----
-
-<h4><i>gas-price</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    loadbot [--gas-price GAS_PRICE]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    loadbot --gas-price 10000
-
-  </TabItem>
-</Tabs>
-
-The gas price that should be used for the transactions. If omitted, the average gas price is fetched from the network.
-
----
-
-<h4><i>gas-limit</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    loadbot [--gas-limit GAS_LIMIT]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    loadbot --gas-limit 10000
-
-  </TabItem>
-</Tabs>
-
-The gas limit that should be used for the transactions. If omitted, the gas limit is estimated before starting the loadbot.
-
----
-
-<h4><i>grpc-address</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    loadbot --grpc-address GRPC_ADDRESS
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    loadbot --grpc-address 127.0.0.1:9645
-
-  </TabItem>
-</Tabs>
-
-The GRPC endpoint used to send transactions
-
----
-
-<h4><i>detailed</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    loadbot [--detailed DETAILED]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    loadbot --detailed
-
-  </TabItem>
-</Tabs>
-
-Flag indicating if the error logs should be shown. Default: `false`.
-
----
-
-<h4><i>contract</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    loadbot [--contract CONTRACT_PATH]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    loadbot --contract ./myContract.json
-
-  </TabItem>
-</Tabs>
-
-The path to the contract JSON artifact containing the bytecode. If omitted, a default contract is used.
-
----
-
-<h4><i>sender</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    loadbot [--sender ADDRESS]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    loadbot --sender 0x1010101010101010101010101010101010101020
-
-  </TabItem>
-</Tabs>
-
-Address of the sender account.
-
----
-
-<h4><i>receiver</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    loadbot [--receiver ADDRESS]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    loadbot --receiver 0x1010101010101010101010101010101010101000
-
-  </TabItem>
-</Tabs>
-
-Address of the receiver account.
-
----
-
-<h4><i>jsonrpc</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    loadbot [--jsonrpc ENDPOINT]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    loadbot --jsonrpc http://127.0.0.1:8545
-
-  </TabItem>
-</Tabs>
-
-A JSON RPC endpoint used to send transactions.
-
----
-
-<h4><i>count</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    loadbot [--count COUNT]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    loadbot --count 100
-
-  </TabItem>
-</Tabs>
-
-The total number of transactions to send. Default: `1000`.
-
----
-
-<h4><i>value</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    loadbot [--value VALUE]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    loadbot --value 10000000000000000
-
-  </TabItem>
-</Tabs>
-
-The value to send in each transaction.
-
----
-
-<h4><i>max-conns</i></h4>
-
-<Tabs>
-  <TabItem value="syntax" label="Syntax" default>
-
-    loadbot [--max-conns MAX_CONNECTIONS_COUNT]
-
-  </TabItem>
-  <TabItem value="example" label="Example">
-
-    loadbot --max-conns 1000
-
-  </TabItem>
-</Tabs>
-
-Sets the maximum no.of connections allowed per host. Default: `2*tps`.
 
 ---
 

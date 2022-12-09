@@ -1,20 +1,19 @@
 ---
 id: introduction
-title: Introduction to Polynomial Identity Language
+title: Polynomial Identity Language
 sidebar_label: Introduction
-description: "The concept of Polynomial Identity Language."
+description: The concept of Polynomial Identity Language
 keywords:
   - docs
   - polygon
   - PIL
   - state
   - machine
-image: https://matic.network/banners/matic-network-16x9.png
+  - Polygon zkEVM
+image: https://wiki.polygon.technology/img/thumbnail/polygon-zkevm.png
 ---
 
-# **Polynomial Identity Language**
-
-## **Introduction**
+## Introduction
 
 **Polynomial Identity Language (PIL)** is a novel domain-specific language useful for defining state machines. The aim for creating PIL is to provide developers a holistic framework for both constructing state machines through an easy-to-use interface, and abstracting the complexity of the proving mechanisms.
 
@@ -27,7 +26,7 @@ Some of the keys features of PIL are;
 - Expressing polynomial relations, including $\texttt{identities}$ and $\texttt{lookup arguments}$, and
 - Specifying the type of a polynomial, such as $\texttt{bool}$ or $\texttt{u32}$.
 
-## **State Machines: The Computational Model Behind PIL**
+## State Machines: The Computational Model Behind PIL
 
 Many other domain-specific languages (DSL) or toolstacks, such as [Circom](https://docs.circom.io/) or [Halo2](https://zcash.github.io/halo2/), focus on the abstraction of a particular computational model, such as an arithmetic circuit.
 
@@ -43,7 +42,7 @@ A typical state machine takes some input and produces the corresponding output, 
 
 ![Architectural view of a State Machine](figures/fig2-alu-3states.png)
 
-### **Comparing Circuit and State Machines**
+### Comparing Circuit and State Machines
 
 1. The diagram below shows the comparison between the Circuit and State Machine in a loop-based computation program.
 

@@ -11,7 +11,7 @@ keywords:
   - bugs
   - attacks
 slug: reporting-issues
-image: https://matic.network/banners/matic-network-16x9.png
+image: https://wiki.polygon.technology/img/polygon-wiki.png
 ---
 
 ## Where to report a bug
@@ -22,17 +22,17 @@ You need to make sure that you add all relevant details, such as an email addres
 
 ## What happens after submitting a report
 
-Upon reporting an issue, the Polygon Project team will review and update/comment on the status of the issue. Upon evaluation, the Polygon team will report the outcome of the submission. The Severity will also be tagged as per the evaluation.
+Upon reporting an issue, the Polygon team will review and update / comment on the status of the issue. Upon evaluation, the Polygon team will report the outcome of the submission. The Severity will also be tagged as per the evaluation.
 
 ## Contact us for further questions
 
 You can always connect with the community leaders, Anurag & Parvez, via email or tag the validator-support-team on Discord:
 
-### Via email
+### Via E-mail
 
 * Anurag — anurag@polygon.technology
 * Parvez — parvez.shaikh@polygon.technology
 
-## Via Discord tag:
+### Via Discord
 
-* @validator-support-team
+* Check out the @validator-support-team channel on our [Discord](https://discord.com/invite/0xPolygon) server.

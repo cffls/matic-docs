@@ -8,10 +8,9 @@ keywords:
   - polygon
   - PIL
   - cyclical
-image: https://matic.network/banners/matic-network-16x9.png
+  - Polygon zkEVM
+image: https://wiki.polygon.technology/img/thumbnail/polygon-zkevm.png
 ---
-
-# **Cyclic Nature**
 
 There is one implicit complexity in the design of state machines:
 

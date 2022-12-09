@@ -1,26 +1,29 @@
 ---
 id: install-gcp
-title: Deploy Polygon nodes in Google Cloud
+title: Deploy Polygon nodes on Google Cloud
 sidebar_label: Google Cloud Deployment
-description: "Simple deployment of your Polygon nodes in Google Cloud."
+description: Simple deployment of your Polygon nodes on Google Cloud
 keywords:
 - docs
 - polygon
+- deploy
+- nodes
 - gcp
 - google cloud
 slug: install-gcp
+image: https://wiki.polygon.technology/img/polygon-wiki.png
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Description
+# Deploy Polygon Nodes on Google Cloud
 
-In this document, we will describe how to deploy Polygon nodes into VM instance in Google Cloud
+In this document, we will describe how to deploy Polygon nodes into a VM instance on Google Cloud.
 
-## Hardware requirements
+### Hardware requirements
 
-Check the minimum and recommended [hardware requirements](/docs/maintain/validate/validator-node-system-requirements) in Polygon docs
+Check the minimum and recommended [hardware requirements](/docs/maintain/validate/validator-node-system-requirements) in Polygon Wiki.
 
-## Software requirements
+### Software requirements
 
 Use any modern Debian or Ubuntu Linux OS with long-term support, i.e. Debian 11, Ubuntu 20.04. We'll focus on Ubuntu 20.04 in this manual
 
@@ -53,7 +56,7 @@ Pay attention to default region and zone, choose ones closer to you or your cust
    export POLYGON_BOOTSTRAP_MODE=snapshot
    export POLYGON_RPC_PORT=8747
    export GCP_NETWORK_TAG=polygon
-   export EXTRA_VAR=(bor_branch=v0.2.16 heimdall_branch=v0.2.11  network_version=mainnet-v1 node_type=sentry/sentry heimdall_network=${POLYGON_NETWORK})
+   export EXTRA_VAR=(bor_branch=v0.2.16 heimdall_branch=v0.2.12  network_version=mainnet-v1 node_type=sentry/sentry heimdall_network=${POLYGON_NETWORK})
    gcloud compute firewall-rules create "polygon-p2p" --allow=tcp:26656,tcp:30303,udp:30303 --description="polygon p2p" --target-tags=${GCP_NETWORK_TAG}
    gcloud compute firewall-rules create "polygon-rpc" --allow=tcp:${POLYGON_RPC_PORT} --description="polygon rpc" --target-tags=${GCP_NETWORK_TAG}
    export INSTANCE_NAME=polygon-0

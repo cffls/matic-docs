@@ -6,29 +6,36 @@ description: "EOAs and Contract Accounts."
 keywords:
   - docs
   - matic
-image: https://matic.network/banners/matic-network-16x9.png 
+  - polygon
+  - accounts
+  - EOAs
+  - contract accounts
+image: https://wiki.polygon.technology/img/polygon-wiki.png
 ---
-The global state of Ethereum is comprised of accounts that interact with one another through a message-passing framework. The most basic interaction is that of sending some value - like matic tokens, ether - the native cryptocurrency of Ethereum blockchain.
-Each account is identified by a 20 byte hex identifier which is called an address - this is generated from public key of the account.
-There exist two types of accounts:
 
-1. Externally Owned Account - An account controlled by a private key, and if you own the private key associated with the account you have the ability to send tokens and messages from it.
-2. Contract Owned Account - An account that has an associated smart contract code with it and its private key is not owned by anyone
+# What are Accounts?
 
-These can be differentiated as follows:
+The global state of Ethereum is comprised of accounts that interact with one another through a message-passing framework. The most basic interaction is that of sending some value - like MATIC tokens, Polygon's native token or $ETH, the native token of the Ethereum blockchain.
 
-**Externally Owned Accounts** 
+Each account is identified by a 20-byte hex identifier which is called an address - which is generated from the public key of the account.
 
-1. can send transactions (ether transfer or trigger contract code)
-2. is controlled by private keys
-3. has no associated code
+There are two types of accounts: **Externally Owned Account** and **Contract Owned Accounts**.
 
-**Contract Owned Accounts** 
+## Externally Owned Accounts
 
-1. has associated code
-2. code execution is triggered by transactions or messages (calls) received from other contracts
-3. when executed - perform operations of arbitrary complexity (Turing completeness) - manipulate its own persistent storage, i.e., can have its own permanent state - can call other contracts.
+EOA are accounts controlled by a private key, with the ability of sending tokens and messages.
 
-### **:scroll:Resources**
+1. They can send transactions (ether transfer or trigger contract code),
+2. are controlled by private keys,
+3. and have no associated code.
 
-[Read more about accounts](https://github.com/ethereum/homestead-guide/blob/master/source/contracts-and-transactions/account-types-gas-and-transactions.rst#externally-owned-accounts-eoas)
+## Contract Owned Accounts
+Contract Owned Account are accounts that have an associated smart contract code with it and their private key is not owned by anyone.
+
+1. They have associated code,
+2. their code execution is triggered by transactions or messages (calls) received from other contracts,
+3. and when this code is executed - it performs operations of arbitrary complexity (Turing completeness) - manipulates its own persistent storage and can call other contracts.
+
+### Resources
+
+- [Read more about accounts](https://github.com/ethereum/homestead-guide/blob/master/source/contracts-and-transactions/account-types-gas-and-transactions.rst#externally-owned-accounts-eoas)

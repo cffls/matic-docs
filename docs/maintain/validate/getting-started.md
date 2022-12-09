@@ -1,7 +1,7 @@
 ---
 id: validator-index
 title: Validator Index
-description: A collection of instructions on how to run and operate validator nodes on the Polygon Network.
+description: A collection of instructions on how to run and operate validator nodes on the Polygon Network
 keywords:
   - docs
   - polygon
@@ -9,9 +9,16 @@ keywords:
   - validator
   - maintain
   - architecture
+  - Validator Index
 slug: validator-index
-image: https://matic.network/banners/matic-network-16x9.png 
+image: https://wiki.polygon.technology/img/polygon-wiki.png
 ---
+
+:::tip Stay in the know
+
+Keep up with the latest node and validator updates from the Polygon team and the community by subscribing to [Polygon notifications](https://polygon.technology/notifications/).
+
+:::
 
 Validators are the key actor in maintaining the Polygon network. Validators run a full node and secure 
 the network by staking MATIC to produce blocks, validate and participate in PoS consensus.
@@ -21,14 +28,6 @@ the network by staking MATIC to produce blocks, validate and participate in PoS 
 There is limited space for accepting new validators. New validators can only join the active set when a currently active validator unbonds.
 
 A new auction process for validator replacement will be rolled out.
-
-:::
-
-:::tip Stay in the know
-
-Keep up with the latest node and validator updates from the Polygon 
-team and the community by subscribing to the 
-[Polygon notification groups](https://polygon.technology/notifications/).
 
 :::
 
@@ -43,7 +42,7 @@ Polygon consists of the three following layers:
 To be a validator on the Polygon Network, you must run:
 
 * Sentry node — a separate machine running a Heimdall node and a Bor node. A sentry node is open to all nodes on the Polygon Network.
-* Validator node — a separate machine running a Heimdall node and a Bor node. A validator node receives the data from and the sends the data to the sentry node.
+* Validator node — a separate machine running a Heimdall node and a Bor node. A validator node is only open to its sentry node and closed to the rest of the network.
 * Stake the MATIC tokens in the staking contracts deployed on the Ethereum mainnet.
 
 ## Components
@@ -58,9 +57,7 @@ Heimdall does the following:
 
 Heimdall is based on Tendermint.
 
-:::note
-
-See also:
+:::info See Also
 
 * GitHub repository: [Heimdall](https://github.com/maticnetwork/heimdall)
 * GitHub repository: [Staking contracts](https://github.com/maticnetwork/contracts/tree/master/contracts/staking)
@@ -74,13 +71,9 @@ Bor does the following:
 
 * Produces blocks on the Polygon Network.
 
-Bor is based on Go Ethereum.
+Bor is the Block producer node and layer for the Polygon Network. It is based on Go Ethereum. Blocks produced on Bor are validated by Heimdall nodes.
 
-Bor is the Block producer node and layer for the Polygon Network. Blocks produced on Bor are validated by Heimdall nodes.
-
-:::note
-
-See also:
+:::info See Also
 
 * GitHub repository: [Bor](https://github.com/maticnetwork/bor)
 * Blog post: [Heimdall and Bor](https://blog.polygon.technology/heimdall-and-bor/)

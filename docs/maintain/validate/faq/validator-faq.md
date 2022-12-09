@@ -1,23 +1,23 @@
 ---
 id: validator-faq
 title: Validator FAQ
-description: "Common questions on validator operations."
+description: Common questions on validator operations
 keywords:
   - docs
   - matic
   - polygon
   - validator
   - faq
-image: https://matic.network/banners/matic-network-16x9.png
+image: https://wiki.polygon.technology/img/polygon-wiki.png
 ---
 
-## How can I reserve a validator spot?
+## How can I reserve a Validator spot?
 
-If we have a vacant validator slot, anyone with any amount of stake can become a validator in the system. There will be validator auctions organized periodically (days mostly), wherein anyone can replace any current validator by proposing higher stake. So, in short, it is an open system where we cannot reserve places for anyone.
+We currently manage validator evaluation through communications / interview before we onboard a validator into the Polygon network. We are also working on building an automated application and admission process, inclusive of questionnaire, scoring logic, and ranking to streamline the application process.
 
-In any case, there is always the possibility of stake delegation with the current validator set. Anyone can participate in the process with this mechanism and earn rewards as long as the respective validator is honest and online.
+Once complete, this process of validator admission will be passed to the community for approval via governance, and subsequently implemented if agreed upon.
 
-## What are the different states a validator can be in?
+## What are the different states a Validator can be in?
 
 * **Active**: Validator is in the current validator set, produces blocks at the Bor layer, participates in Heimdall consensus and commits checkpoint transactions to the Ethereum mainnet.
 * **Notice**: Validator sends a transaction to unbond. Before entering into the unbonding period, validator needs to be in active state creating, signing and proposing blocks for a certain time.
@@ -25,11 +25,11 @@ In any case, there is always the possibility of stake delegation with the curren
 
 ## Is there a minimum amount of MATIC required to stake to become a validator?
 
-The minimum is 1 Matic.
+The minimum is 1 MATIC. We had earlier mentioned that we are thinking of having a minimum self stake requirement from the validators, as we do hope that validators also have their skin in the game.
 
-We had earlier mentioned that we are thinking of having a minimum self stake requirement from the validators, as we do hope that validators also have their skin in the game. However, since we will be moving to a robust replacement strategy as the number of validator slots are limited as of now, this does not need any minimum self stake requirement. It is however, logical that over time, the average/median stake by a validator will tend upwards and become substantial.
+However, since we will be moving to a robust replacement strategy as the number of validator slots are limited as of now, this does not need any minimum self stake requirement. It is however, logical that over time, the average / median stake by a validator will tend upwards and become substantial.
 
-## How can a new validator replace an existing one?
+## How can a new Validator replace an existing one?
 
 There is limited space for accepting new validators. New validators can only join the active set when a currently active validator unbonds.
 
@@ -55,15 +55,15 @@ This typically means that your sentry Heimdall is running into issues. Check you
 
 Full error:
 
-```
+```bash
 E[2021-03-01|13:19:12.252] Connection failed @ sendRoutinemodule=p2ppeer=3d1f71344c2d3262eac724c22f8266d9b3e41925@3.217.49.94:26656 conn=MConn{3.217.49.94:26656} err="pong timeout"
 ```
 
-Usually restarting the Heimdall service should resolve the problem for you.
+Usually restarting the Heimdall service should resolve the problem.
 
 ## Heimdall shows "Error: Wrong Block.Header.AppHash. Expected xxxx"
 
-This error usually occurs when Heimdall service is stuck on a block and there is no Rewind options available on Heimdall.
+This error usually occurs when Heimdall service is stuck on a block and there is no rewind option available on Heimdall.
 
 **Solution:**
 To resolve this:
@@ -88,7 +88,7 @@ wget -c <Snapshot URL>
 tar -xzvf <snapshot file> -C <HEIMDALL_DATA_DIRECTORY>
 ```
 
-Then start Heimdall services again.
+Then start Heimdall services again. Refer to:
 
 See:
 
@@ -98,13 +98,11 @@ See:
 
 Full error:
 
-```
+```bash
 dpkg: error processing archive matic-heimdall_1.0.0_amd64.deb (--install): trying to overwrite '/heimdalld-rest-server.service', which is also in package matic-node 1.0.0
 ```
 
-This occurs mainly because of a previous installation of Polygon on your machine. To resolve you can run:
-
-`sudo dpkg -r matic-node`
+This occurs mainly because of a previous installation of Polygon on your machine. To resolve you can run: `sudo dpkg -r matic-node`
 
 ## It is not clear which private Key I should add when I generate a validator key
 
@@ -114,23 +112,17 @@ The private key to be used is your wallet's ETH address where your Polygon token
 
 You can run the following command to check it:
 
-```sh
+```bash
 curl http://localhost:26657/status
 ```
 
 Check the value of `catching_up`. If it is `false`, then the node is all synced up.
 
-## What's the difference between `/var/lib/heimdall` and `/etc/heimdall?`
-
-`/var/lib/heimdall` is the Heimdall directory when you use the binary installation method.
-
-`/etc/heimdall` is for the Linux package installation method.
 
 ## Where can I find Heimdall account info location?
 
-For binaries: `/var/lib/heimdall/config`.
+`/var/lib/heimdall/config`
 
-For Linux package `/etc/heimdall/config`.
 
 ## Which file do I add the persistent_peers?
 
@@ -140,7 +132,7 @@ You can add the persistent_peers to `/var/lib/heimdall/config/config.toml`.
 
 Reset the Heimdall config data and try running the installation again:
 
-```sh
+```bash
 heimdalld unsafe-reset-all
 rm -rf $HEIMDALLDIR/bridge
 ```
@@ -149,7 +141,7 @@ rm -rf $HEIMDALLDIR/bridge
 
 Full error:
 
-```
+```bash
 panic: Unknown db_backend leveldb, expected either goleveldb or memdb or fsdb
 ```
 
@@ -166,7 +158,8 @@ This issue happens when the WAL file is corrupted.
 **Solution:**
 
 Run the following commands:
-```
+
+```bash
 WALFILE=~/.heimdalld/data/cs.wal/wal
 cp $WALFILE ${WALFILE}.bak
 git clone https://github.com/maticnetwork/tendermint.git
@@ -206,11 +199,12 @@ This could happen when Bor has lost connectivity with other peers. In the case o
     Please note the `\` at the end of the line if this is not the last line of the bor invocation command.
 
 4. Now restart Bor: `sudo service bor restart`
-5. Follow the same steps on your validator node and instead of `enode_id_of_validator_node`, you need to provide the `enode_id_of_sentry_node` in `TrustedNodes`.
-
+5. Follow the same steps on your validator node and instead of `enode_id_of_validator_node`, you need to provide the `enode_id_of_sentry_node` in `TrustedNodes`
 
 :::note
+
 If the above steps didn’t work then please reach out to the Validator Team for assistance. This might be an issue with the genesis file.
+
 :::
 
 ## Sentry Bor shows 'Looking for peers' and cannot find peers
@@ -235,9 +229,7 @@ If your node is suffering because of this, please contact the support team on [D
 
 ## Bor shows "Failed to prepare mining for header"
 
-This message is not an error.
-
-The message indicates that the Bor node is not the one creating blocks right now.
+This message is not an error. The message indicates that the Bor node is not the one creating blocks right now.
 
 ## Bor shows "Invalid Merkle root" or "Retrieved hash chain is Invalid"
 
@@ -252,7 +244,7 @@ If the issue is not resolved, contact support team on [Discord](https://discord.
 
 ## Bor shows "Address is required as argument"
 
-This means that you have not added your [signer address](../../glossary#signer-address) to the metadata. You can add it using this path `/etc/matic/metadata` . Once the address is added, you can then restart the Bor service and everything should be fine.
+This means that you have not added your [signer address](/docs/maintain/glossary.md#signer-address) to the metadata. You can add it using this path `/etc/matic/metadata` . Once the address is added, you can then restart the Bor service and everything should be fine.
 
 ## Bor shows "Failed to unlock account (0x...) No key for given address or file"
 
@@ -274,24 +266,24 @@ For binaries:
 Your node not signing checkpoints could be for multiple reasons:
 
 1. Check if your Heimdall service is running correctly on your sentry and validator nodes. If the service has stopped abruptly or you see any errors, try restarting your Heimdall service and see it comes back to normal. If the issue persists, contact support team on [Discord](https://discord.com/invite/0xPolygon).
-1. Check your Bor service and see if it has halted abruptly or there are any errors on the logs. Try restarting your Bor service to resolve this issue. If the issue persists, contact support team on [Discord](https://discord.com/invite/0xPolygon).
-1. Check if your Heimdall Bridge is running or not or if it has any errors in the logs. Try restarting the service and see if the issue resolves. If the issue persists, contact support team on [Discord](https://discord.com/invite/0xPolygon).
+2. Check your Bor service and see if it has halted abruptly or there are any errors on the logs. Try restarting your Bor service to resolve this issue. If the issue persists, contact support team on [Discord](https://discord.com/invite/0xPolygon).
+3. Check if your Heimdall Bridge is running or not or if it has any errors in the logs. Try restarting the service and see if the issue resolves. If the issue persists, contact support team on [Discord](https://discord.com/invite/0xPolygon).
 
 If none of this is the issue, contact support team on [Discord](https://discord.com/invite/0xPolygon).
 
 ## How to set up a validator node on the mainnet?
 
-See [Getting Started](../validator-index)
+See [Getting Started](/docs/maintain/validate/validator-index).
 
 ## How to set up a non-validating node?
 
-See:
+Check out:
 
 * [Run a Validator Node](../run-validator)
 
 ## Why do I have to keep ETH in my signer account?
 
-ETH is required on your [signer account](../../glossary#signer-address) because for submitting checkpoints to Ethereum, all transactions require ETH to be used as gas. Hence ETH is required on your signer account.
+ETH is required on your [signer account](/docs/maintain/glossary.md#signer-address) because for submitting checkpoints to Ethereum, all transactions require ETH to be used as gas. Hence ETH is required on your signer account.
 
 ## Setting up a node with Ansible errors out with "Host not found"
 
@@ -307,7 +299,7 @@ Your sentry node gleans information / blocks from the network and then relays th
 
 ## What is the minimum disk space required to run a Validator node?
 
-See [Validator Node System Requirements](../validator-node-system-requirements).
+See [Validator Node System Requirements](/docs/maintain/validate/validator-node-system-requirements).
 
 ## Bridge shows "Error while fetching mainchain receipt error="
 
@@ -337,8 +329,8 @@ No. You cannot. Polygon's architecture currently does not allow validators runni
 
 There is no light node option as of now.
 
-* [Run a Full Node on a binary](../../../develop/network-details/full-node-binaries)
-* [Run a Full Node with Ansible](../../../develop/network-details/full-node-deployment)
+* [Run a Full Node on a binary](/docs/develop/network-details/full-node-binaries)
+* [Run a Full Node with Ansible](/docs/develop/network-details/full-node-deployment)
 
 ## What is the uptime percentage calculation on the staking dashboard?
 
@@ -362,13 +354,13 @@ curl  http://<your ip>:8545 -X POST -H "Content-Type: application/json" -d '
 '
 ```
 
-## Bor shows "ERROR[03-01|13:22:55.320] Block receipts missing, can't freezenumber=9397329 hash="2c38b0...cb41e7"**
+## Bor shows "ERROR[03-01|13:22:55.320] Block receipts missing, can't freezenumber=9397329 hash="2c38b0...cb41e7"
 
 This is generally not an error and should resolve on its own.
 
 ## Standard upgrade commands for Heimdall
 
-```sh
+```bash
 cd ~/heimdall
 git pull
 git checkout <branch tag>
@@ -376,7 +368,7 @@ make install
 sudo service heimdalld restart
 ```
 
-The latest version, [Heimdall v.0.2.11](https://github.com/maticnetwork/heimdall/releases/tag/v0.2.11), contains a few enhancements such as:
+The latest version, [Heimdall v.0.2.12](https://github.com/maticnetwork/heimdall/releases/tag/v0.2.12), contains a few enhancements such as:
 1. Restricting data size in state sync txs to:
     * **30Kb** when represented in **bytes**
     * **60Kb** when represented as **string**.
@@ -395,7 +387,7 @@ Length in byte format - 4
 
 These are the commands to upgrade Bor:
 
-```sh
+```bash
 cd ~/bor
 git pull
 git checkout <branch tag>
@@ -438,7 +430,7 @@ sudo rm /etc/heimdall
 
 Check `which bridge` — if it's `/usr/sbin/bridge`, you are not running the right "bridge" program.
 
-Try `~/go/bin/bridge` instead (or `$GOBIN/bridge)`
+Try `~/go/bin/bridge` instead (or `$GOBIN/bridge)`.
 
 ## Error: Unable to unmarshall config Error 1 error(s) decoding
 
@@ -456,7 +448,7 @@ This occurs mostly because there are typos, some missing parts or an old config 
 
 Stop Heimdall: `sudo service heimdalld stop`
 
-Stop Bor: `sudo service bor stop` or
+Stop Bor: `sudo service bor stop`, or
 
 1. `ps -aux | grep bor`. Get the PID for Bor and then run the following command.
 1. `sudo kill -9 PID`

@@ -2,8 +2,8 @@ const math = require('remark-math');
 const katex = require('rehype-katex');
 
 module.exports = {
-  title: "Polygon Technology | Documentation",
-  tagline: "Welcome to Polygon developer documentation",
+  title: "Polygon Wiki",
+  tagline: "The official documentation for all Polygon products.",
   url: "https://wiki.polygon.technology",
   baseUrl: "/",
   favicon: "img/polygon/polygon-logo.svg",
@@ -228,7 +228,7 @@ module.exports = {
     },
     copyright: `Copyright © ${new Date().getFullYear()} Polygon Technology`,
     },
-    image: "https://matic.network/banners/matic-network-16x9.png",
+    image: 'img/polygon-wiki.png',
     prism: {
       theme: require("prism-react-renderer/themes/github"),
       darkTheme: require("prism-react-renderer/themes/dracula"),
@@ -437,10 +437,14 @@ module.exports = {
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
           remarkPlugins: [math],
-          rehypePlugins: [katex],
+          rehypePlugins: [[katex, {strict: false, throwOnError: true,globalGroup: true}]],
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
+        },
+        gtag: {
+          trackingID: 'G-LLNECLTBDN',
+          anonymizeIP: true,
         },
       },
       // "@docuaurus/plugin-content-pages",

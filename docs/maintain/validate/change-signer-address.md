@@ -1,32 +1,34 @@
 ---
 id: change-signer-address
 title: Change Your Signer Address
-description: "Change the signer address of your validator."
+description: Change the signer address of your validator
 keywords:
   - docs
   - matic
   - polygon
-  - signer
+  - signer address
+  - change
+  - validator
 slug: change-signer-address
-image: https://matic.network/banners/matic-network-16x9.png 
+image: https://wiki.polygon.technology/img/polygon-wiki.png
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-For information on what a [signer address](../glossary#signer-address) is, see 
-[Key Management](../validator/core-components/key-management).
+For information on what a [signer address](/docs/maintain/glossary.md#signer-address) is, see 
+[Key Management](/docs/maintain/validator/core-components/key-management).
 
 ## Prerequisites
 
 Make sure your new validator node is fully synced and is running with the new signer address.
 
-## Change the signer address
+## Change the Signer Address
 
 This guide refers to your current validator node as Node 1 and your new validator node as Node 2.
 
 1. Log in to the [staking dasboard](https://staking.polygon.technology/) with the Node 1 address.
-1. On your profile, click **Edit Profile**.
-1. In the *Signer's address* field, provide the Node 2 address.
-1. In the *Signer's public key* field, provide the Node 2 public key.
+2. On your profile, click **Edit Profile**.
+3. In the **Signer's address** field, provide the Node 2 address.
+4. In the **Signer's public key** field, provide the Node 2 public key.
 
    To get the public key, run the following command on the validator node:
 

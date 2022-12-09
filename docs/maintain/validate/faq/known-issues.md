@@ -1,7 +1,7 @@
 ---
 id: known-issues
 title: Known Issues & Errors
-description: "Knowledge Base of common errors."
+description: Knowledge Base of common errors
 keywords:
   - docs
   - polygon
@@ -11,7 +11,7 @@ keywords:
   - invalid
   - command
 slug: known-issues
-image: https://matic.network/banners/matic-network-16x9.png
+image: https://wiki.polygon.technology/img/polygon-wiki.png
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -24,42 +24,42 @@ A Bad Block or Invalid Merkle root error occurs when your Heimdall and Bor are n
 **Solution 1**:
 Typically a restart of the Bor service should resolve the problem. This would ensure your Bor connects with Heimdall again and start syncing and creating blocks correctly.
 
-To restart your Bor service you can use the following command, `sudo service bor restart`
+To restart your Bor service you can use the following command, `sudo service bor restart`.
 
 **Solution 2**:
-If a restart does not fix your problem, then the first thing you need to check is your Heimdall and Rest server. Most of the time, your Heimdall service might have stopped which has caused the Bad block issue on Bor.
+If a restart does not fix your problem, then the first thing you need to check is your Heimdall and REST server. Most of the time, your Heimdall service might have stopped which has caused the Bad block issue on Bor.
 
 Check the logs for your Heimdall first, `journalctl -u heimdalld -f` and check if everything is working correctly.
 
-Additionally, also check your Rest server logs, `journalctl -u heimdalld-rest-server -f`
+Additionally, also check your REST server logs, `journalctl -u heimdalld-rest-server -f`.
 
-If you find that any of these services not running correctly, then please restart the above services and let them sync. Your Bor should automatically resolve the problem.
+If you find that any of these services are not running correctly, then please restart the above services and let them sync. Your Bor should automatically resolve the problem.
 
 **Solution 3**:
-If a restart of your Bor and Heimdall services don't resolve the problem, then its probably that your Bor is stuck on a block. The block number will be evident in the logs. To check your logs for Bor you can run this command, `journalctl -u bor -f`
+If a restart of your Bor and Heimdall services don't resolve the problem, then its probably that your Bor is stuck on a block. The block number will be evident in the logs. To check your logs for Bor you can run this command, `journalctl -u bor -f`.
 
-The Bad block would be displayed this way in your logs.
+The Bad block would be displayed this way in your logs:
 <img src={useBaseUrl("img/knowledge-base/bad_block.png")} width="75%" height="100%"/>
 
-Once you know the Bad block number, you could roll back your Blockchain by a few hundred blocks and resync from a previous block. In order to do this, you will first need to convert the Block number to hexadecimal. You can use [https://www.rapidtables.com/convert/number/decimal-to-hex.html](https://www.rapidtables.com/convert/number/decimal-to-hex.html) for converting decimals to hexadecimals.
+Once you know the Bad block number, you could roll back your Blockchain by a few hundred blocks and resync from a previous block. In order to do this, you will first need to convert the Block number to hexadecimal. You can use [this tool](https://www.rapidtables.com/convert/number/decimal-to-hex.html) for converting decimals to hexadecimals.
 
-Once you have your Hexadecimal ready, you can run the following commands
+Once you have your Hexadecimal ready, you can run the following commands;
 
-```jsx
+```bash
 bor attach ./.bor/data/bor.ipc
 > debug.setHead("0xE92570")
 ```
 
-`debug.setHead` is the function that will allow your Bor to set the tip at a particular Block height.
+`debug.setHead()` is the function that will allow your Bor to set the tip at a particular Block height.
 
-Once you run these commands, the output for this would be `null` . Null means good and it is intended. You can now start monitoring your logs for Bor again and see if it passes that block number. Ideally, it should.
+Once you run these commands, the output for this would be `null` . Null means good and it is intended. You can now start monitoring your logs for Bor again and see if it passes that block number.
 
 If in any case, none of these solutions work for you, please contact the Polygon Support team immediately.
 
 ### 2. Error: Failed Sanity Checks
 
 **Description:**
-`Addressbook` warnings can be ignored without an issue most of the time. If your node is connected to sufficient number of peers these kind of errors can be ignored. Your `pex` is just trying to re-establish it's connections with peers already present in `addrbook.json`
+`Addressbook` warnings can be ignored without an issue most of the time. If your node is connected to sufficient number of peers these kind of errors can be ignored. Your `pex` is just trying to re-establish it's connections with peers already present in `addrbook.json`.
 
 ### 3. Issue: Bor synchronisation is slow
 
@@ -119,15 +119,15 @@ This means that your Bor on your Sentry is also stuck because your Validator get
 **Solution:**
 
 - Please check your Bor logs on your sentry and see if everything is okay.
-- Probably restart the Bor service one on your Bor and then simultaneously restart your Bor service on your Validator as well.
+- Probably restart the Bor service first on your Bor and then simultaneously restart the Bor service on your Validator as well.
 
-### 8. Error(while upgrading Bor): build [github.com/ethereum/go-ethereum/cmd/geth:](http://github.com/ethereum/go-ethereum/cmd/geth:) cannot load hash/maphash: malformed module path "hash/maphash": missing dot in first path element
+### 8. Error (while upgrading Bor): build [github.com/ethereum/go-ethereum/cmd/geth:](http://github.com/ethereum/go-ethereum/cmd/geth:) cannot load hash/maphash: malformed module path "hash/maphash": missing dot in first path element
 
 **Description:**
 This is because your Go Version is slightly outdated.
 
 **Solution:**
-The recommended Go version is 1.15.x and above
+The recommended Go version is 1.15.x and above.
 
 ### 9. Issue: Sentry Bor is still struggling with 'Looking for peers' and Peers are not succeeding
 
@@ -140,9 +140,9 @@ This could happen when Bor has lost connectivity with other peers.
 - Check if the bootnodes are entered correctly without any formatting issues.
 - If you have made any changes to the file, then please restart your Bor service and check if the issue is resolved.
 
-If none of this works, then please contact the **Support Team** immediately for assistance.
+If none of this works, then please contact the **Polygon Support Team** immediately for assistance.
 
-### 10. Error: (in Bor)"Failed to prepare header mining at block 0"
+### 10. Error: (in Bor) "Failed to prepare header mining at block 0"
 
 **Description:**
 This happens because of a formatting issue in your `static-nodes.json` file (/var/lib/bor/data/bor/static-nodes.json).
@@ -174,20 +174,20 @@ If your node is suffering because of this, please contact the support team immdi
 This could be because your `inventory.yml` file may have some formatting issues.
 
 **Solution:**
-Correct them with proper indentation and then try again
+Correct them with proper indentation and then try again.
 
 ### 14. Issue: "Dialling failed" in Heimdall
 
 **Description:**
-This is related to connectivity and more specifically a port related problem
+This is related to connectivity and more specifically a port related problem.
 
 **Solution:**
 
-- Check to curl localhost:26657/status still shows the same block
+- Check to `curl localhost:26657/status` still shows the same block.
 - Try a Heimdall Restart.
 - Make sure that the connectivity to this port 26656 is open.
 - Try adding additional peers in vi /var/lib/heimdall/config/config.toml
-- Set max_open_connection parameter to 100.
+- Set `max_open_connection` parameter to 100.
 
 ### 15. Issue: Looking for Peers or Stopping Peer for error
 
@@ -201,7 +201,8 @@ This is related to connectivity and more specifically a port related problem
 
     `tcp://<my_elastic_ip>:26656`
 
-- Where `my_elastic_ip` is your Sentry’s public IP.
+- Where `my_elastic_ip` is your Sentry’s public IP
+
 - Once you have updated this, all you need to do is restart your Heimdall service on your Sentry
 
     `sudo service heimdalld restart`
@@ -216,7 +217,7 @@ Follow the below steps for adding additional peers in  `vi /var/lib/heimdall/con
     sudo service heimdalld stop
     ```
 
-- Clear your addrbook
+- Clear your `addrbook`
 
     ```
     sudo service heimdalld stop
@@ -224,7 +225,7 @@ Follow the below steps for adding additional peers in  `vi /var/lib/heimdall/con
     rm /var/lib/heimdall/config/addrbook.json
     ```
 
-- Increase max_num_inbound_peers and max_num_outbound_peers in `/var/lib/heimdall/config/config.toml`:
+- Increase `max_num_inbound_peers` and `max_num_outbound_peers` in `/var/lib/heimdall/config/config.toml`:
 
     ```
     max_num_inbound_peers = 300
@@ -236,7 +237,6 @@ Follow the below steps for adding additional peers in  `vi /var/lib/heimdall/con
     ```
     sudo service heimdalld start
     ```
-
 
 ### 16. Error: Error while fetching data from URL
 
@@ -257,18 +257,16 @@ Then the Heimdall Bridge needs a restart.
 
 **Solution**
 
-1. Get the right configs from Github and copy them to /var/lib/heimdall/config and
-2.  Please reset heimdall using heimdalld unsafe-reset-all.
+1. Get the right configs from Github and copy them to `/var/lib/heimdall/config` and
+2.  Please reset heimdall using `heimdalld unsafe-reset-all`.
 
 ### 18. Issue: Problems in starting Bor
 
 **Issue:**
- Address is required as an argument.
-
+Address is required as an argument.
 
 **Solution:**
-
-have to add address
+You have to add address. 
 
 ```bash
 /etc/matic/metadata
@@ -282,7 +280,7 @@ This error happens in light of the fact that the way for the password.txt record
 
 **Solution:**
 
-For Linux packages
+For Linux packages:
 
 Kill Bor process
 
@@ -321,13 +319,12 @@ Kill Bor process
     /var/lib/bor/password.txt
     ```
 
-
 ### 20. Consequences of validator missing a checkpoint and points to investigate from our side
 
 - Economics
     - Bad reputation for Validator
     - Rewards gets missed for Delegator
-- investigation
+- Investigation
     - Ask for recent logs
 
 ### 21. Error: dpkg: error processing archive matic-heimdall-xxxxxxxxxx
@@ -340,15 +337,13 @@ Kill Bor process
 
 **Solution:**
 
-This occurs mainly because of a previous installation of Matic on machine. To resolve you can run:
-
-`sudo dpkg -r matic-node`
+This occurs mainly because of a previous installation of Matic on machine. To resolve you can run: `sudo dpkg -r matic-node`
 
 ### 22. Issue: Tendermint was rest without resetting application's data
 
 **Solution:**
 
-- Reset heimdall config data and try running the installation again
+- Reset Heimdall config data and try running the installation again;
 
     ```jsx
     $ heimdalld unsafe-reset-all
@@ -357,7 +352,6 @@ This occurs mainly because of a previous installation of Matic on machine. To re
     ```jsx
     $ rm -rf $HEIMDALLDIR/bridge
     ```
-
 
 ### 23. Error: "Wrong Block.Header.AppHash."
 
@@ -381,4 +375,4 @@ To resolve this you can create a new API key and add it to the `config.toml` f
 These logs throw up when there is no enough ETH in your signer wallet.
 
 **Solution:**
-It [](http://wallet.it/)is recommended to have 1 ETH in your signer wallet but can keep .5-.75 in if you check it often enough.
+It is recommended to have 1 ETH in your signer wallet but can keep .5 to .75 in case you check it often enough.

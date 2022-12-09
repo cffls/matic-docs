@@ -1,18 +1,19 @@
 ---
 id: what-is-polygon
 title: What is Polygon?
-description: "Learn what the Polygon scaling solution is."
+description: Learn about the Polygon scaling solution
 keywords:
   - docs
   - matic
   - polygon
   - blockchain
-image: https://matic.network/banners/matic-network-16x9.png 
+  - ethereum scaling
+image: https://wiki.polygon.technology/img/polygon-wiki.png
 ---
 
 [Polygon](https://polygon.technology/) is a Layer 2 scaling solution that achieves scale by utilizing sidechains for off-chain computation and a decentralized network of Proof-of-Stake (PoS) validators.
 
-Polygon strives to solve the scalability and usability issues while not compromising on decentralization and leveraging the existing developer community and ecosystem. Polygon is an ​off-/sidechain scaling solution for existing platforms to provide scalability and superior user experience to DApps and user functionalities.
+Polygon strives to solve the scalability and usability issues while not compromising on decentralization and leveraging the existing developer community and ecosystem. It aims at improving existing platforms by providing scalability and superior user experience to dApps and user functionalities.
 
 It is a scaling solution for public blockchains. Polygon PoS supports all the existing Ethereum tooling along with faster and cheaper transactions.
 
@@ -55,7 +56,7 @@ To have a granular understanding of the core components, see the following codeb
 * [Bor](https://github.com/maticnetwork/bor)
 * [Contracts](https://github.com/maticnetwork/contracts)
 
-## How-tos
+## How-Tos
 
 ### Node setup
 

@@ -80,11 +80,12 @@ node-4> polygon-edge secrets init --data-dir data-dir
 
 Each of these commands will print the validator key, bls public key and the [node ID](https://docs.libp2p.io/concepts/peer-id/). You will need the Node ID of the first node for the next step.
 
-:::warning Save BLS public key
+### Outputting Secrets 
+The secrets output can be retrieved again, if needed.
 
-If the network is running with BLS, which it does by default, the BLS public key is required for proposing in the PoA mode and for staking in the PoS mode. Polygon Edge only saves BLS private key, it is your responsibility to preserve BLS public key.
-
-:::
+```bash
+polygon-edge secrets output --data-dir test-chain-4
+```
 
 :::warning Keep your data directory to yourself!
 
@@ -197,18 +198,6 @@ For example, if we would like to premine 1000 ETH to address `0x3956E90e632AEbBF
 
 The default gas limit for each block is `5242880`. This value is written in the genesis file, but you may want to
 increase / decrease it.
-
-```go title="command/helper/helper.go"
-const (
-	GenesisFileName       = "./genesis.json"
-	DefaultChainName      = "example"
-	DefaultChainID        = 100
-	DefaultPremineBalance = "0x3635C9ADC5DEA00000"
-	DefaultConsensus      = "pow"
-	GenesisGasUsed        = 458752
-	GenesisGasLimit       = 5242880 // The default block gas limit
-)
-```
 
 To do so, you can use the flag `--block-gas-limit` followed by the desired value as shown below :
 
