@@ -423,8 +423,7 @@ outlined below. If you are installing everything from a new machine, you can ski
 
     $ sudo cp /home/ubuntu/node/bor/start-config.toml /var/lib/bor/config.toml
     $ sudo chown bor /var/lib/bor/config.toml
-    ```
-
+```
 
 ### Configure service files for bor and heimdall
 
@@ -494,4 +493,3 @@ You can check Bor logs via command
 ```shell
 journalctl -u bor.service -f
 ```
-
