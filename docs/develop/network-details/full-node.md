@@ -1,21 +1,25 @@
 ---
 id: full-node
 title: Run a Full Node
-description: Learn how to run a full node on Polygon using utility scripts
+description: Learn how to run a full node on the Polygon network using utility scripts.
 keywords:
   - docs
-  - matic
+  - polygon wiki
+  - full node
+  - mainnet
+  - heimdall
+  - bor
 image: https://matic.network/banners/matic-network-16x9.png
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 
-This section guides you through starting and running a full node from a package.
+This document guides you through the process of starting and running a full node on the Polygon network from a package.
 
-For the system requirements, see [Minimum Technical Requirements](https://docs.polygon.technology/docs/develop/network-details/technical-requirements).
+For the system requirements, see [Minimum Technical Requirements](technical-requirements.md).
 
-:::note
+:::tip
 
 Steps in this guide involve waiting for the Heimdall and Bor services to fully sync. This process takes several days to complete.
 
@@ -27,8 +31,8 @@ For snapshot download links, see [Polygon Chains Snapshots](https://snapshots.ma
 
 ## Overview
 
-- Have the one machine prepared.
-- Install the Heimdall and Bor packages on the Full Node machine.
+- Prepare the Full Node machine.
+- Install Heimdall and Bor packages on the Full Node machine.
 - Configure the Full node.
 - Start the Full node.
 - Check node health with the community.
@@ -51,7 +55,7 @@ There are three different ways to install the Heimdall and Bor binaries:
 
 #### Heimdall
 
-- Install the default latest version of sentry for mainnet:
+- Install the default latest version of sentry for Mainnet:
 
     ```shell
     curl -L https://raw.githubusercontent.com/maticnetwork/install/main/heimdall.sh | bash
@@ -68,13 +72,13 @@ There are three different ways to install the Heimdall and Bor binaries:
 
 #### Bor
 
-- Install the default latest version of sentry for mainnet:
+- Install the default latest version of sentry for Mainnet:
 
     ```shell
     curl -L https://raw.githubusercontent.com/maticnetwork/install/main/bor.sh | bash
     ```
 
-    or install a specific version,  node type (`sentry` or `validator`), and network (`mainnet` or `testnet`). All release versions could be found on 
+    or install a specific version, node type (`sentry` or `validator`), and network (`mainnet` or `testnet`). All release versions could be found on 
     [Bor Github repository](https://github.com/maticnetwork/bor/releases).
 
     ```shell
@@ -88,12 +92,12 @@ There are three different ways to install the Heimdall and Bor binaries:
 
 #### Prerequisites
 
-* Three machines — one local machine on which you will run the Ansible playbook; two remote machines — one [sentry](../glossary#sentry) and one [validator](../glossary#validator).
+* Three machines — one local machine on which you will run the Ansible playbook; two remote machines — one [sentry](/maintain/glossary.md#sentry) and one [validator](/maintain/glossary.md#validator).
 * On the local machine, [Ansible](https://www.ansible.com/) installed.
 * On the local machine, [Python 3.x](https://www.python.org/downloads/) installed.
 * On the remote machines, make sure Go is **not** installed.
 * On the remote machines, your local machine's SSH public key is on the remote machines to let Ansible connect to them.
-* We have Bloxroute available as a relay network. If you need a gateway to be added as your Trusted Peer please contact [Delroy on Discord](http://delroy/#0056).
+* We have **Bloxroute** available as a relay network. If you need a gateway to be added as your **Trusted Peer** please contact [Delroy on Discord](http://delroy/#0056).
 
 #### Set up the node
 
@@ -211,8 +215,8 @@ ansible-playbook playbooks/clean.yml
 
 #### Installing Heimdall
 
-[Heimdall](../validator/core-components/heimdall-chain.md) is the proof-of-stake verifier layer
-responsible for checkpointing the representation of the Plasma blocks to the Ethereum mainnet.
+[Heimdall](/maintain/validator/core-components/heimdall-chain.md) is the proof-of-stake verifier layer
+responsible for checkpointing the representation of the Plasma blocks to the Ethereum Mainnet.
 
 Clone the [Heimdall repository](https://github.com/maticnetwork/heimdall/):
 
@@ -249,8 +253,8 @@ sudo ln -nfs $(which heimdallcli) /usr/local/bin/heimdallcli
 
 #### Installing Bor
 
-[Bor](../../contribute/bor/) is the sidechain operator that acts as the block production layer,
-which syncs with Heimdall to select block producers and verifiers for each [span](../glossary#span)
+[Bor](/pos/bor/overview.md) is the sidechain operator that acts as the block production layer,
+which syncs with Heimdall to select block producers and verifiers for each [span](/maintain/glossary.md#span)
 and [sprint]((../glossary#sprint)).
 
 Clone the [Bor repository](https://github.com/maticnetwork/bor):
@@ -341,7 +345,7 @@ Bor 0.3.0 and Heimdall 0.3.0 uses new CLIs and path standards. It is recommended
 However, if you still want to perform upgrade on existing node, you need to follow one-time migration steps 
 outlined below. If you are installing everything from a new machine, you can skip this section and continue to [Configure service files](#configure-service-files-for-bor-and-heimdall).
 
-- Stop existing heimdall and bor services:
+- Stop existing Heimdall and Bor services:
 
     ```shell
     sudo service bor stop
@@ -403,9 +407,9 @@ outlined below. If you are installing everything from a new machine, you can ski
 - Copy configurations in `node/bor/start.sh` to bor configuration file `/var/lib/bor/config.toml`. Note that some 
   flags are renamed in the new CLI, you can find the documentation for new CLI [here](https://github.com/maticnetwork/bor/tree/master/docs/cli) and sample configuration file in [launch repository](https://github.com/maticnetwork/launch).
 
-  You can use [this util script](https://github.com/maticnetwork/bor/blob/develop/scripts/getconfig.sh) to convert start.sh to a config.toml file on your host. Example usage:
+  You can use [this util script](https://github.com/maticnetwork/bor/blob/develop/scripts/getconfig.sh) to convert `start.sh` to a `config.toml` file on your host. Example usage:
 
-    ```shell
+```bash
     $ git clone https://github.com/maticnetwork/bor.git
     $ cd bor/scripts
     $ BOR_DIR=/var/lib/bor ./getconfig.sh
@@ -424,7 +428,7 @@ outlined below. If you are installing everything from a new machine, you can ski
 
 ### Configure service files for bor and heimdall
 
-After successfully installing Bor and Heimdall through [packages](#install-with-packages-recommended), their service file could be found under `/lib/systemd/system`, and bor's config 
+After successfully installing Bor and Heimdall through [packages](#install-with-packages-recommended), their service file could be found under `/lib/systemd/system`, and Bor's config 
 file could be found under `/var/lib/bor/config.toml`. 
 You will need to check and modify these files accordingly.
 
@@ -461,13 +465,13 @@ Reloading service files to make sure all changes to service files are loaded cor
 sudo systemctl daemon-reload
 ```
 
-Start heimdall, heimdall rest server, and heimdall bridge.
+Start Heimdall, Heimdall rest server, and Heimdall bridge.
 
 ```shell
 sudo service heimdalld start
 ```
 
-You check Heimdall logs vid command
+You can also check Heimdall logs with command
 
 ```shell
 journalctl -u heimdalld.service -f

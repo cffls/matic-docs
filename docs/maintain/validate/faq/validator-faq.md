@@ -92,7 +92,7 @@ Then start Heimdall services again. Refer to:
 
 See:
 
-* [Run a Validator Node](../run-validator)
+* [Run a Validator Node](/maintain/validate/run-validator.md)
 
 ## Heimdall shows "dpkg: error processing archive"
 

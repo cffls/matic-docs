@@ -1,15 +1,15 @@
 ---
 id: technical-faqs
 title: Technical FAQs
-description: Build your next blockchain app on Polygon.
+description: Frequently asked questions related to running a Validator on the Polygon network.
 keywords:
   - docs
   - polygon
-  - matic
+  - polygon wiki
   - faqs
   - technical
 slug: technical-faqs
-image: https://matic.network/banners/matic-network-16x9.png 
+image: https://wiki.polygon.technology/img/polygon-wiki.png
 ---
 
 ### 1. Are the private keys same for Heimdall and Bor keystore?
@@ -125,7 +125,7 @@ This usually occurs due to an incorrect installation of heimdall. You can follow
 
 run 
 
-    heimdalld unsafe-reset-all 
+    ```heimdalld unsafe-reset-all```
 
 and start Heimdall services again. You can refer to this guide - https://docs.polygon.technology/docs/validate/validate/run-validator
 
@@ -140,7 +140,7 @@ Mainnet is selected by default.
 **Actual Error**: My heimdalld isn’t working. In the log the first line is:
 panic: Unknown db_backend leveldb, expected either goleveldb or memdb or fsdb
 
-Change the config to `goleveldb` in config.toml
+Change the config to `goleveldb` in `config.toml`.
 
 
 ### 7. How do I delete remnants of Heimdall and Bor?

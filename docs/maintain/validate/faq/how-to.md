@@ -147,7 +147,7 @@ Once you have created the API key, you need to add the API key in `heimdall-con
     
 ### 9. Which file do we add the `persistent_peers`?
     
-You can add the persistent_peers in the following file:
+You can add the `persistent_peers` in the following file:
 
 ```jsx
 /var/lib/heimdall/config/config.toml

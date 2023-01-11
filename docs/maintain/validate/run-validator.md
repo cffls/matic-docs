@@ -1,7 +1,7 @@
 ---
 id: run-validator
 title: Run a Validator Node
-description: Use package to set up your validator node on the Polygon Network.
+description: Use the package to set up your validator node on the Polygon Network.
 keywords:
   - docs
   - matic
@@ -44,7 +44,7 @@ There are three different ways to install heimdall and bor binaries: [installing
 ### Install with packages (recommended)
 #### Prerequisites
 
-* Two machines — one [sentry](/docs/validate/glossary#sentry) and one [validator](/docs/validate/glossary#validator).
+* Two machines — one [sentry](/maintain/glossary.md#sentry) and one [validator](/maintain/glossary.md#validator).
 
 * Bash is installed on both the sentry and the validator machines.
 
@@ -54,7 +54,7 @@ There are three different ways to install heimdall and bor binaries: [installing
 
 #### Heimdall
 
-- Install the default latest version of sentry for mainnet:
+- Install the default latest version of sentry for the Polygon Mainnet:
 
     ```shell
     curl -L https://raw.githubusercontent.com/maticnetwork/install/main/heimdall.sh | bash
@@ -71,7 +71,7 @@ There are three different ways to install heimdall and bor binaries: [installing
 
 #### Bor
 
-- Install the default latest version of sentry for mainnet:
+- Install the default latest version of sentry for Mainnet:
 
     ```shell
     curl -L https://raw.githubusercontent.com/maticnetwork/install/main/bor.sh | bash
@@ -91,7 +91,7 @@ There are three different ways to install heimdall and bor binaries: [installing
 
 #### Prerequisites
 
-* Three machines — one local machine on which you will run the Ansible playbook; two remote machines — one [sentry](../glossary#sentry) and one [validator](../glossary#validator).
+* Three machines — one local machine on which you will run the Ansible playbook; two remote machines — one [sentry](/maintain/glossary.md#sentry) and one [validator](/maintain/glossary.md#validator).
 * On the local machine, [Ansible](https://www.ansible.com/) installed.
 * On the local machine, [Python 3.x](https://www.python.org/downloads/) installed.
 * On the remote machines, make sure Go is *not* installed.
@@ -190,7 +190,7 @@ ansible-playbook playbooks/clean.yml
 
 #### Prerequisites
 
-* Two machines — one [sentry](../glossary#sentry) and one [validator](../glossary#validator).
+* Two machines — one [sentry](/maintain/glossary.md#sentry) and one [validator](/maintain/glossary.md#validator).
 * `build-essential` installed on both the sentry and the validator machines.
 
   To install:
@@ -214,8 +214,8 @@ ansible-playbook playbooks/clean.yml
 
 #### Installing Heimdall
 
-[Heimdall](../validator/core-components/heimdall-chain.md) is the proof-of-stake verifier layer
-responsible for checkpointing the representation of the Plasma blocks to the Ethereum mainnet.
+[Heimdall](/maintain/validator/core-components/heimdall-chain.md) is the proof-of-stake verifier layer
+responsible for checkpointing the representation of the Plasma blocks to the Ethereum Mainnet.
 
 Clone the [Heimdall repository](https://github.com/maticnetwork/heimdall/):
 
@@ -252,9 +252,9 @@ sudo ln -nfs $(which heimdallcli) /usr/local/bin/heimdallcli
 
 #### Installing Bor
 
-[Bor](../../contribute/bor/) is the sidechain operator that acts as the block production layer,
-which syncs with Heimdall to select block producers and verifiers for each [span](../glossary#span)
-and [sprint]((../glossary#sprint)).
+[Bor](/pos/bor/overview.md) is the sidechain operator that acts as the block production layer,
+which syncs with Heimdall to select block producers and verifiers for each [span](/maintain/glossary.md#span)
+and [sprint]((/maintain/glossary.md#sprint)).
 
 Clone the [Bor repository](https://github.com/maticnetwork/bor):
 
@@ -321,7 +321,7 @@ config files and chain data on your node, please skip this section and jump dire
 
 ### Configure Heimdall
 
-- Initialize heimdall configs
+- Initialize Heimdall configs
 
 ```shell
 # For mainnet
@@ -408,7 +408,7 @@ Bor 0.3.0 and Heimdall 0.3.0 uses new CLIs and path standards. It is recommended
 However, if you still want to perform an upgrade on existing node, you need to follow the one-time migration steps 
 outlined below. If you are installing everything from a new machine, you can skip this section and continue to [Configure service files](#configure-service-files-for-bor-and-heimdall).
 
-- Stop existing heimdall and bor services
+- Stop existing Heimdall and Bor services
     ```shell
     sudo service bor stop
     sudo service heimdalld stop
@@ -443,7 +443,7 @@ outlined below. If you are installing everything from a new machine, you can ski
     sudo mv /etc/systemd/system/heimdalld-bridge.service ./backup
     ```
 
-- Migrate heimdall and bor directory to `/var/lib` and change ownership:
+- Migrate the Heimdall and Bor directory to `/var/lib` and change ownership:
     ```shell
     sudo mv ~/.heimdalld /var/lib/heimdall
     sudo mv ~/.bor /var/lib/bor
@@ -463,10 +463,10 @@ outlined below. If you are installing everything from a new machine, you can ski
     sudo chown -R bor /var/lib/bor
     ```
 
-- Copy configurations in `node/bor/start.sh` to bor configuration file `/var/lib/bor/config.toml`. Note that some 
+- Copy configurations in `node/bor/start.sh` to Bor configuration file `/var/lib/bor/config.toml`. Note that some 
   flags are renamed in the new CLI, you can find the documentation for new CLI [here](https://github.com/maticnetwork/bor/tree/master/docs/cli) and sample configuration file in [launch repository](https://github.com/maticnetwork/launch).
 
-  You can use [this util script](https://github.com/maticnetwork/bor/blob/develop/scripts/getconfig.sh) to convert start.sh to a config.toml file on your host. Example usage:
+  You can use [this util script](https://github.com/maticnetwork/bor/blob/develop/scripts/getconfig.sh) to convert `start.sh` to a `config.toml` file on your host. Example usage:
 
   ```shell
   $ git clone https://github.com/maticnetwork/bor.git
@@ -486,7 +486,7 @@ outlined below. If you are installing everything from a new machine, you can ski
 
 ## Configure service files for Bor and Heimdall
 
-After successfully installing Bor and Heimdall through [packages](#install-with-packages-recommended), their service file could be found under `/lib/systemd/system`, and bor's config 
+After successfully installing Bor and Heimdall through [packages](#install-with-packages-recommended), their service file could be found under `/lib/systemd/system`, and Bor's config 
 file could be found under `/var/lib/bor/config.toml`. 
 You will need to check and modify these files accordingly.
 
@@ -498,7 +498,7 @@ You will need to check and modify these files accordingly.
 
     - In the config file, set `chain` to `mainnet` or `mumbai` accordingly.
 
-    - To enable Archive mode you can optionally enable the following flags:
+    - To enable Archive mode, you can optionally enable the following flags:
 
       ```
       gcmode "archive"
@@ -761,7 +761,7 @@ Bor 0.3.0 and Heimdall 0.3.0 uses new CLIs and path standards. It is recommended
 However, if you still want to perform upgrade on existing node, you need to follow one-time migration steps 
 outlined below. If you are installing everything from a new machine, you can skip this section and continue to [Configure service files](#configure-service-files-for-bor-and-heimdall-1).
 
-- Stop existing heimdall and bor services
+- Stop existing Heimdall and Bor services
     ```shell
     sudo service bor stop
     sudo service heimdalld stop
@@ -796,7 +796,7 @@ outlined below. If you are installing everything from a new machine, you can ski
     sudo mv /etc/systemd/system/heimdalld-bridge.service ./backup
     ```
 
-- Migrate heimdall and bor directory to `/var/lib` and change ownership:
+- Migrate the Heimdall and Bor directory to `/var/lib` and change ownership:
     ```shell
     sudo mv ~/.heimdalld /var/lib/heimdall
     sudo mv ~/.bor /var/lib/bor
@@ -842,7 +842,7 @@ outlined below. If you are installing everything from a new machine, you can ski
 
 ## Configure service files for bor and heimdall
 
-After successfully installing Bor and Heimdall through [packages](#install-with-packages-recommended), their service file could be found under `/lib/systemd/system`, and bor's config 
+After successfully installing Bor and Heimdall through [packages](#install-with-packages-recommended), their service file could be found under `/lib/systemd/system`, and Bor's config 
 file could be found under `/var/lib/bor/config.toml`. 
 You will need to check and modify these files accordingly.
 
@@ -962,4 +962,4 @@ Now that your sentry and validator nodes are in sync and running, head over to
 ## Next Steps: Staking
 
 Now that you have your sentry and validator nodes are health-checked, proceed to
-the [Staking](../validator/core-components/staking.md) guide to start backing the network.
+the [Staking](/maintain/validator/core-components/staking.md) guide to start backing the network.
