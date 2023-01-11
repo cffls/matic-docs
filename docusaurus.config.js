@@ -93,6 +93,10 @@ module.exports = {
           {
             to: '/docs/develop/wallets/getting-started',
             from: '/docs/develop/cexs-wallets/cexs',
+          },
+          {
+            to: '/docs/develop/wallets/polygon-web-wallet/web-wallet-v3-guide',
+            from: '/docs/develop/wallets/polygon-web-wallet/web-wallet-v2-guide',
           }
         ],
         createRedirects: function (existingPath) {
@@ -106,6 +110,7 @@ module.exports = {
   ],
   onBrokenLinks: 'log',
   themeConfig: {
+    metadata: [{name: 'description', content: 'Welcome to Polygon Wiki, the official documentation for Polygon and its products. Explore and learn about Polygon and its wide range of Ethereum-scaling solutions.'}],
     footer: {
       style: 'dark',
       links: [

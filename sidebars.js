@@ -97,7 +97,8 @@ module.exports = {
             type: "generated-index",
           },
           items: [
-            "develop/wallets/polygon-web-wallet/web-wallet-v3-guide"
+            "develop/wallets/polygon-web-wallet/web-wallet-v3-guide",
+            "faq/adding-a-custom-token"
           ],
         },
         {
@@ -554,33 +555,9 @@ module.exports = {
         type: "generated-index",
       },
       items: [
-        {
-          type: "category",
-          label: "Faucets",
-          link: {
-            type: "generated-index",
-          },
-          items: [
-            "develop/tools/polygon-faucet",
-            "develop/tools/alchemy-faucet",
-          ],
-        },
-        {
-          type: "category",
-          label: "Gas Station",
-          link: {
-            type: "generated-index",
-          },
-          items: ["develop/tools/polygon-gas-station"],
-        },
-        {
-          type: "category",
-          label: "Widget",
-          link: {
-            type: "generated-index",
-          },
-          items: ["develop/ethereum-polygon/tools/widget"],
-        },
+        "develop/tools/polygon-faucet",
+        "develop/tools/alchemy-faucet",
+        "develop/tools/polygon-gas-station"
       ],
     },
   ],
@@ -1011,6 +988,7 @@ module.exports = {
   ],
 
   zkEVM: [
+    "zkEVM/introduction",
     "zkEVM/develop",
     "zkEVM/overview",
     "zkEVM/proof-of-efficiency",
@@ -1026,7 +1004,62 @@ module.exports = {
         "zkEVM/zknode/setup-production-node"
       ]
     },
-    "zkEVM/Architecture/zkProver",
+    {
+      type: "category",
+      label: "zkProver",
+      link: {
+        type: "generated-index"
+      },
+      items:[
+        "zkEVM/zkProver/overview",
+        "zkEVM/zkProver/zkprover-design",
+        {
+          type: "category",
+          label: "mFibonacci SM",
+          link: {
+            type: "generated-index"
+          },
+          items:[
+            "zkEVM/zkProver/mfibonacci-overview",
+            "zkEVM/zkProver/mfibonacci-example",
+            "zkEVM/zkProver/commitment-scheme",
+            "zkEVM/zkProver/verification-scheme",
+            "zkEVM/zkProver/pil-stark",
+            "zkEVM/zkProver/pil-stark-demo",
+          ]
+        },
+        {
+          type: "category",
+          label: "Generic SM",
+          link: {
+            type: "generated-index"
+          },
+          items:[
+            "zkEVM/zkProver/intro-generic-sm",
+            "zkEVM/zkProver/exec-trace-correct",
+            "zkEVM/zkProver/ending-program",
+            "zkEVM/zkProver/program-counter"
+          ]
+        },
+        {
+          type: "category",
+          label: "Storage SM",
+          link: {
+            type: "generated-index"
+          },
+          items:[
+            "zkEVM/zkProver/intro-storage-sm",
+            "zkEVM/zkProver/sparse-merkle-tree",
+            "zkEVM/zkProver/simple-smt",
+            "zkEVM/zkProver/detailed-smt-concepts",
+            "zkEVM/zkProver/basic-smt-ops",
+            "zkEVM/zkProver/construct-key-path",
+            "zkEVM/zkProver/storage-sm-mechanism",
+            "zkEVM/zkProver/executor-pil",
+          ]
+        },
+      ]
+    },
     "zkEVM/lx-ly-bridge",
     {
       type: "category",
@@ -1150,14 +1183,7 @@ module.exports = {
     "maintain/delegate/delegator-faq",
     "maintain/validate/faq/validator-faq",
     "faq/staking-faq",
-    {
-      type: "category",
-      label: "Wallet FAQs",
-      link: {
-        type: "generated-index",
-      },
-      items: ["faq/wallet-bridge-faq", "faq/adding-a-custom-token"],
-    },
+    "faq/wallet-bridge-faq",
     "faq/consensys-framework",
     "faq/widget-faq",
   ],
@@ -1379,6 +1405,7 @@ module.exports = {
         "edge/api/json-rpc-net",
         "edge/api/json-rpc-web3",
         "edge/api/json-rpc-txpool",
+        "edge/api/json-rpc-debug",
       ],
     },
     {

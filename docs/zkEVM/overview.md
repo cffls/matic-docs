@@ -17,18 +17,6 @@ keywords:
 image: https://wiki.polygon.technology/img/thumbnail/polygon-zkevm.png
 ---
 
-:::info
-
-This documentation is still a **Work In Progress**. Some topics have been discussed in greater depth, while others require additional clarification.
-
-If you are interested in learning about the basics of zero-knowledge, EVM, and other fundamental concepts behind Polygon zkEVM, check out the [<ins>Polygon zkEVM basics</ins>](/docs/home/polygon-basics/zkEVM-basics.md).
-
-:::
-
-Polygon zkEVM is a decentralized Ethereum Layer 2 scalability solution that uses cryptographic zero-knowledge proofs to offer validity and quick finality to off-chain transaction computation, also known as a **ZK-Rollup**.
-
-The ZK-Rollup executes smart contracts transparently, by publishing zero-knowledge validity proofs, while maintaining opcode compatibility with the Ethereum Virtual Machine. This documentation provides an overview of the Polygon zkEVM.
-
 ## Overview
 
 Polygon zkEVM handles state transitions caused by Ethereum Layer 2 transaction executions (transactions that users send to the network). Following that, it creates validity proofs that attest to the accuracy of these off-chain state change calculations by utilising zero-knowledge features.
@@ -80,7 +68,7 @@ The two permissionless participants of the zkEVM network are: **Sequencers** and
    - Static Cost: L1 call cost + Server cost (to build a proof)
    - Profitable if: `MATIC fee` > `L1 call` + `Server cost`
 
-## [zkProver](/docs/zkEVM/architecture/zkProver)
+## [zkProver](/docs/zkEVM/zkProver/overview.md)
 
 zkEVM employs advanced zero-knowledge technology to create validity proofs. It uses a **zero-knowledge prover (zkProver)**, which is intended to run on any server and is being engineered to be compatible with most consumer hardware. Every **Aggregator** will use this zkProver to validate batches and provide Validity Proofs.
 
@@ -88,7 +76,7 @@ It consists of a **Main State Machine Executor**, a collection of **secondary St
 
 ![Skeletal Overview of zkProver](figures/fig4-zkProv-arch.png)
 
-In a nutshell, **the zkEVM expresses state changes in a polynomial form**. As a result, the constraints that each proposed batch must meet are polynomial constraints or polynomial identities. To put it another way, all valid batches must satisfy specific polynomial constraints. Check out the detailed architecture of zkProver [here](/docs/zkEVM/architecture/zkProver).
+In a nutshell, **the zkEVM expresses state changes in a polynomial form**. As a result, the constraints that each proposed batch must meet are polynomial constraints or polynomial identities. To put it another way, all valid batches must satisfy specific polynomial constraints. Check out the detailed architecture of zkProver [here](/docs/zkEVM/zkProver/overview.md).
 
 ## [The LX-to-LY Bridge](lx-ly-bridge.md)
 
