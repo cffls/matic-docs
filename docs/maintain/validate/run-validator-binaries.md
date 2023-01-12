@@ -16,13 +16,6 @@ image: https://wiki.polygon.technology/img/polygon-wiki.png
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::warning
-
-This guide only applies to Bor and Heimdall version 0.2.x and will be deprecated soon. For the current Mainnet version, please follow the guides in 
-[<ins>Run a Validator Node</ins>](run-validator.md).
-
-:::
-
 :::tip
 Steps in this guide involve waiting for the **Heimdall** and **Bor** services to fully sync. Alternatively, you can use a maintained snapshot, which will reduce the sync time to a few hours.
 For detailed instructions, see [<ins>Snapshot Instructions for Heimdall and Bor</ins>](https://forum.polygon.technology/t/snapshot-instructions-for-heimdall-and-bor/9233).

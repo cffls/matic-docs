@@ -1,6 +1,6 @@
 ---
 id: run-validator
-title: Run a Validator Node
+title: Using Packages
 description: Use the package to set up your validator node on the Polygon Network.
 keywords:
   - docs
@@ -18,6 +18,13 @@ This guide will walk you through running a Polygon validator node from packages.
 
 For system requirements,
 follow the [Validator Node System Requirements](validator-node-system-requirements.md) guide.
+
+:::tip
+Steps in this guide involve waiting for the **Heimdall** and **Bor** services to fully sync.
+This process takes several days to complete. Alternatively, you can use a maintained snapshot, which will reduce the sync time to a few hours. For detailed instructions, see [<ins>Snapshot Instructions for Heimdall and Bor</ins>](/docs/develop/network-details/snapshot-instructions-heimdall-bor).
+
+For snapshot download links, see [<ins>Polygon Chains Snapshots</ins>](https://snapshots.matic.today/).
+:::
 
 ## Overview
 
@@ -37,11 +44,7 @@ To get to a running validator node, conduct the following in this **exact sequen
 9. Start the validator node.
 10. Check node health with the community.
 
-## Installing packages
-
-There are three different ways to install heimdall and bor binaries: [installing packages via utility scripts](#install-with-packages-recommended), [installing via Ansible](#install-with-ansible), and [building from source code](#install-from-source-code).
-
-### Install with packages (recommended)
+## Installing package
 #### Prerequisites
 
 * Two machines — one [sentry](/maintain/glossary.md#sentry) and one [validator](/maintain/glossary.md#validator).
@@ -84,209 +87,8 @@ There are three different ways to install heimdall and bor binaries: [installing
     curl -L https://raw.githubusercontent.com/maticnetwork/install/main/bor.sh | bash -s -- <version> <network> <node_type>
 
     # Example:
-    # curl -L https://raw.githubusercontent.com/maticnetwork/install/main/bor.sh | bash -s -- v0.3.0 mainnet sentry
+    # curl -L https://raw.githubusercontent.com/maticnetwork/install/main/bor.sh | bash -s -- v0.3.3 mainnet sentry
     ```
-
-### Install with ansible
-
-#### Prerequisites
-
-* Three machines — one local machine on which you will run the Ansible playbook; two remote machines — one [sentry](/maintain/glossary.md#sentry) and one [validator](/maintain/glossary.md#validator).
-* On the local machine, [Ansible](https://www.ansible.com/) installed.
-* On the local machine, [Python 3.x](https://www.python.org/downloads/) installed.
-* On the remote machines, make sure Go is *not* installed.
-* On the remote machines, your local machine's SSH public key is on the remote machines to let Ansible connect to them.
-* We have **Bloxroute** available as a relay network. If you need a gateway to be added as your **Trusted Peer**, please contact [Delroy on Discord](http://delroy/#0056).
-
-#### Set up the node
-
-On your local machine, clone the [node-ansible repository](https://github.com/maticnetwork/node-ansible):
-
-```sh
-git clone https://github.com/maticnetwork/node-ansible
-```
-
-Change to the cloned repository:
-
-```sh
-cd node-ansible
-```
-
-Add the IP addresses of the remote machines that will become a sentry node and a validator node to the `inventory.yml` file.
-
-```yml
-all:
-  hosts:
-  children:
-    sentry:
-      hosts:
-        xxx.xxx.xx.xx: # <----- Add IP for sentry node
-        xxx.xxx.xx.xx: # <----- Add IP for second sentry node (optional)
-    validator:
-      hosts:
-        xxx.xxx.xx.xx: # <----- Add IP for validator node
-```
-
-Example:
-
-```yml
-all:
-  hosts:
-  children:
-    sentry:
-      hosts:
-        188.166.216.25:
-    validator:
-      hosts:
-        134.209.100.175:
-```
-
-Check that the remote sentry machine is reachable. On the local machine, run:
-
-```sh
-$ ansible sentry -m ping
-```
-
-You should get this as output:
-
-```sh
-xxx.xxx.xx.xx | SUCCESS => {
-    "ansible_facts": {
-        "discovered_interpreter_python": "/usr/bin/python3"
-    },
-    "changed": false,
-    "ping": "pong"
-}
-```
-
-Do a test run of the node setup:
-
-```sh
-ansible-playbook playbooks/network.yml --extra-var="bor_branch=v0.3.0 heimdall_branch=v0.3.0" --list-hosts
-```
-
-This will be the output:
-
-```sh
-playbook: playbooks/network.yml
-  pattern: ['all']
-  host (1):
-    xx.xxx.x.xxx
-```
-
-Once the setup is complete, you will see a message of completion on the terminal.
-
-:::note
-
-If you run into an issue and would like to start over, run:
-
-```sh
-ansible-playbook playbooks/clean.yml
-```
-
-:::
-
-### Install from source code
-
-#### Prerequisites
-
-* Two machines — one [sentry](/maintain/glossary.md#sentry) and one [validator](/maintain/glossary.md#validator).
-* `build-essential` installed on both the sentry and the validator machines.
-
-  To install:
-
-  ```sh
-  sudo apt-get install build-essential
-  ```
-
-* Go 1.17 installed on both the sentry and the validator machines.
-
-  To install:
-
-  ```sh
-  wget https://gist.githubusercontent.com/ssandeep/a6c7197811c83c71e5fead841bab396c/raw/go-install.sh
-  bash go-install.sh
-  sudo ln -nfs ~/.go/bin/go /usr/bin/go
-  ```
-
-* RabbitMQ installed on both the sentry and the validator machines.
-  See [Downloading and Installing RabbitMQ](https://www.rabbitmq.com/download.html).
-
-#### Installing Heimdall
-
-[Heimdall](/maintain/validator/core-components/heimdall-chain.md) is the proof-of-stake verifier layer
-responsible for checkpointing the representation of the Plasma blocks to the Ethereum Mainnet.
-
-Clone the [Heimdall repository](https://github.com/maticnetwork/heimdall/):
-
-```sh
-git clone https://github.com/maticnetwork/heimdall
-```
-
-Navigate to the correct [release version](https://github.com/maticnetwork/heimdall/releases):
-
-```sh
-git checkout RELEASE_TAG
-```
-
-where `RELEASE_TAG` is the tag of the release version that you install.
-
-For instance:
-
-```sh
-git checkout v0.3.0
-```
-
-Once you are on the correct release, install Heimdall:
-
-```sh
-make install
-```
-
-Create symlinks:
-
-```sh
-sudo ln -nfs $(which heimdalld) /usr/local/bin/heimdalld
-sudo ln -nfs $(which heimdallcli) /usr/local/bin/heimdallcli
-```
-
-#### Installing Bor
-
-[Bor](/pos/bor/overview.md) is the sidechain operator that acts as the block production layer,
-which syncs with Heimdall to select block producers and verifiers for each [span](/maintain/glossary.md#span)
-and [sprint]((/maintain/glossary.md#sprint)).
-
-Clone the [Bor repository](https://github.com/maticnetwork/bor):
-
-```sh
-git clone https://github.com/maticnetwork/bor
-```
-
-Navigate to the correct [release version](https://github.com/maticnetwork/bor/releases):
-
-```sh
-git checkout RELEASE_TAG
-```
-
-where `RELEASE_TAG` is the tag of the release version that you install.
-
-For instance:
-
-```sh
-git checkout v0.3.0
-```
-
-Install Bor:
-
-```sh
-make bor
-```
-
-Create symlinks:
-
-```sh
-sudo ln -nfs ~/bor/build/bin/bor /usr/local/bin/bor
-```
 
 ### Check installation
 
