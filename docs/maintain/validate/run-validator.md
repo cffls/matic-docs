@@ -4,7 +4,7 @@ title: Run a Validator Node
 description: Use the package to set up your validator node on the Polygon Network.
 keywords:
   - docs
-  - matic
+  - polygon wiki
   - polygon
   - binary
   - node
