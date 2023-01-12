@@ -96,7 +96,7 @@ There are three different ways to install heimdall and bor binaries: [installing
 * On the local machine, [Python 3.x](https://www.python.org/downloads/) installed.
 * On the remote machines, make sure Go is *not* installed.
 * On the remote machines, your local machine's SSH public key is on the remote machines to let Ansible connect to them.
-* We have Bloxroute available as a relay network. If you need a gateway to be added as your Trusted Peer please contact [Delroy on Discord](http://delroy/#0056).
+* We have **Bloxroute** available as a relay network. If you need a gateway to be added as your **Trusted Peer**, please contact [Delroy on Discord](http://delroy/#0056).
 
 #### Set up the node
 

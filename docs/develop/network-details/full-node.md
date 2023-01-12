@@ -191,7 +191,7 @@ ansible-playbook playbooks/clean.yml
 
 #### Prerequisites
 
-* Two machines — one [sentry](../glossary#sentry) and one [validator](../glossary#validator).
+* Two machines — one [sentry](/maintain/glossary.md#sentry) and one [validator](/maintain/glossary.md#validator).
 * `build-essential` installed on both the sentry and the validator machines.
 
   To install:
@@ -255,7 +255,7 @@ sudo ln -nfs $(which heimdallcli) /usr/local/bin/heimdallcli
 
 [Bor](/pos/bor/overview.md) is the sidechain operator that acts as the block production layer,
 which syncs with Heimdall to select block producers and verifiers for each [span](/maintain/glossary.md#span)
-and [sprint]((../glossary#sprint)).
+and [sprint]((/maintain/glossary.md#sprint)).
 
 Clone the [Bor repository](https://github.com/maticnetwork/bor):
 
