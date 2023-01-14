@@ -5,17 +5,21 @@ sidebar_label: Overview
 description: A two-way transaction channel between Polygon and Ethereum.
 keywords:
   - docs
-  - matic
+  - polygon
+  - polygon wiki
   - crosschain bridge
   - polygon
   - ethereum
-image: https://matic.network/banners/matic-network-16x9.png
+  - fx portal
+image: https://wiki.polygon.technology/img/polygon-wiki.png
 ---
 
-Polygon brings you a trustless two-way transaction channel between Polygon and Ethereum by introducing the cross-chain bridge with Plasma and PoS security. With this users can transfer tokens across Polygon without incurring third-party risks and market liquidity limitations. **_The Plasma and PoS Bridge is available on both Mumbai as well as Mainnet._**
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-**Polygon bridge provides a scaling solution which is near-instant, low-cost, and quite flexible**. Polygon uses a dual-consensus architecture(Plasma + Proof-of-Stake (PoS) platform)
-to optimise for speed and decentralisation. We consciously architected the system to support arbitrary state transitions on our sidechains, which are EVM-enabled.
+Polygon brings you a trustless two-way transaction channel between Polygon and Ethereum by introducing the cross-chain bridge with Plasma and PoS security. With this users can transfer tokens across Polygon without incurring third-party risks and market liquidity limitations. **The Plasma and PoS Bridge is available on both Mumbai Testnet as well as Polygon Mainnet**.
+
+**Polygon bridge provides a bridging mechanism that is near-instant, low-cost, and quite flexible**. Polygon uses a dual-consensus architecture(Plasma + Proof-of-Stake (PoS) platform)
+to optimise for speed and decentralization. We consciously architected the system to support arbitrary state transitions on our sidechains, which are EVM-enabled.
 
 **There is no change to the circulating supply of your token when it crosses the bridge**;
 
@@ -32,6 +36,12 @@ to optimise for speed and decentralisation. We consciously architected the syste
 | **Withdrawal\(Polygon → Ethereum\)** | 1 checkpoint = ~ 30 mins to 6 hours                                                      | Call to the process-exit procedure on Ethereum's contract                               |
 | **Security**                         | Proof\-of\-Stake system, secured by a robust set of external validators\.                | Polygon’s Plasma contracts piggybacks on Ethereum’s security.                             |
 | **Support Standards**                | ETH, ERC20, ERC721, ERC1155 and Others                                                   | Only ETH, ERC20, ERC721                                                                   |
+
+:::info
+
+The [**FxPortal**](/develop/l1-l2-communication/fx-portal.md) is another type of bridge that is very similar to the PoS Bridge. They share the same characteristics as mentioned for PoS in the table above. The only difference is that Tokens need not be mapped on the FxPortal Bridge prior to bridging. The mapping happens during the first deposit transaction which is initiated for a given token. Also, anyone can make use of the FxPortal to build their own custom tunnels/bridges on top of the Polygon bridge. It is highly recommended to use the FxPortal for any bridging use case. New token mappings on PoS and Plasma will be discouraged post-Jan 31st, 2023 so that the mapping process is fully decentralized and flexible. 
+
+:::
 
 ## Additional Resources
 
